@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>控制面板 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="选项显示" href="available_views.html" />
+    <link rel="prev" title="相机工作室指南" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start/index.html">快速入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">相机工作室指南</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">控制面板</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">连接和断开相机的连接</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">断开连接</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">采集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">单张采集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">自动采集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">实时采集</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">深度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">帧</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">添加帧</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">帧值参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">点云颜色</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">滤镜</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">灰度阈值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">离群阈值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">相位质量滤波器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">高斯滤波器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">中值滤波器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">法向量滤波器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">移除小型离散区域</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">平滑过滤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">填补空白</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">饱和滤镜</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">对比度失真滤镜</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">色彩均衡</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">绿色模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hdr">HDR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">直方图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">温度控制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id31">禁用温度控制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="available_views.html">选项显示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">工具栏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference_index.html">快速参考索引</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/connect-camera/index.html">连接相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/index.html">实例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/capturing-high-quality-point-clouds/index.html">捕捉高质量的点云</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/camera-settings/index.html">相机设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">相机工作室指南</a></li>
+      <li class="breadcrumb-item active">控制面板</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/getting-started/camera-studio-guide/control_panel.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>控制面板<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<section id="id2">
+<h2>连接和断开相机的连接<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p>使用DaoAI相机工作室的第一步是连接你的相机。</p>
+<section id="id3">
+<h3>连接<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
+<p>当启动相机工作室时，首先你会看到 <strong>管理相机</strong> 窗口。</p>
+<img alt="../../_images/manage_cameras.png" class="align-center" src="../../_images/manage_cameras.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>刷新按钮会更新所连接的相机列表。</p>
+<img alt="../../_images/manage_cameras_remote_refresh.png" class="align-center" src="../../_images/manage_cameras_remote_refresh.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>如果你使用的是远程控制的相机，你必须勾选*启用远程相机*复选框，并在点击刷新前指定相机的IP地址。
+相机的IP地址，然后再点击刷新。</p>
+<dl class="simple">
+<dt><strong>远程相机的默认IP</strong>。</dt><dd><ul class="simple">
+<li><p><strong>192.168.1.12</strong>: BP-L 相机, BP-M 相机, BP-S 相机, BP-AMR-GPU 相机, and IN 相机</p></li>
+<li><p><strong>192.168.1.2</strong>: BP-AMR 相机</p></li>
+</ul>
+</dd>
+</dl>
+<p>一旦检测到您要连接的相机，请单击 <strong>连接</strong> 按钮。
+如果有多台相机被连接，你可以从下拉列表中选择要连接的相机。</p>
+<img alt="../../_images/manage_cameras_connect.png" class="align-center" src="../../_images/manage_cameras_connect.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>连接后，你应该看到主窗口。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>通常情况下，如果物理连接了多台相机，它们都会出现在相机选择列表中。
+然而，DaoAI Camera Studio一次只支持与一台相机建立连接。
+要使用DaoAI Camera Studio拍摄多个相机，请启动另一个DaoAI Camera Studio实例并连接其他摄像机。</p>
+</div>
+</section>
+<section id="id4">
+<h3>断开连接<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
+<p>要断开相机的连接，首先点击主窗口右上方的相机ID。</p>
+<img alt="../../_images/main_window_camera_id.png" class="align-center" src="../../_images/main_window_camera_id.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>从那里，你应该看到 <strong>管理相机</strong> 窗口，在那里你可以点击断开连接。</p>
+<img alt="../../_images/manage_cameras_disconnect.png" class="align-center" src="../../_images/manage_cameras_disconnect.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>采集<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
+<p>执行采集是三位感知视觉软件的主要功能之一。三维感知视觉有3种拍摄模式可供选择。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>采集</p></li>
+<li><p>自动调整帧值参数并采集</p></li>
+<li><p>连续采集</p></li>
+</ul>
+</div></blockquote>
+<section id="id6">
+<h3>单张采集<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
+<p>当您点击顶部栏上的“Capture”时，相机将使用的所有帧及其相应的设置来采集图像。对于所有采集模式，您都可以查看深度图、颜色图和点云图之间切换。</p>
+<img alt="../../_images/single_capture.png" class="align-center" src="../../_images/single_capture.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id7">
+<h3>自动采集<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
+<p>当你点击“自动”时，将对图像环境进行分析，并自动生成帧，来最大化最终的动态范围图片。然后，将使用新的帧设置进行单次采集。在此模式下，您还可以指定最大采集时间。此设置将更改帧数的最大的曝光时间</p>
+<img alt="../../_images/auto_capture.png" class="align-center" src="../../_images/auto_capture.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id8">
+<h3>实时采集<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
+<p>点击 “实时”，三维感知视觉系统将连续进行单次拍摄。要停止执行采集，只需再次单击该按钮(当实时模式正在运行时)。</p>
+<img alt="../../_images/live_capture.png" class="align-center" src="../../_images/live_capture.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id9">
+<h2>深度<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h2>
+<div class="line-block">
+<div class="line">二维深度显示标签将每个有效像素的深度值编码为其颜色。</div>
+<div class="line">蓝色代表短距离，红色代表与摄像机的长距离，单位为毫米。</div>
+<div class="line">要分析具体数值，可以拨动 “深度 “按钮，深度图例就会弹出。</div>
+</div>
+<img alt="../../_images/cp_depth.png" src="../../_images/cp_depth.png" />
+</section>
+<section id="id10">
+<h2>帧<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
+<p>帧是用来调整拍摄时应用的曝光停止、亮度和增益水平的。照相机工作室允许你添加多个具有不同设置的帧
+来捕捉多个图像组，并对生成的图像的质量进行微调。</p>
+<section id="id11">
+<h3>添加帧<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
+<p>当一个图像不符合预期要求时，你可以通过添加更多的帧和不同的曝光文件设置来实现更精确的曝光水平。
+例如，使用设置为2个不同曝光值的2个帧，即-1和0，以弥补单帧-1太暗或单帧0太亮的情况。</p>
+<p>点击右边帧设置菜单上的 “+”按钮，以便添加更多的帧。同样，你可以点击垃圾桶图标来删除相应的帧。
+帧的最小数量是1。</p>
+<figure class="align-center" id="id32">
+<img alt="../../_images/frames_add_remove.png" src="../../_images/frames_add_remove.png" />
+<figcaption>
+<p><span class="caption-text">添加和删除按钮</span><a class="headerlink" href="#id32" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id33">
+<img alt="../../_images/frames_dropdown.png" src="../../_images/frames_dropdown.png" />
+<figcaption>
+<p><span class="caption-text">下拉菜单显示的参数</span><a class="headerlink" href="#id33" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id12">
+<h3>帧值参数<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
+<p>这三个参数都是为了调整最终的图像亮度，在任何领域每增加一个参数都会使最终的图像亮度增加一倍。</p>
+<p>当试图增加图像亮度时，你应该优先考虑 “亮度”，然后是 “曝光停止”，最后增加 “增益”。</p>
+<figure class="align-center">
+<img alt="../../_images/frames_settings.png" src="../../_images/frames_settings.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>曝光时间</strong></p>
+<p>负责调整曝光时间。曝光档的级别为-1、0、1、2、3、4。由于增加 “曝光档 “会增加拍摄时间，所以只有在 “亮度 “达到最大值时才可以增加这个字段。最常用的曝光等级是-1、0和1。</p>
+<p><strong>亮度</strong></p>
+<p>负责调整投影仪的亮度。可能的值是1、2、3。改变这个字段不会增加捕捉时间，在调整图像亮度时应优先考虑这个字段。</p>
+<p><strong>增益</strong></p>
+<p>负责增加相机的ISO值或灵敏度。范围从0，1，2，3，4，其中0是基点0dB，4对应最高值
+24dB（每一个滑块的增量导致6dB的变化）。当增益增加或减少6dB时，增益效果是之前的两倍。转换公式为
+换算公式为。20×对数（增益倍数）=+/-增益dB值。增加 “增益 “会降低信噪比，因此我们应该最后增加这个字段。</p>
+</section>
+<section id="id13">
+<h3>点云颜色<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
+<p>独立地采集点云的颜色。</p>
+<figure class="align-center">
+<img alt="../../_images/point_cloud_color.png" src="../../_images/point_cloud_color.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>启用后，设置部分将像上面的图片一样展开，当捕获时，将使用点云的颜色设置来收集一个额外的图像。
+额外的图像将通过投射一个白屏来采集。</p>
+<p>设置与 “帧参数 “类似，除了 “曝光时间”，它的单位是毫秒，允许更精确的控制。</p>
+</section>
+</section>
+<section id="id14">
+<span id="id15"></span><h2>滤镜<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h2>
+<p>本节介绍用于预处理和后处理图像的过滤功能，以提高点云质量。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="id16">
+<h3>灰度阈值<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/intensity_threshold.png" src="../../_images/intensity_threshold.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>设置灰度阈值, 灰度阈值对应着我们要过滤的平均RGB值。我们的灰度阈值是基于从捕获的四个边缘投影的平均像素强度值。小于灰度阈值的像素点会被去掉, 因为比较暗的地方信噪比低。</p>
+<p>例如. 当灰度阈值为 20 时，最终图像中所有值 &lt;= 20 的像素都将被过滤掉。</p>
+<figure class="align-center">
+<img alt="../../_images/intensity_before_and_after.png" src="../../_images/intensity_before_and_after.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id17">
+<h3>离群阈值<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/outlier_threshold.png" src="../../_images/outlier_threshold.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>过滤掉与最近的邻接点超过一定距离的点。由于物体的表面都是连贯的, 如果有单独于其它点云的点, 那么就很可能是噪点。
+例如, 如果设置为3mm, 则判断相邻两点的直线距离是否大于3mm。 如果大于 3mm, 则该点被过滤掉。但是, 如果有多个离群值彼此靠近, 则此过滤器将无法过滤掉这些点。</p>
+<figure class="align-center" id="id34">
+<img alt="../../_images/outlier_before.png" src="../../_images/outlier_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置离群阈值的点云</span><a class="headerlink" href="#id34" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id35">
+<img alt="../../_images/outlier_after.png" src="../../_images/outlier_after.png" />
+<figcaption>
+<p><span class="caption-text">离群阈值设置为 3 毫米的点云</span><a class="headerlink" href="#id35" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id18">
+<h3>相位质量滤波器<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/phase_quality_filter.png" src="../../_images/phase_quality_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>用于过滤掉低对比度质量的区域。可设置过滤强度, 强度越高, 去除的点云越多。
+如下图, 使用强度为0.3的相位质量滤波器后, 地板处低信噪比的区域就被过滤掉了。</p>
+<figure class="align-center" id="id36">
+<img alt="../../_images/phase_quality_before.png" src="../../_images/phase_quality_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置相位质量滤波的点云</span><a class="headerlink" href="#id36" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id37">
+<img alt="../../_images/phase_quality_after.png" src="../../_images/phase_quality_after.png" />
+<figcaption>
+<p><span class="caption-text">使用强度为0.3的相位质量滤波后的点云</span><a class="headerlink" href="#id37" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id19">
+<h3>高斯滤波器<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/gaussian_filter.png" src="../../_images/gaussian_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>此过滤器将移动平均窗口应用于捕获图像的每个像素。 高斯核大小可以设置为 3x3、5x5、7x7、9x9、11x11 和 13x13。 这对点云应用了平滑效果，还有助于去除异常点。</p>
+<figure class="align-center" id="id38">
+<img alt="../../_images/gaussian_before.png" src="../../_images/gaussian_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置高斯滤波的点云</span><a class="headerlink" href="#id38" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id39">
+<img alt="../../_images/gaussian_5x5.png" src="../../_images/gaussian_5x5.png" />
+<figcaption>
+<p><span class="caption-text">使用卷积核大小为5x5的高斯滤波后的点云</span><a class="headerlink" href="#id39" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id40">
+<img alt="../../_images/gaussian_9x9.png" src="../../_images/gaussian_9x9.png" />
+<figcaption>
+<p><span class="caption-text">使用卷积核大小为9x9的高斯滤波后的点云</span><a class="headerlink" href="#id40" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id20">
+<h3>中值滤波器<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/median_filter.png" src="../../_images/median_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>这个过滤器找到一个滑动窗口的中值来更新当前像素。 内核大小可以是 3x3 或 5x5。 这会在点上应用平滑效果并帮助去除异常点。</p>
+<figure class="align-center" id="id41">
+<img alt="../../_images/median_before.png" src="../../_images/median_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置中值滤波的点云</span><a class="headerlink" href="#id41" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id42">
+<img alt="../../_images/median_after.png" src="../../_images/median_after.png" />
+<figcaption>
+<p><span class="caption-text">使用卷积核大小为5x5的中值滤波后的点云</span><a class="headerlink" href="#id42" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id21">
+<h3>法向量滤波器<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/face_normal_filter.png" src="../../_images/face_normal_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>此过滤器分析点云多边形网格以找到任何多边形的表面法向量。 如果表面法向量相对于视线的角度大于面法向量，则过滤掉这些点。 在具有尖角和表面法向量垂直于视线的大面积物体上，会出现许多异常值。 一个例子是一个盒子：由于噪声、低对比度或过度饱和的图像，墙壁有时会在点云中创建异常点。</p>
+<p>如果没有这个过滤器，错误的点会出现在孔的边缘、锐化下降、垂直面等。</p>
+<figure class="align-center" id="id43">
+<img alt="../../_images/face_normal_before.png" src="../../_images/face_normal_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置法向量过滤的点云</span><a class="headerlink" href="#id43" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id44">
+<img alt="../../_images/face_normal_after.png" src="../../_images/face_normal_after.png" />
+<figcaption>
+<p><span class="caption-text">使用法向量过滤后的点云</span><a class="headerlink" href="#id44" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id22">
+<h3>移除小型离散区域<a class="headerlink" href="#id22" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/remove_small_area.png" src="../../_images/remove_small_area.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>此过滤器用于过滤掉小块的点云。点云中的噪点多是以小区域的形式呈现, 就可以通过小区域滤波器去除掉。</p>
+<figure class="align-center" id="id45">
+<img alt="../../_images/remove_small_area_before.png" src="../../_images/remove_small_area_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置小区域滤波器的点云</span><a class="headerlink" href="#id45" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id46">
+<img alt="../../_images/remove_small_area_after.png" src="../../_images/remove_small_area_after.png" />
+<figcaption>
+<p><span class="caption-text">使用小区域滤波器后的点云</span><a class="headerlink" href="#id46" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id23">
+<h3>平滑过滤<a class="headerlink" href="#id23" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/smooth_filter.png" src="../../_images/smooth_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>此过滤器是一种后处理过滤器，可将有组织的点云的深度值四舍五入到最接近的 mm。 例如，如果平滑值为 0.5，则每个深度值将四舍五入到最接近的 0.5 毫米。 此过滤器在具有噪声错误的图像导致点云上的小振荡的情况下很有用。 如果您知道模型是扁平的，并且在点云中看到了小的振荡，则可以使用此过滤器对数据进行四舍五入以创建扁平模型。</p>
+<figure class="align-center" id="id47">
+<img alt="../../_images/smooth_before.png" src="../../_images/smooth_before.png" />
+<figcaption>
+<p><span class="caption-text">未设置平滑过滤的点云</span><a class="headerlink" href="#id47" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id48">
+<img alt="../../_images/smooth_after.png" src="../../_images/smooth_after.png" />
+<figcaption>
+<p><span class="caption-text">使用平滑过滤后的点云</span><a class="headerlink" href="#id48" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id24">
+<h3>填补空白<a class="headerlink" href="#id24" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/fill_gaps.png" src="../../_images/fill_gaps.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>填补满足条件的点云之间的空洞。</p>
+<p>width指填补空洞的宽度, 当两点之间的宽度小于设定值时, 会填补两点之间的空缺。</p>
+<p>slope指空洞两侧边缘的斜率, 当两点之间的斜率小于设定值时, 会填补两点之间的空缺。</p>
+<p>depth指空洞两侧边缘的高度差, 当两点之间的高度小于设定值时, 会填补两点之间的空缺。</p>
+<dl class="simple">
+<dt>fill order指填补的方向:</dt><dd><ul class="simple">
+<li><p>X only: 仅横向填补</p></li>
+<li><p>Y only: 仅竖向填补</p></li>
+<li><p>X then Y: 先横向填补, 再竖向填补。</p></li>
+<li><p>Y then X: 先竖向填补, 再横向填补。</p></li>
+</ul>
+</dd>
+</dl>
+<figure class="align-center" id="id49">
+<img alt="../../_images/fill_before.png" src="../../_images/fill_before.png" />
+<figcaption>
+<p><span class="caption-text">原始点云</span><a class="headerlink" href="#id49" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id50">
+<img alt="../../_images/fill_after.png" src="../../_images/fill_after.png" />
+<figcaption>
+<p><span class="caption-text">空洞填补后的点云。</span><a class="headerlink" href="#id50" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id25">
+<h3>饱和滤镜<a class="headerlink" href="#id25" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/saturation_filter.png" src="../../_images/saturation_filter.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>此滤镜可去除曝光过度的区域。当三个 RGB 通道之一超过 255 时, 它会删除该像素。
+通常, G(绿色)是第一个曝光过度的通道。使用滤镜时, 会自动选择 HDR 模式, 如果不需要, 可以手动取消。</p>
+<figure class="align-center" id="id51">
+<img alt="../../_images/saturation_before.png" src="../../_images/saturation_before.png" />
+<figcaption>
+<p><span class="caption-text">红色区域为过曝区域</span><a class="headerlink" href="#id51" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id52">
+<img alt="../../_images/saturation_after.png" src="../../_images/saturation_after.png" />
+<figcaption>
+<p><span class="caption-text">带饱和过滤器的点云</span><a class="headerlink" href="#id52" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id26">
+<h3>对比度失真滤镜<a class="headerlink" href="#id26" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/contrast_distortion.png" src="../../_images/contrast_distortion.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>对比度失真的发生是由于镜头中的缺陷以及衍射和色差等光学现象。 当从高吸收性表面到反射性表面（例如棋盘上的黑色到白色过渡）发生突然的对比度变化时，就会出现这种情况，这会导致 3D 点云中的测量误差。</p>
+<ul class="simple">
+<li><p>如果选择“移除”，高对比度失真区域将从 3D 点云中移除。</p></li>
+<li><p>如果选择“Correct”, 则由对比度失真引起的测量误差将根据用户在 GUI 上设置的“Strength”值进行补偿。 用户使用的“强度”值越高，补偿的测量误差就越多。 请注意，可能会过度补偿看起来像“相反”对比度失真的测量误差。</p></li>
+</ul>
+<figure class="align-center" id="id53">
+<a class="reference internal image-reference" href="../../_images/cd_before.png"><img alt="../../_images/cd_before.png" src="../../_images/cd_before.png" style="width: 477.59999999999997px; height: 275.4px;" /></a>
+<figcaption>
+<p><span class="caption-text">点云彩色图像（对比度失真可见）</span><a class="headerlink" href="#id53" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id54">
+<a class="reference internal image-reference" href="../../_images/cd_before_green.png"><img alt="../../_images/cd_before_green.png" src="../../_images/cd_before_green.png" style="width: 478.79999999999995px; height: 277.8px;" /></a>
+<figcaption>
+<p><span class="caption-text">点云绿色图像（对比度失真可见）</span><a class="headerlink" href="#id54" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id55">
+<a class="reference internal image-reference" href="../../_images/cd_removed_green.png"><img alt="../../_images/cd_removed_green.png" src="../../_images/cd_removed_green.png" style="width: 476.4px; height: 277.8px;" /></a>
+<figcaption>
+<p><span class="caption-text">对比度失真使用“移除”</span><a class="headerlink" href="#id55" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id56">
+<a class="reference internal image-reference" href="../../_images/cd_correct.png"><img alt="../../_images/cd_correct.png" src="../../_images/cd_correct.png" style="width: 477.59999999999997px; height: 279.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">使用“补偿”来进行对比度失真修复</span><a class="headerlink" href="#id56" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id27">
+<h3>色彩均衡<a class="headerlink" href="#id27" title="此标题的永久链接"></a></h3>
+<figure class="align-center">
+<img alt="../../_images/color_balance.png" src="../../_images/color_balance.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>通过增加R/G/B的对应值, 可以使图像更接近那个颜色。默认值为 1, 最小值为 0.5, 最大值为 2。</p>
+<p>当背景环境的颜色略微倾向于某种色调时使用。调整其他颜色的平衡。通常, 它不需要设置。</p>
+<p>预览选项不可用, 需要单次捕获才能看到图像效果。</p>
+<figure class="align-center" id="id57">
+<img alt="../../_images/color_balance_r.png" src="../../_images/color_balance_r.png" />
+<figcaption>
+<p><span class="caption-text">R 偏色平衡</span><a class="headerlink" href="#id57" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id58">
+<img alt="../../_images/color_balance_g.png" src="../../_images/color_balance_g.png" />
+<figcaption>
+<p><span class="caption-text">G 偏色平衡</span><a class="headerlink" href="#id58" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id59">
+<img alt="../../_images/color_balance_b.png" src="../../_images/color_balance_b.png" />
+<figcaption>
+<p><span class="caption-text">B 偏色平衡</span><a class="headerlink" href="#id59" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center">
+<img alt="../../_images/color_balance_awb.png" src="../../_images/color_balance_awb.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>可以点击上图中的AWB(Auto White Balance)使用自动白平衡功能。点击后,
+在图片中框选出中性颜色(白色、灰色)的区域， 然后点击确认。
+色彩平衡会自动计算RGB值, 使框选出的颜色能够修正到白色。</p>
+<figure class="align-center" id="id60">
+<img alt="../../_images/color_balance_step.png" src="../../_images/color_balance_step.png" />
+<figcaption>
+<p><span class="caption-text">在图中框选区域</span><a class="headerlink" href="#id60" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center" id="id61">
+<img alt="../../_images/color_balance_after.png" src="../../_images/color_balance_after.png" />
+<figcaption>
+<p><span class="caption-text">自动白平衡后的图片</span><a class="headerlink" href="#id61" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id28">
+<h2>绿色模式<a class="headerlink" href="#id28" title="此标题的永久链接"></a></h2>
+<p>绿色模式在RGB点云和绿色点云显示之间切换。</p>
+<figure class="align-center" id="id62">
+<img alt="../../_images/cp_gm_rgb.png" src="../../_images/cp_gm_rgb.png" />
+<figcaption>
+<p><span class="caption-text">RGB点云</span><a class="headerlink" href="#id62" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id63">
+<img alt="../../_images/cp_gm_g.png" src="../../_images/cp_gm_g.png" />
+<figcaption>
+<p><span class="caption-text">绿色模式点云</span><a class="headerlink" href="#id63" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hdr">
+<h2>HDR<a class="headerlink" href="#hdr" title="此标题的永久链接"></a></h2>
+<div class="line-block">
+<div class="line">HDR（高动态范围）模式通过增加图像中最暗和最亮部分之间的差异来再现图像。</div>
+<div class="line">当HDR模式开启时，曝光的动态范围会增加到大于普通数字图像技术的范围，这样就可以突出前面黑暗部分的细节。</div>
+<div class="line">另一方面，如果原始图像曝光过度，HDR模式将利用较低曝光的图像来重新创建最终的图像。</div>
+</div>
+<p>下面是同样的彩色图像，分别是关闭HDR和打开HDR:</p>
+<figure class="align-center" id="id64">
+<img alt="../../_images/cp_hdr_off.png" src="../../_images/cp_hdr_off.png" />
+<figcaption>
+<p><span class="caption-text">关闭HDR时的颜色图</span><a class="headerlink" href="#id64" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id65">
+<img alt="../../_images/cp_hdr_on.png" src="../../_images/cp_hdr_on.png" />
+<figcaption>
+<p><span class="caption-text">开启HDR后的颜色图</span><a class="headerlink" href="#id65" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id29">
+<h2>直方图<a class="headerlink" href="#id29" title="此标题的永久链接"></a></h2>
+<p>直方图窗口提供图像中所有可视化像素的 RGB 值统计 (0-255)。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>目的:</strong> 将对数直方图中的最高列设置为 128 左右，以避免 255 次过度曝光。 这可以通过添加帧和调整曝光级别来实现。</p>
+<p>单击左上角的“直方图”以切换直方图窗口。 直方图将自动在屏幕上弹出。 在此窗口内，有两个不同的选项卡用于在线性分布图和对数分布图之间切换。 曝光过度的像素被标记为红色，因此您可以轻松看到它们。 如果 255 范围内有大量像素，则图像曝光过度。 应选择较短的曝光时间或较低的亮度来限制过度曝光。</p>
+<figure class="align-center" id="id66">
+<img alt="../../_images/histogram_linear.png" src="../../_images/histogram_linear.png" />
+<figcaption>
+<p><span class="caption-text">线性分布</span><a class="headerlink" href="#id66" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id67">
+<img alt="../../_images/histogram_logarithmic.png" src="../../_images/histogram_logarithmic.png" />
+<figcaption>
+<p><span class="caption-text">对数分布</span><a class="headerlink" href="#id67" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p><strong>对数分布可以辅助我们调整亮度到预期的范围。</strong></p>
+<p><strong>例</strong>: 如下图, 我们想要将峰值亮度从”16-32”的区间调整到”128-256”的区间。</p>
+<figure class="align-center">
+<img alt="../../_images/histogram_logarithmic_example.png" src="../../_images/histogram_logarithmic_example.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>由于亮度参数每加1, 亮度会乘以2。 且直方图中的一个区间到下一个区间的乘数为2。</p>
+<figure class="align-center">
+<img alt="../../_images/histogram_logarithmic_example_2.png" src="../../_images/histogram_logarithmic_example_2.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>那么根据这个特性, 我们只需观察”16-32”到”128-256”增加了3个区间。那么帧值参数增加3便可以将峰值亮度移到想要的区间。</p>
+<figure class="align-center">
+<img alt="../../_images/histogram_logarithmic_example_3.png" src="../../_images/histogram_logarithmic_example_3.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id30">
+<h2>温度控制<a class="headerlink" href="#id30" title="此标题的永久链接"></a></h2>
+<p>如果您的 3D 系统中有温度传感器，系统将在主菜单的右上角显示相应的温度。 默认情况下，如果温度传感器可用，则会启用温度控制系统。</p>
+<p><strong>模式</strong></p>
+<p>温度控制有两种模式：正常和调节</p>
+<p><strong>一般</strong>: 这是常规模式，所有软件功能都启用，包括捕捉、2D 预览等。当温度控制状态正常时，主窗口中的温度图标将显示为绿色。</p>
+<figure class="align-center" id="id68">
+<img alt="../../_images/temperature_normal.png" src="../../_images/temperature_normal.png" />
+<figcaption>
+<p><span class="caption-text">温度图标为绿色</span><a class="headerlink" href="#id68" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p><strong>待调节</strong>: 默认情况下，如果系统温度超过70摄氏度，温度调节将被触发。温度高于70摄氏度时，将触发温度调节。在此模式下，系统温度异常，主要捕获功能（自动、实时、捕获、预览）被禁用，以便系统调节温度。 在此模式下，将运行温度控制算法以再次使系统正常化。 在调节温度控制状态时，主窗口中的温度图标将显示为红色。</p>
+<figure class="align-center" id="id69">
+<img alt="../../_images/temperature_notification.png" src="../../_images/temperature_notification.png" />
+<figcaption>
+<p><span class="caption-text">通知：温度调节开始通知</span><a class="headerlink" href="#id69" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center" id="id70">
+<img alt="../../_images/temperature_regulating.png" src="../../_images/temperature_regulating.png" />
+<figcaption>
+<p><span class="caption-text">温度图标为红色</span><a class="headerlink" href="#id70" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p>在 Camera Studio 软件调节温度时，会禁用某些功能以使温度调节功能有效工作。 您必须等待温度调节到合适的水平，或禁用温度调节功能，然后才能重新启用这些功能。</p>
+</div></blockquote>
+<section id="id31">
+<h3>禁用温度控制<a class="headerlink" href="#id31" title="此标题的永久链接"></a></h3>
+<p>当温度传感器故障时, 您也可以禁用温度控制功能来继续使用软件。</p>
+<p>您可以在弹出温度警告时, 点击”Disable Temerature Regulation”来禁用温度控制。</p>
+<figure class="align-center">
+<img alt="../../_images/temperature_notification.png" src="../../_images/temperature_notification.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>您也可以在上方菜单的 文件 -&gt; temperature control 取消勾选以禁用温度控制功能。</p>
+<figure class="align-center">
+<img alt="../../_images/temperature_disable.png" src="../../_images/temperature_disable.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="相机工作室指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="available_views.html" class="btn btn-neutral float-right" title="选项显示" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

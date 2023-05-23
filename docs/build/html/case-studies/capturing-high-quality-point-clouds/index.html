@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>捕捉高质量的点云 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="工作距离和摄像机的定位" href="working-distance-and-camera-positioning/index.html" />
+    <link rel="prev" title="实例" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/index.html">快速入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/camera-studio-guide/index.html">相机工作室指南</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/connect-camera/index.html">连接相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">实例</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">捕捉高质量的点云</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">三维成像技术</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="working-distance-and-camera-positioning/index.html">工作距离和摄像机的定位</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dealing-with-highlights-and-shiny-objects/index.html">如何处理高光和闪亮物体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/camera-settings/index.html">相机设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">捕捉高质量的点云</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/case-studies/capturing-high-quality-point-clouds/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>捕捉高质量的点云<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>DaoAI相机工作室有三种方式来改变曝光。</p>
+<ul class="simple">
+<li><p>投影仪亮度</p></li>
+<li><p>曝光时间</p></li>
+<li><p>增益</p></li>
+</ul>
+<p>在本教程中，我们将首先探讨什么是不同的曝光变量，它们是如何工作的，以及在使用它们时应该注意哪些问题。
+然后，我们将应用这些原理建立一个简单的三维成像技术，旨在获取高质量的点云。</p>
+<p><strong>投影仪的亮度</strong></p>
+<p>投影机亮度控制输出功率，从而控制投影机发出的光量。使用投影仪亮度是最大化信噪比（SNR）的最有效方法。最大化投影仪的亮度将最大限度地提高摄像机接收到的信号的振幅。只要来自投影仪的反射光不会使像素过度饱和，这就能最大限度地减少噪音的影响。在提高信号峰值振幅的同时，增加亮度也会影响图像的平均强度。这也意味着，投影机的亮度可以用来控制曝光，以档为单位。</p>
+<p><strong>曝光时间</strong></p>
+<p>曝光时间也被称为快门速度，是指单个相机图像暴露在光线下的时间。换句话说，快门保持打开的时间。</p>
+<p><strong>增益</strong></p>
+<p>增益是一个参数，让用户配置成像传感器像素中读出电路的预放大。在摄影中，它通常被称为ISO。增加增益可以增加传感器的预放大，这将增加其对光线的敏感性，从而使图像更加明亮。</p>
+<section id="id2">
+<h2>三维成像技术<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p>在本教程的这一部分，我们将介绍一种三维成像技术。
+这种技术利用直方图，以可预测的方式逐步评估我们的点云，以获得良好的三维点云。
+该程序可分为三个步骤。</p>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="working-distance-and-camera-positioning/index.html#id1"><span class="std std-ref">工作距离和摄像机的定位</span></a></p></li>
+<li><p><a class="reference internal" href="dealing-with-highlights-and-shiny-objects/index.html#id1"><span class="std std-ref">如何处理高光和闪亮物体</span></a></p></li>
+<li><p><a class="reference internal" href="../../getting-started/camera-studio-guide/control_panel.html#id14"><span class="std std-ref">滤镜</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../index.html" class="btn btn-neutral float-left" title="实例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="working-distance-and-camera-positioning/index.html" class="btn btn-neutral float-right" title="工作距离和摄像机的定位" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

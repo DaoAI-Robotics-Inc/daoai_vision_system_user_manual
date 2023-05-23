@@ -1,0 +1,54 @@
+
+<script src="./cameraSelect.js"></script>
+<link rel="stylesheet" href="cameraSelected.css">
+
+<header><h1>相机选择工具</h1></header>
+
+<body>
+    <h2>适用方法</h2>
+    <p>选择应用场景，安装方式，然后输入垛型尺寸。适用的相机型号会变成绿色</p>
+    <div>
+        <h2>应用场景</h2>
+        <div class = "applicationContainer">
+            <a>纸箱拆码<input type="checkbox"  id="model_0" name="application" onclick="return onCheckboxClick(0, 'application');"></a>
+            <a>麻袋拆垛<input type="checkbox" id="model_1" name="application" onclick="return onCheckboxClick(1, 'application');"></a>
+            <a>快递供包<input type="checkbox" id="model_2" name="application" onclick="return onCheckboxClick(2, 'application');"></a>
+            <a>货品拣选<input type="checkbox" id="model_3" name="application" onclick="return onCheckboxClick(3, 'application');"></a>
+            <a>周转箱拆码<input type="checkbox" id="model_4" name="application" onclick="return onCheckboxClick(4, 'application');"></a>
+            <a>圆盘工件<input type="checkbox" id="model_5" name="application" onclick="return onCheckboxClick(5, 'application');"></a>
+            <a>圆棒工件<input type="checkbox" id="model_6" name="application" onclick="return onCheckboxClick(6, 'application');"></a>
+            <a>壳体工件<input type="checkbox" id="model_7" name="application" onclick="return onCheckboxClick(7, 'application');"></a>
+            <a>异性工件<input type="checkbox" id="model_8" name="application" onclick="return onCheckboxClick(8, 'application');"></a>
+            <a>块状工件<input type="checkbox" id="model_9" name="application" onclick="return onCheckboxClick(9, 'application');"></a>
+            <a>薄片工件<input type="checkbox" id="model_10" name="application" onclick="return onCheckboxClick(10, 'application');"></a>
+        </div>
+    </div>
+
+    </div>
+        <h2>安装方式</h2>
+        <div class = "installationContainer">
+            <a>Eye In Hand<input type="checkbox"  id="installation_0" name="installation" onclick="return onCheckboxClick(0, 'installation');"></a>
+            <a>Eye To Hand<input type="checkbox"  id="installation_1" name="installation" onclick="return onCheckboxClick(1, 'installation');"></a>
+        </div>
+    <div>
+
+    </div>
+        <h2>垛型尺寸</h2>
+        <div class = "dimensionContainer">
+            <a>长(mm)<input type="number"  id="dimension_0" name="dimension" onchange = "return checkForSuitableCamera()"></a>
+            <a>宽(mm)<input type="number"  id="dimension_1" name="dimension" onchange = "return checkForSuitableCamera()"></a>
+            <a>高(mm)<input type="number"  id="dimension_2" name="dimension" onchange = "return checkForSuitableCamera()"></a>
+        </div>
+    </div>
+
+    <div>
+        <h2>适用相机</h2>
+        <div class = "modelContainer">
+            <label id="model_0" name="model" >BP AMR</label>
+            <label id="model_1" name="model" >BP AMR-GPU</label>
+            <label id="model_2" name="model" > BP-S</label>
+            <label id="model_3" name="model" >BP-M</label>
+            <label id="model_4" name="model" >BP-L</label>
+        </div>
+    </div>
+</body>

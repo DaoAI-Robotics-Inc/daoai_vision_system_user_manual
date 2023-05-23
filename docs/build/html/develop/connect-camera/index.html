@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>连接相机 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="SDK 示例" href="../sdk-sample/index.html" />
+    <link rel="prev" title="开发 - 创建一个新项目" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/index.html">快速入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/camera-studio-guide/index.html">相机工作室指南</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">连接相机</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">前提条件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">初始准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">连接到一个相机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">采集</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">保存</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">加载</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/index.html">实例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/capturing-high-quality-point-clouds/index.html">捕捉高质量的点云</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/camera-settings/index.html">相机设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">连接相机</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/develop/connect-camera/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>连接相机<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<nav class="contents local" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id10">简介</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id11">前提条件</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id5" id="id12">初始准备</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id13">连接到一个相机</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id14">采集</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id15">保存</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id16">加载</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="id3">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">简介</a><a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>本教程介绍了如何使用DaoAI SDK来采集点云和二维图像。</p>
+<section id="id4">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">前提条件</a><a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>安装DaoAI相机工作室</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">初始准备</a><a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
+<p>调用DaoAI相机SDK中的任何API都需要初始化DaoAI应用程序。</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">C++</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">C#</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Setup ==========================================================================================================</span>
+<span class="c1">// Declare an error return object to check for errors throughout the application.</span>
+<span class="n">SlcSdkError</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+
+<span class="c1">// Create a new DaoAI application instance.</span>
+<span class="n">DaoAI</span><span class="o">::</span><span class="n">Application</span><span class="o">*</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="o">::</span><span class="n">Application</span><span class="p">();</span>
+
+<span class="c1">// Specify directory for logging. Logs contain detailed error and process information.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">logging_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;../Logs/&quot;</span><span class="p">;</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">startLogging</span><span class="p">(</span><span class="n">logging_directory</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// If using remote cameras, specify remote IP address</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">remote_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;192.168.1.2&quot;</span><span class="p">;</span>
+
+<span class="c1">// Declare camera map that will be used to fetch all connected DaoAI Cameras.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">DaoAI</span><span class="o">::</span><span class="n">Camera</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">cameras</span><span class="p">;</span>
+
+<span class="c1">// Get cameras from application. This step must be completed before attempting to connect to any camera.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">getCameras</span><span class="p">(</span><span class="n">cameras</span><span class="p">,</span><span class="w"> </span><span class="n">remote_ip</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cameras</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Must detect at least one camera.</span>
+<span class="p">}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">cameras</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; cameras detected.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">DaoAI</span><span class="o">::</span><span class="n">Camera</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cameras</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;      &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Print serial numbers of detected cameras.</span>
+<span class="p">}</span>
+
+<span class="c1">// Declare pointer to DaoAI Camera object.</span>
+<span class="n">DaoAI</span><span class="o">::</span><span class="n">Camera</span><span class="o">*</span><span class="w"> </span><span class="n">cam</span><span class="p">;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">DaoAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Application</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">连接到一个相机</a><a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">C++</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">C#</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Connecting to a camera =========================================================================================</span>
+<span class="c1">// A DaoAI Camera must be connected before it can be used for captures.</span>
+<span class="c1">// OPTION 1: Connecting to the first detected DaoAI Camera.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">connectCamera</span><span class="p">(</span><span class="n">cam</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">disConnect</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// OPTION 2: Connect to specific camera by serial number.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">serial_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cameras</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="c1">// Grab serial number from first camera in map.</span>
+<span class="c1">// Method A</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">connectCamera</span><span class="p">(</span><span class="n">serial_num</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">disconnectCamera</span><span class="p">(</span><span class="n">serial_num</span><span class="p">);</span><span class="w"> </span><span class="c1">// Can also disconnect cam by serial number.</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="c1">// Method B</span>
+<span class="n">cam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cameras</span><span class="p">[</span><span class="n">serial_num</span><span class="p">];</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">connect</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">app</span><span class="o">-&gt;</span><span class="n">disconnectCamera</span><span class="p">(</span><span class="n">serial_num</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// OPTION 3: Connecting any camera found in camera map.</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cameras</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">cam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cameras</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">connect</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">DaoAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Application</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">采集</a><a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
+<p>现在我们可以采集3D图像了。</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">C++</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">C#</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Camera Captures ================================================================================================</span>
+<span class="c1">// Declare a DaoAI Frame object to which capture data will be written</span>
+<span class="n">DaoAI</span><span class="o">::</span><span class="n">Frame</span><span class="w"> </span><span class="n">frm</span><span class="p">;</span>
+<span class="c1">// Capture with default settings (assuming no settings has been set to camera).</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">capture</span><span class="p">(</span><span class="n">frm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// Capture with custom settings</span>
+<span class="c1">// OPTION 1: Capture with settings. Settings saved by camera for future captures.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">capture</span><span class="p">(</span><span class="n">new_settings</span><span class="p">,</span><span class="w"> </span><span class="n">frm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// OPTION 2: Set settings object to camera to use in capture.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">setSettings</span><span class="p">(</span><span class="n">new_settings</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">capture</span><span class="p">(</span><span class="n">frm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+
+<span class="c1">// OPTION 3: Load settings from file to camera to use in capture.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">setSettings</span><span class="p">(</span><span class="s">&quot;../Examples/sample_settings.cfg&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cam</span><span class="o">-&gt;</span><span class="n">capture</span><span class="p">(</span><span class="n">frm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">DaoAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Application</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+<section id="id8">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">保存</a><a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">C++</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">C#</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Frames =========================================================================================================</span>
+<span class="n">DaoAI</span><span class="o">::</span><span class="n">Frame</span><span class="w"> </span><span class="n">new_frame</span><span class="p">;</span>
+<span class="c1">// Create new empty frame</span>
+<span class="n">new_frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DaoAI</span><span class="o">::</span><span class="n">Frame</span><span class="p">();</span>
+<span class="c1">// Copy constructor</span>
+<span class="n">new_frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DaoAI</span><span class="o">::</span><span class="n">Frame</span><span class="p">(</span><span class="n">frm</span><span class="p">);</span>
+
+<span class="c1">// Check if frame has data</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">new_frame</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Success: Frame contains data from 3D capture!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// Save a frame. File extension .dcf is the preferred DaoAI frame format, but saving also supports .pcd and .ply formats.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">save_frame_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;../Examples/example_frame_save.dcf&quot;</span><span class="p">;</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_frame</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_frame_path</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">DaoAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Application</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="id9">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">加载</a><a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
+<p>保存后，可以从.dcf文件中加载3D图像。</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">C++</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">C#</button><button aria-controls="panel-4-4-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-2" name="4-2" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Load a frame from file. Supports .dcf files.</span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_frame</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;../Examples/sample_frame.dcf&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasError</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Check for errors</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">DaoAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DaoAI</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Application</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-2" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-2" name="4-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../index.html" class="btn btn-neutral float-left" title="开发 - 创建一个新项目" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../sdk-sample/index.html" class="btn btn-neutral float-right" title="SDK 示例" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

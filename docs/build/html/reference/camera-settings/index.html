@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>相机设置 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="计算器" href="../calculators/index.html" />
+    <link rel="prev" title="使用多个 DaoAI 相机" href="../../case-studies/use-multiple-daoai-cameras/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/index.html">快速入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/camera-studio-guide/index.html">相机工作室指南</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/connect-camera/index.html">连接相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/index.html">实例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/capturing-high-quality-point-clouds/index.html">捕捉高质量的点云</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">相机设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">默认设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">相机设置</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/reference/camera-settings/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>相机设置<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>下表显示了不同型号DaoAI摄像机的默认设置。</p>
+<section id="id2">
+<h2>默认设置<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Models</p></th>
+<th class="head"><p>BP AMR</p></th>
+<th class="head"><p>BP AMR-GPU</p></th>
+<th class="head"><p>BP-S</p></th>
+<th class="head"><p>BP-M</p></th>
+<th class="head"><p>BP-L</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exposure Time (us)</p></td>
+<td><p>7500</p></td>
+<td><p>7500</p></td>
+<td><p>7500</p></td>
+<td><p>10000</p></td>
+<td><p>10000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gain</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Projector Brightness</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Intensity Filter</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Intensity Filter Threshold</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>Outlier Filter</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Outlier Threshold (mm)</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Phase Quality Filter</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Phase Quality Filter Threshold</p></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gaussian Filter</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Median Filter</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Median Filter Size</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Face Normal Filter</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Face Normal Filter Threshold</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p>Remove Small Area</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Remove Small Area Threshold</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Smooth Filter</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fill Gaps</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Saturation Filter</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Contrast Distortion Filter</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Red Balance</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green Balance</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Blue Balance</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>可以从SDK中读取各种设置信息。</p>
+<p>默认的相机设置。</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">C++</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-abc notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../../case-studies/use-multiple-daoai-cameras/index.html" class="btn btn-neutral float-left" title="使用多个 DaoAI 相机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../calculators/index.html" class="btn btn-neutral float-right" title="计算器" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

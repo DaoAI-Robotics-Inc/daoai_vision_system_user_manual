@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>添加帧数 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="图像捕获" href="Capturing.html" />
+    <link rel="prev" title="硬件设置" href="Hardware%20Setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">快速入门指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Connect%20Camera.html">连接相机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware%20Setup.html">硬件设置</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">添加帧数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Capturing.html">图像捕获</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving%20Point%20Cloud.html">保存点云</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../camera-studio-guide/index.html">相机工作室指南</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/connect-camera/index.html">连接相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../develop/api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/index.html">实例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/capturing-high-quality-point-clouds/index.html">捕捉高质量的点云</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case-studies/use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/camera-settings/index.html">相机设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">快速入门指南</a></li>
+      <li class="breadcrumb-item active">添加帧数</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/getting-started/quick-start/Add Frames.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>添加帧数<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>本页将提供有关如何添加帧数的说明。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>添加额外的帧数</strong></p>
+<p>帧用于控制捕捉设置，允许您更改曝光停止、亮度和增益等属性。通过添加其他帧，您可以捕获多个。
+每个捕获的图像集。</p>
+<p>在主窗口的右侧面板中，您应该看到现有的帧数。如果您没有进行任何更改，则应该只有一个帧。要添加另一个帧数，请单击加号按钮。
+。</p>
+<a class="reference internal image-reference" href="../../_images/main_window_add_frame.png"><img alt="../../_images/main_window_add_frame.png" class="align-center" src="../../_images/main_window_add_frame.png" style="width: 659.5px; height: 452.0px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>编辑帧数参数</strong></p>
+<p>您可以通过单击现有帧的下拉列表并调整滑块来编辑现有帧的设置</p>
+<a class="reference internal image-reference" href="../../_images/main_window_frames.png"><img alt="../../_images/main_window_frames.png" class="align-center" src="../../_images/main_window_frames.png" style="width: 659.5px; height: 452.0px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>在拥有了所需的所有帧之后，您可以开始使用这些不同的帧设置进行捕捉。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="Hardware%20Setup.html" class="btn btn-neutral float-left" title="硬件设置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="Capturing.html" class="btn btn-neutral float-right" title="图像捕获" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工作距离和摄像机的定位 &mdash; DaoAI Camera Studio User Manual 0.1 文档</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="如何处理高光和闪亮物体" href="../dealing-with-highlights-and-shiny-objects/index.html" />
+    <link rel="prev" title="捕捉高质量的点云" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DaoAI Camera Studio User Manual
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/user-guide/index.html">用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/quick-start/index.html">快速入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/camera-studio-guide/index.html">相机工作室指南</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">开发功能</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/index.html">开发 - 创建一个新项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/connect-camera/index.html">连接相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/sdk-sample/index.html">SDK 示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../develop/api/index.html">API 参考</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">案例分析</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">实例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">捕捉高质量的点云</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#id2">三维成像技术</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">工作距离和摄像机的定位</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">寻找正确的工作距离</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">摄像机的角度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">寻找所需的焦点深度</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dealing-with-highlights-and-shiny-objects/index.html">如何处理高光和闪亮物体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../evaluate-accuracy/index.html">评估精度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../infield-calibration/index.html">现场校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../use-multiple-daoai-cameras/index.html">使用多个 DaoAI 相机</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/camera-settings/index.html">相机设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/calculators/index.html">计算器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/hardware/index.html">硬件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">支持</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/FAQ/index.html">常见问题解答（FAQ）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/bug-report/index.html">错误报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/suggest-a-feature/index.html">建议一个功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DaoAI Camera Studio User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">捕捉高质量的点云</a></li>
+      <li class="breadcrumb-item active">工作距离和摄像机的定位</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/case-studies/capturing-high-quality-point-clouds/working-distance-and-camera-positioning/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>工作距离和摄像机的定位<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<nav class="contents local" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id8">简介</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id9">寻找正确的工作距离</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id10">摄像机的角度</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id11">在拣选应用中</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id12">寻找所需的焦点深度</a></p></li>
+</ul>
+</nav>
+<section id="id3">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">简介</a><a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>在本教程中，我们将学习如何为特定的应用正确定位摄像机。我们将涵盖不同的影响因素，如视场角（FOV）、工作距离和图像泛光。</p>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">寻找正确的工作距离</a><a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
+<p>在许多应用中，相机将被固定安装，以恒定的FOV来捕获点云。在其他应用中，相机可能会被安装在机器人手臂上。安装在机器人上的相机在如何定位以捕获良好的点云方面提供了更多的自由。在这两种选择中，摄像机仍然需要被定位，以便为给定场景进行光学优化。</p>
+<p>当找到正确的工作距离时，有几件事情需要考虑到。</p>
+<blockquote>
+<div><p>1.相机需要看到的区域或体积是什么？</p>
+<p>2.工作区域或体积内所需的空间分辨率和精度是多少？</p>
+<p>3.给定的视场是否在DaoAI相机的工作范围内？</p>
+</div></blockquote>
+<p>一旦我们知道了我们要成像的区域，我们就可以通过以下方式检查它是否满足相机的推荐工作距离和我们算法的要求。</p>
+<ul class="simple">
+<li><p>使用我们的 <a class="reference internal" href="../../../reference/calculators/index.html#id1"><span class="std std-ref">计算器</span></a>.</p></li>
+<li><p>检查页面 <span class="xref std std-ref">工作距离和视场</span>. 该页面将估计相机与场景的距离、FOV、空间分辨率和精度之间的关系。</p></li>
+<li><p>使用数据表。</p></li>
+<li><p>通过使用DaoAI Camera Studio等捕捉和检查点云进行手动验证。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在数据表和FOV页面，我们可以找到关于DaoAI相机点的精度和空间分辨率作为工作距离的函数的信息。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>请注意，噪音与工作距离成正比，空间分辨率与工作距离成反比。</p>
+</div>
+<p>如果工作距离、FOV、分辨率和精度的所有要求都能用一个摄像机的位置来满足，我们可以继续进行下一步。如果不能，我们就需要考虑使用机器人安装、多个摄像机等。在这种情况下，我们建议你联系support&#64;daoai.com，我们将帮助你找到一个解决方案。</p>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">摄像机的角度</a><a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
+<p>DaoAI相机内部的成像传感器在方位角方向（Y轴）上有一个轻微的平移角度。如果想让相机与场景垂直，就应该考虑到这一点。</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-QlAgU0FNTEw=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-QlAgU0FNTEw=" name="QlAgU0FNTEw=" role="tab" tabindex="0">BP SAMLL</button><button aria-controls="panel-0-QlAgTUVESVVN" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QlAgTUVESVVN" name="QlAgTUVESVVN" role="tab" tabindex="-1">BP MEDIUM</button><button aria-controls="panel-0-QlAgTEFSR0U=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QlAgTEFSR0U=" name="QlAgTEFSR0U=" role="tab" tabindex="-1">BP LARGE</button><button aria-controls="panel-0-QlAgQU1S" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QlAgQU1S" name="QlAgQU1S" role="tab" tabindex="-1">BP AMR</button><button aria-controls="panel-0-QlAgQU1SLUdQVQ==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QlAgQU1SLUdQVQ==" name="QlAgQU1SLUdQVQ==" role="tab" tabindex="-1">BP AMR-GPU</button></div><div aria-labelledby="tab-0-QlAgU0FNTEw=" class="sphinx-tabs-panel group-tab" id="panel-0-QlAgU0FNTEw=" name="QlAgU0FNTEw=" role="tabpanel" tabindex="0"><img alt="../../../_images/small.png" class="align-center" src="../../../_images/small.png" />
+</div><div aria-labelledby="tab-0-QlAgTUVESVVN" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QlAgTUVESVVN" name="QlAgTUVESVVN" role="tabpanel" tabindex="0"><img alt="../../../_images/medium.png" class="align-center" src="../../../_images/medium.png" />
+</div><div aria-labelledby="tab-0-QlAgTEFSR0U=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QlAgTEFSR0U=" name="QlAgTEFSR0U=" role="tabpanel" tabindex="0"><img alt="../../../_images/large.png" class="align-center" src="../../../_images/large.png" />
+</div><div aria-labelledby="tab-0-QlAgQU1S" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QlAgQU1S" name="QlAgQU1S" role="tabpanel" tabindex="0"><img alt="../../../_images/amr.png" class="align-center" src="../../../_images/amr.png" />
+</div><div aria-labelledby="tab-0-QlAgQU1SLUdQVQ==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QlAgQU1SLUdQVQ==" name="QlAgQU1SLUdQVQ==" role="tabpanel" tabindex="0"><img alt="../../../_images/amr.png" class="align-center" src="../../../_images/amr.png" />
+</div></div>
+<p>尽管将相机垂直于场景安装也许是最直观的，但这并不是最好的方法。如果可能的话，以轻微的倾斜角度安装相机，以避免来自背景的反射，比如泛光。这也释放了场景上方的空间，使工具和机器人更容易进入。查看可用的DaoAI <span class="xref std std-ref">安装</span>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-QlAgU0FNTEw=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-QlAgU0FNTEw=" name="QlAgU0FNTEw=" role="tab" tabindex="0">BP SAMLL</button><button aria-controls="panel-1-QlAgTUVESVVN" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QlAgTUVESVVN" name="QlAgTUVESVVN" role="tab" tabindex="-1">BP MEDIUM</button><button aria-controls="panel-1-QlAgTEFSR0U=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QlAgTEFSR0U=" name="QlAgTEFSR0U=" role="tab" tabindex="-1">BP LARGE</button><button aria-controls="panel-1-QlAgQU1S" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QlAgQU1S" name="QlAgQU1S" role="tab" tabindex="-1">BP AMR</button><button aria-controls="panel-1-QlAgQU1SLUdQVQ==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QlAgQU1SLUdQVQ==" name="QlAgQU1SLUdQVQ==" role="tab" tabindex="-1">BP AMR-GPU</button></div><div aria-labelledby="tab-1-QlAgU0FNTEw=" class="sphinx-tabs-panel group-tab" id="panel-1-QlAgU0FNTEw=" name="QlAgU0FNTEw=" role="tabpanel" tabindex="0"><img alt="../../../_images/large_1.png" class="align-center" src="../../../_images/large_1.png" />
+</div><div aria-labelledby="tab-1-QlAgTUVESVVN" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QlAgTUVESVVN" name="QlAgTUVESVVN" role="tabpanel" tabindex="0"><img alt="../../../_images/amr_1.png" class="align-center" src="../../../_images/amr_1.png" />
+</div><div aria-labelledby="tab-1-QlAgTEFSR0U=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QlAgTEFSR0U=" name="QlAgTEFSR0U=" role="tabpanel" tabindex="0"><img alt="../../../_images/large_1.png" class="align-center" src="../../../_images/large_1.png" />
+</div><div aria-labelledby="tab-1-QlAgQU1S" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QlAgQU1S" name="QlAgQU1S" role="tabpanel" tabindex="0"><img alt="../../../_images/amr_1.png" class="align-center" src="../../../_images/amr_1.png" />
+</div><div aria-labelledby="tab-1-QlAgQU1SLUdQVQ==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QlAgQU1SLUdQVQ==" name="QlAgQU1SLUdQVQ==" role="tabpanel" tabindex="0"><img alt="../../../_images/amr_1.png" class="align-center" src="../../../_images/amr_1.png" />
+</div></div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果场景包含镜面，相机的倾斜就更加重要。</p>
+</div>
+<section id="id6">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">在拣选应用中</a><a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
+<p>对于拣选应用，将DaoAI BP相机投影仪置于箱体后边缘或后角上方（见以下图片）。平移和倾斜它，使二维相机看向箱体的中心。投影仪的光线不应落在离投影仪最近的两面箱壁上的内表面；它们应几乎与这两面箱壁平行。这样安装摄像机可以最大限度地减少箱壁内的相互反射。</p>
+<img alt="../../../_images/position.png" class="align-center" src="../../../_images/position.png" />
+</section>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">寻找所需的焦点深度</a><a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
+<p>DaoAI相机对失焦有很强的抵抗力，但是为了最大限度地提高点云的精度，应该考虑到焦点深度。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../index.html" class="btn btn-neutral float-left" title="捕捉高质量的点云" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../dealing-with-highlights-and-shiny-objects/index.html" class="btn btn-neutral float-right" title="如何处理高光和闪亮物体" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021-2023 DaoAI Robotics Inc..</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
