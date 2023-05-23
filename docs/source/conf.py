@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'DaoAI Vision Studio User Manual'
+project = 'DaoAI视觉工作室用户手册'
 copyright = '2021-2023 DaoAI Robotics Inc.'
 author = 'DaoAI'
 
