@@ -40,6 +40,7 @@ html_static_path = ['_static']
 
 # -- Options for HTML output
 language = 'zh_CN'
+html_search_language = 'zh'
 
 html_theme = 'sphinx_rtd_theme'
 
@@ -47,8 +48,7 @@ html_theme = 'sphinx_rtd_theme'
 epub_show_urls = 'footnote'
 
 # -- Options to Support pdf build in chinese
-latex_engine = 'xelatex'
-latex_use_xindy = False
+latex_engine = 'lualatex'
 latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
