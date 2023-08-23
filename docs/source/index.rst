@@ -48,5 +48,6 @@ DaoAI 视觉概述
    :maxdepth: 2
    :caption: 支持
 
-   support/index
-
+   support/troubleshooting/index
+   support/FAQ/index
+   support/report-a-bug/index
