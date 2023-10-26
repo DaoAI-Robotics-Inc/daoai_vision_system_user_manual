@@ -1,5 +1,5 @@
-DaoAI 视觉概述
-======================
+DaoAI 机器人视觉认知系统概述
+==============================
 
 
 .. toctree::
@@ -50,4 +50,5 @@ DaoAI 视觉概述
 
    support/troubleshooting/index
    support/FAQ/index
+   support/help-center/index
    support/report-a-bug/index
