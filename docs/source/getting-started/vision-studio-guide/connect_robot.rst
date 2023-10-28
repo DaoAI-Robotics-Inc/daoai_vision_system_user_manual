@@ -3,40 +3,41 @@
 
 打开一个项目后， 在设置一栏下面，点击连接机器人选项栏。
 
-.. image:: images/connect_robot.png
-    :scale: 60%
-
-|
-
-点击添加相机。在右边的页面选择机器人类型，端口号，然后点击保存, 然后点击connect。
-
-.. image:: images/add_robot.png
-    :scale: 60%
-    
-|
-
 
 连接真实机器人
 ---------------
 
-以UR机器人为例， 导入DaoAI机器人脚本。
-
-然后调用.......
-
-.. image:: images/ur_connect.png
-    :scale: 60%
+.. image:: images/connect_robots.png
+    :scale: 80%
 
 |
 
-运行UR机器人脚本后，就可以连接机器人到DaoAI机器人视觉认知系统了。
-
-.. image:: images/ur_connect.png
-    :scale: 60%
+1. 点击添加机器人
+2. 点击配置，调出配置页面
+3. 选择机器人类型
+4. 输入端口号
+5. 保存更改
+6. 连接机器人
 
 |
+
+机器人端以UR机器人为例， 导入DaoAI机器人脚本。
+
+.. image:: images/ur_connect.png
+    :scale: 80%
+
+|
+
+设置变量daoai_ip 为服务器ip。
+设置变量daoai_port 为设置的端口。
+
+然后调用daoai_socket_open()函数。
+
+在运行UR机器人脚本后，可以连接机器人到DaoAI机器人视觉认知系统了。
+
 
 .. tips::
-    如果无法连接，请检查电脑的ip, 和端口是否正确。
+    如果无法连接，请检查电脑的ip, 和端口是否正和机器人脚本中一致。
 
 
 连接虚拟机器人
@@ -44,20 +45,27 @@
 
 使用Hercules为例，连接虚拟机器人到DaoAI机器人视觉认知系统。
 
-切换到Tcp_Client一栏， ip 输入 127.0.0.1, 输入设置好的端口。 
-    
+在连接机器人一栏，选择机器人类型为 ``其他机器人``， ``端口``以6000为例。
+
+.. image:: images/connect_virtual.png
+    :scale: 80%
+
+|
+
+
 .. image:: images/hercules.png
     :scale: 100%
 
 |
 
-点击connect，就可以连接到DaoAI机器人视觉认知系统了。
+在Hercules界面
 
-.. image:: images/hercules_connected.png
-    :scale: 100%
+1. 切换到Tcp_Client一栏， 
+2. ip 输入 127.0.0.1, 并输入设置好的端口 6000。 
+3. 点击连接，就可以连接到DaoAI机器人视觉认知系统了。
+4. 可以在左边的输入栏编辑消息，然后点击发送到视觉认知系统。
 
-|
 
-当机器人和DaoAI机器人视觉认知系统交互时，就可以编辑下面的信息串并点击发送。
 
-机器人通讯详情请阅读 :ref:`机器人通讯`
+
+了解机器人通讯详情请阅读 :ref:`机器人通讯`

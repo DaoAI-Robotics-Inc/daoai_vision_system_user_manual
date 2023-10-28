@@ -5,8 +5,9 @@
     :maxdepth: 1
 
     gui
-    connect_robot
     connect_camera
+    connect_robot
+    calibration
 
 
 本节将详细介绍DaoAI机器人视觉认知系统的使用方法。
