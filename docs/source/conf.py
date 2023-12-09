@@ -53,3 +53,7 @@ latex_engine = 'lualatex'
 latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
+
+# sphinx-multiversion
+# All branches except 'master'
+smv_branch_whitelist = r'^(?!master).*$'
