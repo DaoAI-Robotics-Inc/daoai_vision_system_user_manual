@@ -825,6 +825,8 @@ daoai_get_picking_pose()
 
         机器人使用此函数请求视觉发送抓取位姿。会blocking直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个抓取位姿。
 
+        调用该函数后收到的视觉回复，payload_1 为物体剩余数量（包括当前）；payload_2 为物体标签码，用于区分物体种类。
+
     **Return type**:
 
         Boolean（布尔值）：成功检测到至少一个物体 并获取抓取位姿后返回True。
@@ -842,16 +844,19 @@ daoai_get_picking_pose()
 
             if (daoai_status == DAOAI_NO_OBJECT_FOUND): 
                 #No objects found, Failed to find pick position, terminate
+                popup("NO OBJECTS FOUND.", title="WARNING", warning=True, blocking=True)
                 return False
             end
             
             if (daoai_status == DAOAI_NO_COLLISION_FREE_POSE): 
                 #No collision free path of pick pose, terminate
+                popup("NO Collision-free PICK pose.", title="WARNING", warning=True, blocking=True)
                 return False
             end
             
             if(daoai_payload_1 <= 0):
                 #Not enough occurence of objects in scene
+                popup("NO OBJECTS FOUND.", title="WARNING", warning=True, blocking=True)
                 return False
             end
 
@@ -893,11 +898,13 @@ daoai_get_placing_pose()
 
             if (daoai_status == DAOAI_NO_OBJECT_FOUND):
                 #No anchor found, Failed to find place position, terminate
+                popup("NO ANCHOR FOUND.", title="WARNING", warning=True, blocking=True)
                 return False
             end
             
             if(daoai_payload_1 <= 0):
                 #Not enough occurence of objects in scene
+                popup("NO ANCHOR FOUND.", title="WARNING", warning=True, blocking=True)
                 return False
             end
 
@@ -1112,9 +1119,9 @@ daoai_switch_task(id)
 
 1. 设置好探测位姿，此位姿是抓取结束后机器人移动到的位姿，该位姿不能阻挡摄像头。
 
-2. 机器人使用 RC_DAOAI_CAPTURE_AND_PROCESS 发送开始抓取指令到视觉认知系统。
+2. 机器人使用 RC_DAOAI_CAPTURE_AND_PROCESS 请求拍照并识别物体。
 
-3. 视觉认知系统回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
+3. 视觉认知系统拍照成功后回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
 
 4. 机器人发送 RC_DAOAI_PICK_POSE 请求视觉发送抓取位姿；
 
@@ -1126,7 +1133,9 @@ daoai_switch_task(id)
 
     c. 没有安全抓取位姿时，视觉发送 DAOAI_NO_COLLISION_FREE_POSE = 4；
 
-6. 场景内的物体抓取完成时，视觉会在最后一个需要抓取的物体信息中，payload_1 = 1，以此告知机器人剩余一个物体抓取，结束后将需要重新拍照。
+6. 视觉认知系统回复的payload_1 代表物体剩余数量（包括当前发送的物体）； payload_2 代表物体在深度学习中的标签码，用于区分物体种类。
+
+7. 场景内的物体抓取完成时，视觉会在最后一个需要抓取的物体信息中，payload_1 = 1，以此告知机器人剩余一个物体抓取，结束后将需要重新拍照。这时如果再调用daoai_get_picking_pose()则返回的payload_1 就会为0，代表没有可抓取的物体。
 
 .. code-block:: 
 
@@ -1166,7 +1175,6 @@ daoai_switch_task(id)
 
     c. 没有安全抓取位姿时，视觉发送 DAOAI_NO_COLLISION_FREE_POSE = 4；
 
-6. 场景内的物体抓取完成时，视觉会在最后一个需要抓取的物体信息中，payload_1 = 1，以此告知机器人剩余一个物体抓取，结束后将需要重新拍照。
 
 .. code-block:: 
 
@@ -1198,3 +1206,4 @@ daoai_switch_task(id)
 .. |br| raw:: html
 
       <br>
+

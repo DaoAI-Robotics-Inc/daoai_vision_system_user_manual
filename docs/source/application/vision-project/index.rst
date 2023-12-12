@@ -38,4 +38,4 @@
 .. toctree::
     dl_modfinder
     dl_kp
-
+    pick
