@@ -36,6 +36,9 @@
 这样任务就添加完成了，下一步请参考检测流程的详细配置：
 
 .. toctree::
+    :maxdepth: 1
+
     dl_modfinder
     dl_kp
     pick
+    deploy
