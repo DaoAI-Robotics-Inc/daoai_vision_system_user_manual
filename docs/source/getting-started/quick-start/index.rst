@@ -5,20 +5,6 @@
 
 .. tabs::
 
-   .. tab:: 开箱
-
-      .. image:: images/video_temp.png
-         :scale: 40%
-         :align: right
-      
-      在DaoAI包装箱里，你会发现：
-         - DaoAI 工控机
-         - 电源线
-
-      可选的/订购的:
-         - DaoAI 3D相机
-         - 校准板
-         - 网线(CAT 6规格) 长度(10m)
 
    .. tab:: 安装
       
@@ -27,24 +13,6 @@
       驱动的安装
 
       下载 DaoAI Vision Studio
-
-   .. tab:: 装配
-
-      .. image:: images/cam_mount.png
-         :scale: 15%
-         :align: right
-      
-      相机的装配
-         - 相机应安装于，安全，在机械臂移动时不会碰撞的位置。
-         - 相机安装应与工作场景有一定的倾斜角度，这样能更好处理物体的反光。
-         - 相机应安装牢固，避免晃动，松动，以及震动影响。
-
-      |br|
-
-      详细指南见 :ref:`工作距离和相机的定位` 和 :ref:`机械安装`
-
-      |br|
-
 
 
    .. tab:: 连接
