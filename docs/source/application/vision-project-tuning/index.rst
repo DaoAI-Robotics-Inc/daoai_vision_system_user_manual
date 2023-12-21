@@ -141,6 +141,8 @@
 请参考以下不同流程的高级配置：
 
 .. toctree::
+    :maxdepth: 1
+
     dl_kp_advanced_settings
     dl_modfinder_advanced_settings
 

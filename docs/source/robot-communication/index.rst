@@ -788,7 +788,7 @@ daoai_capture_and_process()
 
     **Info**:
 
-        机器人使用此函数请求视觉拍照并检测。在拍照期间会blocking。
+        机器人使用此函数请求视觉拍照并检测。机器人在拍照期间会等待。
 
     **Return type**:
 
@@ -823,7 +823,7 @@ daoai_get_picking_pose()
 
     **Info**:
 
-        机器人使用此函数请求视觉发送抓取位姿。会blocking直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个抓取位姿。
+        机器人使用此函数请求视觉发送抓取位姿。机器人会等待直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个抓取位姿。
 
         调用该函数后收到的视觉回复，payload_1 为物体剩余数量（包括当前）；payload_2 为物体标签码，用于区分物体种类。
 
@@ -879,7 +879,7 @@ daoai_get_placing_pose()
 
     **Info**:
 
-        机器人使用此函数请求视觉发送放置位姿。会blocking直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个放置位姿。
+        机器人使用此函数请求视觉发送放置位姿。机器人会等待直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个放置位姿。
 
     **Return type**:
 
@@ -912,6 +912,40 @@ daoai_get_placing_pose()
             pick_pose = daoai_tcp_pose
             
             return True
+        end
+
+switch camera config
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+daoai_cam_config(id)
+``````````````````````````````````
+
+    **Parameters**:
+
+        int: id 代表了在机器人视觉认知系统的任务检测的高级参数中，设置的相机配置id
+
+    **Info**:
+
+        机器人使用此函数请求视觉切换相机配置。使用该函数前，需要首先在机器人视觉认知系统对应的任务中启用自适应相机配置，选择并配置 根据机器人命令加载配置，配置了相应的相机配置后，才可以调用并进行切换。
+
+    **Return type**:
+
+        Boolean（布尔值）：成功检测到至少一个物体 并获取放置位姿后返回True。
+
+    **Pseudo-code**:
+
+        def daoai_cam_config(id):
+            payload_1 = id
+            daoai_r_command = RC_SWITCH_CONFIG
+            send_robot_data()
+            recv_daoai_data() #wait the response that the vision started 
+            if (daoai_status == DAOAI_SWITCH_CONFIG_SUCCESS):
+            return True
+            end
+            if (daoai_status == DAOAI_SWITCH_CONFIG_FAIL): #Failed to switch config 
+            popup("DaoAI switch camera config failed, please check your configs.", title="WARNING", warning=True, blocking=True)
+            end
+            return False
         end
 
 Helper

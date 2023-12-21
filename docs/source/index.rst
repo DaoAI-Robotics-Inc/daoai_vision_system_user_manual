@@ -20,11 +20,11 @@ DaoAI 机器人视觉认知系统概述
    application/vision-project/index
    application/vision-project-tuning/index
 
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: 案例分析
+.. toctree::
+   :maxdepth: 2
+   :caption: 案例分析
 
-..    case-study/index
+   case-study/index
 ..    case-study/example/index
 ..    case-study/exercise/index
 
