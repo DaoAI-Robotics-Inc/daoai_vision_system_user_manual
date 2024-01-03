@@ -365,6 +365,7 @@ RC_SWITCH_CONFIG = 69
     RC_GUIDANCE_CALIBRATION                           = 10
 
     # Picking
+    RC_DAOAI_CAPTURE_AND_PROCESS_ASYNC                = 19
     RC_DAOAI_CAPTURE_AND_PROCESS                      = 20
     RC_DAOAI_PICK_POSE                                = 21
     RC_DAOAI_DROP_POSE                                = 22
@@ -778,6 +779,35 @@ daoai_auto_accumulate()
 
 Camera Capture
 ~~~~~~~~~~~~~~~~~~~~~
+
+daoai_capture_and_process_async()
+````````````````````````````````````
+
+    **Parameters**:
+
+        N/A
+
+    **Info**:
+
+        机器人使用此函数请求视觉拍照并检测, 该函数不会阻塞机器人脚本，视觉会立即回复并执行拍照和检测。
+
+    **Return type**:
+
+        Boolean（布尔值）：请求拍照和物体检测后，视觉认知系统成功开始后返回true。
+
+    .. code-block:: 
+
+        def daoai_capture_and_process_async():
+            daoai_r_command = RC_DAOAI_CAPTURE_AND_PROCESS_ASYNC
+            daoai_payload_1 = task_id #specify the vision task id 
+            send_robot_data()
+            recv_daoai_data() #wait the response that the vision started 
+            if (daoai_status == DAOAI_CAPTURE_SUCCESS):
+                return True
+            end
+            popup("DaoAI Image Capture Failed.", title="WARNING", warning=True, blocking=True)
+            return False
+        end
 
 daoai_capture_and_process()
 ``````````````````````````````````
