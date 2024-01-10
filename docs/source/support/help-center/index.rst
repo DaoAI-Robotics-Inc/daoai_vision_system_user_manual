@@ -6,9 +6,10 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 .. image:: Images/1.png
     :align: center 
 
-.. image:: Images/2.png
-    :align: center 
-|
+1. 提交一个Bug，使用上遇到的问题。
+2. 提交一个建议，有哪里我们能做的更好。
+3. 项目实施需要研发支持的事项
+4. 项目评估
 
 *各种类别提交流程大致相同，下面以 提交Bug 流程作为例子*
 
@@ -17,23 +18,22 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 搜索相关文档
 ~~~~~~~~~~~~~
 
-打开Help Center网站，找到 搜索栏
+打开Help Center网站，找到搜索栏，
 
-.. image:: Images/9.png
-    :align: center 
-|
+    .. image:: Images/9.png
+        :align: center 
+        :scale: 80%
 
-搜索 问题
+输入关键字搜索问题
 
-.. image:: Images/10.png
-    :align: center 
-|
+    .. image:: Images/10.png
+        :align: center 
+        :scale: 80%
 
 查看文档是否有解决方法，如果没有解决方法，再进行 Bug提交
 
-.. image:: Images/11.png
-    :align: center 
-|
+    .. image:: Images/11.png
+        :align: center 
 
 搜索相关请求
 ~~~~~~~~~~~~~
@@ -111,13 +111,13 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 
 在此处填写 Bug 的详细介绍，请 **尽量详细** 的描述问题，逐步描述如何复现Bug
 
-请包括： WeRobotics版本，SLC版本（如果问题与相机软件相关），现场工程师名字（如果有的话）
+请包括：DaoAI Vision Cognition System版本，DaoAI Camera Studio版本（如果问题与相机软件相关），以及现场工程师名字（如果有的话）
 
 .. image:: Images/6.png
     :align: center
 |
 
-在此处添加 附件， 用于补充问题描述， 比如 截图，工作空间，视频 等
+在此处添加 附件， 用于补充问题描述， 例如：截图，工作空间，视频 等
 
 .. image:: Images/7.png
     :align: center
@@ -127,7 +127,7 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 
 *例子：* https://daoai.atlassian.net/servicedesk/customer/portal/6/DP-36
 
-提交 产品功能需求
+提交产品功能建议
 ~~~~~~~~~~~~~~~~~~
 
 打开Help Center网站， 点击 “Suggest improvement“

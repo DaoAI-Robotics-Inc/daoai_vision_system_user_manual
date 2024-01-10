@@ -6,7 +6,6 @@ DaoAI 机器人视觉认知系统概述
    :caption: 快速入门
 
    getting-started/quick-start/index
-   getting-started/user-guide/index
    getting-started/vision-studio-guide/index
    getting-started/video-tutorial/index
    getting-started/release-notes/index
@@ -49,5 +48,5 @@ DaoAI 机器人视觉认知系统概述
 
    .. support/troubleshooting/index
    .. support/FAQ/index
-   support/help-center/index
    support/report-a-bug/index
+   support/help-center/index

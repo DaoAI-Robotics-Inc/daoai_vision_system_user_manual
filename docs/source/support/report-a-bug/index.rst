@@ -6,15 +6,16 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 收集数据
 ------------
 
-
 首先，完整提供以下信息：
 
 #. 软件版本。
     * DaoAI 机器人视觉认知系统
         .. image:: images/faq-version.png
+            :scale: 60%
     
     * DaoAI 3D相机工作室
         .. image:: images/faq-camera-version.png
+            :scale: 80%
 
 #. 现象描述。
 
@@ -25,7 +26,7 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 #. 压缩特定的工作空间文件夹。包含重现错误所需的所有文件（dcf数据、深度学习模型和配置文件）。
     .. image:: images/faq-data-folder.png
 
-#. 如果错误导致软件崩溃，请在 **"C:\ProgramData\DaoAI\Vision\Crashpad\db\reports"** 路径下查找由崩溃生成的DMP文件。
+#. 如果错误导致软件崩溃，请在 **"C:\\ProgramData\\DaoAI\\Vision\\Crashpad\\db\\reports"** 路径下查找由崩溃生成的DMP文件。
     .. image:: images/faq-crashpad-path.png
 
     .. important:: ProgramData是Windows中的一个隐藏文件夹，请选中此框以显示隐藏项目。
@@ -39,9 +40,9 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 
 如果您找不到解决问题的方法，请随时联系我们：
 
-    #. 前往 `帮助中心 <https://daoai.atlassian.net/servicedesk/customer/portals>`_ 提交您的问题。您还可以查看是否有类似的问题，并查看是否有适用于您的解决方案。一旦我们收到工单，我们将尽快与您联系！
+    #. 前往 `帮助中心 <https://daoai.atlassian.net/servicedesk/customer/portals>`_ 查看是否有类似的问题，并查看是否有适用于您的解决方案。
+    #. 前往 `帮助中心 <https://daoai.atlassian.net/servicedesk/customer/portals>`_ 提交您的问题。一旦我们收到工单，我们将尽快与您联系！
     #. 直接联系您的现场支持工程师。
-    #. 通过支持团队的电子邮件：support@daoai.com。
 
 当您报告问题时，为了帮助我们解决问题，以下信息将非常有用：
 

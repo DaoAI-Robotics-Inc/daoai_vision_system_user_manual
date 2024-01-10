@@ -2,7 +2,9 @@
 软件安装
 ======================
 
-在安装DaoAI Camera Studio软件之前。
+
+
+在安装DaoAI Vision Congnition System软件之前。
 
 - 检查GPU要求 (GTX 1050 Ti)
 - 检查GPU驱动是否为最新版本
