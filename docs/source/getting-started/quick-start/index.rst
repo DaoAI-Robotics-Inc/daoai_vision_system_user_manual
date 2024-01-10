@@ -7,12 +7,12 @@
 
    .. tab:: 安装
       
-      在安装DaoAI Vision Congnition System软件之前。
+      在安装DaoAI Vision Cognition System软件之前。
 
       - 检查GPU要求 (GTX 1050 Ti)
       - 检查GPU驱动是否为最新版本
 
-      请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc.sharepoint.com/:f:/s/WeLinkirt/Eh-hnyClR0hBuUc1w0dF7I0BsXW3wB1DrWbajAxN5FQlIQ?e=1qqoTI>`_
+      请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
 
       然后运行完整安装包进行安装： DaoAIVision_2.23.10.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
       
@@ -34,7 +34,7 @@
          .. image:: images/installer.png
             :scale: 100%
 
-      **DaoAI Vision Congnition System** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
+      **DaoAI Vision Cognition System** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
       **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
 
    .. tab:: 连接
