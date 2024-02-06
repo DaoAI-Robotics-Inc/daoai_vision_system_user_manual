@@ -3,6 +3,15 @@
 
 Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 
+注册账户，并联系我们
+~~~~~~~~~~~~~
+访问Help Center 网站，并填写您的邮箱信息、提交后请联系我们开通此邮箱权限
+
+.. image:: Images/注册账户.png
+    :align: center 
+|
+开通登陆之后您会看到以下界面
+
 .. image:: Images/1.png
     :align: center 
 
@@ -14,6 +23,8 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 *各种类别提交流程大致相同，下面以 提交Bug 流程作为例子*
 
 *在 提交Bug 之前，请搜索 相关文档 以及搜索提交过的 相关请求，以避免提交重复或者已解决Bug*
+
+
 
 搜索相关文档
 ~~~~~~~~~~~~~
