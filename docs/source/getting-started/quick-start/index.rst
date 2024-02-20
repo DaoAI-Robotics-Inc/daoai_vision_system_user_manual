@@ -11,6 +11,7 @@
 
       - 检查GPU要求 (GTX 1050 Ti)
       - 检查GPU驱动是否为最新版本
+      - 详细请参考 :ref:`如何安装或更新GPU驱动`
 
       请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
 
@@ -93,6 +94,7 @@
          6. 下一步请参考 :ref:`软件应用`
 
 
+       :ref:`如何用其他电脑访问DaoAI Vision Cognition System`
 
 .. |br| raw:: html
 
