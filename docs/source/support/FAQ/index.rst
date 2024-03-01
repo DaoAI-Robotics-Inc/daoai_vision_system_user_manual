@@ -93,3 +93,29 @@
     .. image:: Images/如何寻找创建的项目2.png
         :align: center 
         :scale: 100%
+
+
+安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    - 是否在此工作机/电脑曾经安装过其他版本的Vision Studio或者Vision Cognition System? 如果你的答案是“是”或者“不确定”，请你打开“控制面板”，检查是否存在其他版本的软件，或者存在其他版本的Python程序。
+    .. image:: Images/是否存在旧版本软件.png
+        :align: center
+        :scale: 100%
+
+    - 如果你的控制面板显示了上述的任意软件，请将他们删除。右键点击程序，选择“卸载”。
+    .. image:: Images/卸载它们.png
+        :align: center 
+        :scale: 100%
+
+    - 某些Python程序安装后不会在控制面板上显示。需要打开路径 C:\ ，删除文件夹 “PythonXX”（XX为版本号）。
+    .. image:: Images/python_hidden.png
+        :align: center 
+        :scale: 100%
+
+    - Chocolatey程序则无法在控制面版中卸载。打开路径 C:\ProgramData，删除文件夹 “chocolatey”。
+    .. image:: Images/uninstallchoco.png
+        :align: center 
+        :scale: 100%
+
+    - 成功卸载Python和Chocolatey后，重新安装软件即可正常开启。注意：Python程序并非只能安装一个版本。
