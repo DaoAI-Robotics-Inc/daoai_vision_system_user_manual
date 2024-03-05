@@ -1,13 +1,11 @@
-DaoAI 视觉概述
-======================
-
+DaoAI 机器人视觉认知系统概述
+==============================
 
 .. toctree::
    :maxdepth: 2
    :caption: 快速入门
 
    getting-started/quick-start/index
-   getting-started/user-guide/index
    getting-started/vision-studio-guide/index
    getting-started/video-tutorial/index
    getting-started/release-notes/index
@@ -26,8 +24,8 @@ DaoAI 视觉概述
    :caption: 案例分析
 
    case-study/index
-   case-study/example/index
-   case-study/exercise/index
+..    case-study/example/index
+..    case-study/exercise/index
 
 .. toctree::
    :maxdepth: 2
@@ -48,6 +46,7 @@ DaoAI 视觉概述
    :maxdepth: 2
    :caption: 支持
 
-   support/troubleshooting/index
+   .. support/troubleshooting/index
    support/FAQ/index
    support/report-a-bug/index
+   support/help-center/index
