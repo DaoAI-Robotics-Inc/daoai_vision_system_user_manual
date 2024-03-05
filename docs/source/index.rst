@@ -33,7 +33,7 @@ DaoAI机器人视觉认知系统不仅仅是一个视觉处理工具，更是一
    
 .. toctree::
    :maxdepth: 2
-   :caption: 快速入门
+   :caption: 应用
    :hidden: 
 
    application/index
@@ -42,7 +42,7 @@ DaoAI机器人视觉认知系统不仅仅是一个视觉处理工具，更是一
 
 .. toctree::
    :maxdepth: 2
-   :caption: 
+   :caption: 案例分析
    :hidden: 
 
    case-study/index
