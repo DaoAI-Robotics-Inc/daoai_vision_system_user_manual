@@ -5,6 +5,28 @@
 
 .. tabs::
 
+   .. tab:: 连接
+
+      .. image:: images/connect.png
+         :scale: 40%
+         :align: right
+      
+      工控机的连接
+         - 工控机通过24V的电源线供电，网线或者WiFi联网。 
+         - 下载并安装后，使用桌面上的启动器程序DaoAI Vision Cognition System，管理并启动服务器
+         - 如果服务器已经打开，那么可以使用网页访问 服务器并运行DaoAI Vision Cognition System。
+
+      相机的连接
+         - 相机通过24V的电源线供电，使用cat-6类网线与DaoAI Vision Cognition System连接。
+         - 详细请参考 :ref:`连接相机`
+
+      机器人的连接
+         - 机器人通过以太网与DaoAI Vision Cognition System连接
+         - 详细请参考 :ref:`连接机器人`
+      
+      |br|
+      |br|
+
    .. tab:: 安装
       
       在安装DaoAI Vision Cognition System软件之前。
@@ -39,28 +61,6 @@
       **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
 
       在安装DaoAI Vision Cognition System软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
-
-   .. tab:: 连接
-
-      .. image:: images/connect.png
-         :scale: 40%
-         :align: right
-      
-      工控机的连接
-         - 工控机通过24V的电源线供电，网线或者WiFi联网。 
-         - 下载并安装后，使用桌面上的启动器程序DaoAI Vision Cognition System，管理并启动服务器
-         - 如果服务器已经打开，那么可以使用网页访问 服务器并运行DaoAI Vision Cognition System。
-
-      相机的连接
-         - 相机通过24V的电源线供电，使用cat-6类网线与DaoAI Vision Cognition System连接。
-         - 详细请参考 :ref:`连接相机`
-
-      机器人的连接
-         - 机器人通过以太网与DaoAI Vision Cognition System连接
-         - 详细请参考 :ref:`连接机器人`
-      
-      |br|
-      |br|
 
    .. tab:: 软件
 

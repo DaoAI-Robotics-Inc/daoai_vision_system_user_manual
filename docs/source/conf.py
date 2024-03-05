@@ -3,11 +3,11 @@
 # -- Project information
 
 project = 'DaoAI机器人视觉认知系统用户手册'
-copyright = '2021-2023 DaoAI Robotics Inc.'
+copyright = '2021-2024 DaoAI Robotics Inc.'
 author = 'DaoAI'
 
-release = '0.1'
-version = '0.1.0'
+release = '2.0'
+version = '2.24.2.0'
 
 # -- General configuration
 
