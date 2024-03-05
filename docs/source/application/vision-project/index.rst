@@ -42,6 +42,7 @@
         :maxdepth: 1
         
         detection
+        empty_box_check
         pick
         deploy
 
