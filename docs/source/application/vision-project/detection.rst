@@ -9,3 +9,7 @@
 
         dl_modfinder
         dl_kp
+        dl_3dmodfinder
+        trans3d
+        driftcheck
+        dl_2dkp

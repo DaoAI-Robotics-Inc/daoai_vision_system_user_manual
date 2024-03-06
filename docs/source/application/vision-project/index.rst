@@ -29,7 +29,7 @@
 .. image:: images/info.png
     :scale: 80%
 
-5. 点击OK添加任务。
+5. 点击创建任务添加任务。
 
 .. image:: images/task_added.png
     :scale: 60%
