@@ -9,7 +9,7 @@
 
         dl_modfinder
         dl_kp
-        robot_precision_check
-        3d_object_finder
-        2d_kp
-        trans_3d
+        dl_3dmodfinder
+        trans3d
+        driftcheck
+        dl_2dkp
