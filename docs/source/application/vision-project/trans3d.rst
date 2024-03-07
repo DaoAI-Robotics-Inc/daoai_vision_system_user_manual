@@ -3,7 +3,7 @@ Large Object 检测流程
 
 本章会详细介绍如何设置 Large Object 检测流程。
 
-    .. image:: images/dl_kp_overview.png
+    .. image:: images/largeobject_overview.png
         :scale: 100%
 
 Large Object 检测流程使用了关键点深度学习技术，3D点云对准技术，以实现对大型物体部分拍照即可定位和检测。
@@ -17,7 +17,7 @@ Large Object 检测流程使用了关键点深度学习技术，3D点云对准�
 2. 上传深度学习模型
 -------------------
 
-    .. image:: images/dl_kp_upload_model.png
+    .. image:: images/largeobject_upload_model.png
         :scale: 65%
 
 |
@@ -33,14 +33,14 @@ Large Object 检测流程使用了关键点深度学习技术，3D点云对准�
 
 1. 首先，点击拍照按钮给场景拍照，确认相机正常工作，以及确认物体位置，相机视野是否合适。
 
-    .. image:: images/dl_kp_detect.png
+    .. image:: images/largeobject_capture.png
         :scale: 70%
 
 |
 
-2. 点击设置ROI, 使用窗口中的框截选出检测区域，这一步是为了移除背景，等干扰点云，只保留物体点云会出现的区域，这样可以使检测更快更准。这一步同时设置了参考系，ROI的坐标就是参考系。
+2. 点击设置ROI, 使用窗口中的框截选出检测区域，这一步是为了移除背景，等干扰点云，只保留物体点云会出现的区域，这样可以使检测更快更准。完成ROI的调整之后再点击保存。这一步同时设置了参考系，ROI的坐标就是参考系。
 
-    .. image:: images/dl_kp_roi.png
+    .. image:: images/largeobject_roi.png
         :scale: 70%
 
 |
@@ -55,26 +55,26 @@ Large Object 检测流程使用了关键点深度学习技术，3D点云对准�
 
 4. 然后就需要定义检测模型，点击定义模型中的设置ROI，然后在右侧点云模型中框选单一物体，然后点击保存。
 
-    .. image:: images/dl_kp_define_model_1.png
+    .. image:: images/largeobject_define_model_1.png
         :scale: 65%
 
 |
 
-5. 之后，即可定义3D关键点，打开定义3D关键点，然后点击其中的学习3D关键点，等待模型识别完成。识别完成后，可以点选不同的关键点，并检查其在模型上的位置是否正确。如果位置正确，即可点击保存；如果不正确，可以尝试重新学习关键点；如果多次学习关键点失败，则需要考虑更换深度学习模型，更多请阅读 :ref:`深度学习优化`
-同时，可以在设置参考点中选择不同的关键点或模型中心点作为原点。
+5. 之后，即可定义3D关键点，打开定义3D关键点，然后点击其中的学习3D关键点，等待模型识别完成。识别完成后，可以点选不同的关键点，并检查其在模型上的位置是否正确。如果位置正确，即可点击保存；如果不正确，可以尝试重新学习关键点；如果多次学习关键点失败，则需要考虑更换深度学习模型，更多请阅读 :ref:`深度学习优化`。
+    同时，可以在设置参考点中选择不同的关键点或模型中心点作为原点。
 
-    .. image:: images/dl_kp_define_model_2.png
+    .. image:: images/largeobject_define_model_2.png
         :scale: 65%
 
 |
 
 
 
-6. (可选) 调试高级设置，更多高级设置详情，请阅读 :ref:`Large Object 检测流程高级配置`
+6. (可选) 调试高级设置，更多高级设置详情，请阅读 :ref:`Large Object 检测流程高级配置`。
 
-7. 点击快速检测，可以使用对其关键点或深度学习结果来检测关键点识别结果。如果您的检测效果不佳，请检查1-6的步骤是否正确，更多请阅读 :ref:`视觉项目优化`
+7. 点击快速检测，可以使用对其关键点或深度学习结果来检测关键点识别结果。如果您的检测效果不佳，请检查1-6的步骤是否正确，更多请阅读 :ref:`视觉项目优化`。
 
-    .. image:: images/dl_kp_quick_detect.png
+    .. image:: images/largeobject_quick_detect.png
         :scale: 65%
 
 |
