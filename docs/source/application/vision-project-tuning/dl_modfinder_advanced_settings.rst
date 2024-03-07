@@ -54,7 +54,7 @@ DL Object Finder 检测流程高级配置
 模型的高级参数
 ~~~~~~~~~~~~~~~~~~
 
-    每个2D模型独有的高级参数设置
+    在定义和优化模型中，可以调整2D模型的高级参数，以获得更好的匹配结果。
 
     .. image:: images/dl_modf_adv_setting.png
         :scale: 80%
