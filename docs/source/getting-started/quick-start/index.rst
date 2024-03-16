@@ -95,6 +95,9 @@
          6. 下一步请参考 :ref:`软件应用`
 
 
+       :ref:`软件显示License Check Fail`
+
+       
        :ref:`如何用其他电脑访问DaoAI Vision Cognition System`
 
 .. |br| raw:: html
