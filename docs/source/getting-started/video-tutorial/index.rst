@@ -98,3 +98,74 @@
 
 
 |
+
+5. Deep Learning + 3D Object Finder
+-----------------------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="https://docs.daoai.ca/static/videos/5.3d_object_finder.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+|
+
+6. Empty Box Check 空箱检测
+-----------------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="https://docs.daoai.ca/static/videos/6.empty_box_check.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+|
+
+7. Large Object Picking 大物体抓取
+-----------------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="https://docs.daoai.ca/static/videos/7.large_obj.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+|
+
+
+8. Precision Quick Check 快速精度验证
+-----------------------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="https://docs.daoai.ca/static/videos/8.precision_check.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+|
+
+9. 2D Keypoint Picking 2D抓取
+-----------------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="https://docs.daoai.ca/static/videos/9.2d_picking.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+|
