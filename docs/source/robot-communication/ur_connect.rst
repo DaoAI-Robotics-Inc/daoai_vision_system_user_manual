@@ -6,7 +6,7 @@ UR 机器人连接
 
 2. 复制一个 urmagic_upload_programs.sh 到usb的根目录，这个脚本文件会上传UR脚本到UR机器人里面。
 
-.. image:: images/ur_upload.png
+.. image:: images/UR_upload.png
     :scale: 100%
 
 |
