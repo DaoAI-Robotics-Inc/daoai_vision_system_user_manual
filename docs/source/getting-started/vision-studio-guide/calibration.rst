@@ -156,9 +156,38 @@ Eye in Hand 安装，相机固定在机械臂上，标定版固定于抓取平�
 
 2D标定
 ~~~~~~~~
-TODO: 2D标定的流程图和步骤
 
+2D标定是特殊的标定方法，特用于2D抓取流程。
 
+1. 在创建校准时，选择2D标定方法，然后填入信息，选择Eye-in-Hand 或者 Eye-to-Hand, 选择标定板种类。
+    .. image:: images/2d_cali.png
+        :scale: 80%
+
+2. 点击下一步，来到准备界面，在这里需要首先讲校准版放到相机视野中，理想的情况，校准版需要占据相机的大部分视野
+
+    .. image:: images/2d_pers_cali.png
+        :scale: 80%
+
+.. warning::
+    校准版所在的平面，应当和物体表面的平面保持一致。
+    校准时，ArUco贴纸的移动平面也应该与物体表面的平面保持一致。
+    如果校准的平面和物体的表面有高度差，则抓取时的误差会随着高度差增加而成比增加。
+
+3. 准备2D标定ArUco小贴纸 `2D标定贴纸下载 <https://daoairoboticsinc-my.sharepoint.com/:b:/g/personal/nrd_daoai_com/EbctMVBQVNdHjGzQdKVOr6wBg40vqWt5wjOZwgfcnhFLDQ?e=0JQ7EU>`_
+
+4. 将ArUco小贴纸固定在机械臂上，然后移动机械臂，使贴纸处于校准平面上，并且在画面中心。
+    .. image:: images/2d_prepare_sticker.png
+        :scale: 80%
+
+5. 开始运行，并打开2d校准机器人脚本
+
+    .. image:: images/2d_start.png
+        :scale: 80%
+
+    .. image:: images/2d_auto_cali_UR.png
+        :scale: 80%
+
+6. 所有位置收集完毕后，点击右下角的完成即可完成2D校准。
 
 视觉验证手眼标定
 -----------------

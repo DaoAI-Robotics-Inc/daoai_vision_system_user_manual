@@ -42,9 +42,9 @@
         :maxdepth: 1
         
         detection
-        empty_box_check
         pick
         deploy
+        empty_box_check
 
 删除任务
 -------------------

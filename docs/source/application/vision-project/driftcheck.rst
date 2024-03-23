@@ -8,7 +8,7 @@
 
 快速精度检测流程的主要步骤如下：
 
-1. 将标定二维码粘贴或固定在机械臂法兰上，并确保在精度检测流程中二维码的位置不会发生变化。
+1. 将标定二维码粘贴或固定在机械臂法兰上，并确保在精度检测流程中二维码的位置不会发生变化。  `标定二维码 <https://daoairoboticsinc-my.sharepoint.com/:b:/g/personal/nrd_daoai_com/EbctMVBQVNdHjGzQdKVOr6wBg40vqWt5wjOZwgfcnhFLDQ?e=0JQ7EU>`_
 
     .. image:: images/driftcheck_qr.png
         :scale: 45%
