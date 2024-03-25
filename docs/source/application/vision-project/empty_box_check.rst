@@ -34,7 +34,7 @@ Empty Box Check 功能存在于所有的检测流程，不管你是使用任意�
 2. 发送Empty Box Check 检查指令
 --------------------------------
 
-在deploy后，连接机器人和相机，使用机器人发送Empty Box Check 指令。详情可查阅：:ref:`TODO`
+在deploy后，连接机器人和相机，使用机器人发送Empty Box Check 指令。详情可查阅：:ref:`RC_CHECK_EMPTY_BOX = 40`
 
 发送Empty Box Check 指令，系统会拍照、检测，并在console上显示结果。下图显示，判断结果为Not Empty，ROI中存在连续有效点云。
 
