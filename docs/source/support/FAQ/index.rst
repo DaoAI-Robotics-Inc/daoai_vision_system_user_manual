@@ -179,20 +179,56 @@
 
 
 安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     - 是否在此工作机/电脑曾经安装过其他版本的Vision Studio或者Vision Cognition System? 如果你的答案是“是”或者“不确定”，请你打开“控制面板”，检查是否存在其他版本的软件，或者存在其他版本的Python程序。
     .. image:: Images/是否存在旧版本软件.png
         :align: center
         :scale: 100%
 
-    - 如果你的控制面板显示了上述的任意软件，请将他们删除。右键点击程序，选择“卸载”。
+    - 如果你的控制面板显示了过去任意版本的Vision  Cognition System或者WeRobotic软件，请将他们删除。右键点击程序，选择“卸载”。
     .. image:: Images/卸载它们.png
         :align: center 
         :scale: 100%
 
-    - 某些Python程序安装后不会在控制面板上显示。需要打开路径 C:\ ，删除文件夹 “PythonXX”（XX为版本号）。
-    .. image:: Images/python_hidden.png
+    - Python程序可同时兼容多版本，如下图显示：该电脑上安装了 Python 3.6.0 和 Python 3.8.3 。这样是可以的，除了另一种情况：电脑上安装了 Python 3.8.9 。Vision Cognition System安装包会自动安装 Python 3.8.3 ，当该电脑出现相同的大版本（3.8为大版本）时，可能会导致 Python 3.8.3 无法安装。需手动卸载其余的 Python 3.8 版本，或者重新安装 Python 3.8.3 版本。
+    - 不清楚该电脑是否存在Python 3.8 版本？没关系，继续往后阅读，后面会有方法辨识电脑上是否存在 Python 3.8 版本程序。
+    .. image:: Images/是否存在旧版本软件.png
+        :align: center 
+        :scale: 100%
+
+    - 使用 Python 3.8.3 安装包安装时，需注意电脑是否是 **64-bit操作系统**。如果该电脑为x64操作系统，需要运行 **x64**的Python安装包，通常为 **amd64**结尾的安装包。
+    .. image:: Images/64bit.png
+        :align: center 
+        :scale: 100%
+
+    - 如何查看自己的电脑是什么操作系统？打开菜单，点击 **“设置”**，进入 **“系统”**，点击 **“关于”**，显示 **64-bit 操作系统**。
+    .. image:: Images/about.png
+        :align: center 
+        :scale: 100%
+
+    - 运行 Python 3.8.3 安装包安装时，安装包会自动识别该电脑上是否存在 Python 3.8 版本软件。如果有，运行安装包后显示如下选项：选择 **“卸载”**，把原有的 Python 3.8 卸载掉。如果卸载失败，请选择 **“修复”**，使python程序修复完成后重新运行安装包，即可卸载。
+    .. image:: Images/python_exist.png
+        :align: center 
+        :scale: 100%
+
+    - 安装 Python 3.8.3 时，需要勾选 **“添加Python到PATH”**，然后选择 **“自定义安装”** 。
+    .. image:: Images/addtopath.png
+        :align: center 
+        :scale: 100%
+
+    - 选择 **“下一步”**。
+    .. image:: Images/next.png
+        :align: center 
+        :scale: 100%
+
+    - 勾选 **“为所有用户安装”**，你会看到安装路径为 **C:\Program Files\Python38**，在此路径上安装才能为所有用户安装。
+    .. image:: Images/allusers.png
+        :align: center 
+        :scale: 100%
+
+    - Python 3.8.3 安装完成。
+    .. image:: Images/done.png
         :align: center 
         :scale: 100%
 
@@ -201,4 +237,20 @@
         :align: center 
         :scale: 100%
 
-    - 成功卸载Python和Chocolatey后，重新安装软件即可正常开启。注意：Python程序并非只能安装一个版本。
+    - 成功安装好 Python 3.8.3 和卸载Chocolatey后，重新安装软件即可正常开启。
+
+
+安装软件后无法启动，显示 webio_server.exe - System Error/Syntax Error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    - 开启软件时无法运行，显示无法找到 **tingmxl2.dll** 或者其他dll。此问题多数由于Chocolatey没有正确安装，或者没有安装上Chocolatey的所需包裹。需要卸载Chocolatey或者重新运行安装包，重装软件。
+    .. image:: Images/tinyxml2.dll.png
+        :align: center 
+        :scale: 100%
+
+    - Chocolatey程序则无法在控制面版中卸载。打开路径 C:\ProgramData，删除文件夹 “chocolatey”。
+    .. image:: Images/uninstallchoco.png
+        :align: center 
+        :scale: 100%
+
+    - 成功安装好 Chocolatey后，重新安装软件即可正常开启。
