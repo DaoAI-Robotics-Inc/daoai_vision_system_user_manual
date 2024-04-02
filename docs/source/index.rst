@@ -47,6 +47,7 @@ DaoAI 机器人视觉认知系统概述
    :caption: 支持
 
    .. support/troubleshooting/index
+   support/example/index
    support/FAQ/index
    support/report-a-bug/index
    support/help-center/index
