@@ -5,6 +5,68 @@
     :local:
 
 
+软件结构
+~~~~~~~~~~~~~~~~
+
+    DaoAI Vision Cognition System 软件的组成是有两个部分：用户界面和后台处理，又称前端和后端。用户界面（前端）负责收集用户的输入信息，点击、拖拽和上传等；后台处理（后端）负责数据处理、算法处理和逻辑处理等。
+
+    打开浏览器，操作的是属于用户界面（前端）；后台处理（后端）实际上是看不见的，他们是通过网络协议进行交流的。
+
+    .. image:: Images/ui.png
+        :align: center
+
+    我们使用桌面图标打开的是“实例管理”，是一个一站式、同时管理前后端的工具。
+
+    .. note::
+        用户可以分别启动前端和后端，通常情况下是不需要了解和分别启动前后端的。此部分内容主要用于查错和连接检测。
+
+
+    打开软件安装的根目录(C:\Program Files\WeRobotics 或者自定义安装目录下)，右键使用Admin权限打开 “webui_server.exe”
+    
+    .. image:: Images/webuiexe.png
+        :align: center
+    
+    然后会出现一个command prompt窗口，内容如下图显示：
+
+    .. image:: Images/backend_started.png
+        :align: center
+
+    该窗口显示的是后端已经正常启动，正在端口9001，聆听着前端。
+
+    前端是在软件安装的根目录下，打开 “webui_server” 文件夹。
+    
+    .. image:: Images/webserver.png
+        :align: center
+    
+    在路径上输入 “cmd” ，打开command prompt窗口；或者打开command prompt窗口，再进入该路径下。
+
+    .. image:: Images/frontend_start.png
+        :align: center
+
+    输入指令 “serve -s”，启动前端。如下图显示，前端已经启动，并在端口3000聆听着用户的输入。
+
+    .. image:: Images/frontend_connected.png
+        :align: center
+    
+    你可以打开浏览器，输入窗口上显示的本地地址：Local: **http://localhost:3000**
+
+    也可以通过外部、其他电脑，使用IP地址接入：Network: **http://xxx.xxx.xxx.xxx:3000**
+    
+旧版软件(仅后端模式)
+~~~~~~~~~~~~~~~~~~~
+
+    DaoAI Vision Cognition System 也支持仅后端模式，但这模式下设置和操作难度极高，没法支持远程操控等，请谨慎使用。
+
+    .. warning::
+        此模式需要学习大量的模块知识和流程控制，请谨慎使用。
+
+    双击打开 “WeRobotics EN.exe”(英文版)，或者 “WeRobotics CN.exe”(中文版)，你会看到旧版软件启动，如下图：
+
+    .. image:: Images/old_bp.png
+        :align: center
+
+    此模式下，每个节点均需要详细设置的参数，如果想要使用该模式，请联系你的客服或者工程师。
+
 软件显示License Check Fail
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
