@@ -72,6 +72,7 @@ DaoAI机器人视觉认知系统不仅仅是一个视觉处理工具，更是一
    :hidden: 
 
    .. support/troubleshooting/index
+   support/example/index
    support/FAQ/index
    support/report-a-bug/index
    support/help-center/index
