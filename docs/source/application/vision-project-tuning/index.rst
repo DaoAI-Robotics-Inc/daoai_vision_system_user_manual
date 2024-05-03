@@ -159,5 +159,8 @@
 
     dl_kp_advanced_settings
     dl_modfinder_advanced_settings
+    dl_3dmodfinder_advanced_settings
+    trans3d_advanced_settings
+    dl_2dkp_advanced_settings
 
 

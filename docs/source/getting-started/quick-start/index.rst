@@ -5,39 +5,6 @@
 
 .. tabs::
 
-   .. tab:: 安装
-      
-      在安装DaoAI Vision Cognition System软件之前。
-
-      - 检查GPU要求 (GTX 1050 Ti)
-      - 检查GPU驱动是否为最新版本
-      - 详细请参考 :ref:`如何安装或更新GPU驱动`
-
-      请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
-
-      然后运行完整安装包进行安装： DaoAIVision_2.23.10.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
-      
-         .. image:: images/full_installer.png
-            :scale: 100%
-
-      .. note::
-         完整安装包同时会安装一个DaoAI Camera Studio软件，请点击安装以确保软件可以正常运行。
-
-      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.23.10.0_<版本号>_patch_Key.exe 。
-      
-         .. image:: images/patch_installer.png
-            :scale: 100%
-         
-      |br|
-
-      安装的过程只需要点击Install, 然后继续点击下一步就可以完成。
-
-         .. image:: images/installer.png
-            :scale: 100%
-
-      **DaoAI Vision Cognition System** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
-      **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
-
    .. tab:: 连接
 
       .. image:: images/connect.png
@@ -59,6 +26,40 @@
       
       |br|
       |br|
+
+   .. tab:: 安装
+      
+      在安装DaoAI Vision Cognition System软件之前。
+
+      - 检查GPU要求 (GTX 1050 Ti)
+      - 检查GPU驱动是否为最新版本
+      - 详细请参考 :ref:`如何安装或更新GPU驱动`
+
+      请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
+
+      然后运行完整安装包进行安装： DaoAIVision_2.24.2.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
+      
+         .. image:: images/full_installer.png
+            :scale: 100%
+
+      .. note::
+         完整安装包同时会安装一个DaoAI Camera Studio软件，请点击安装以确保软件可以正常运行。
+
+      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.24.2.0_<版本号>_patch_Key.exe 。
+      
+
+         
+      |br|
+
+      安装的过程只需要点击Install, 然后继续点击下一步就可以完成。
+
+         .. image:: images/installer.png
+            :scale: 100%
+
+      **DaoAI Vision Cognition System** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
+      **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
+
+      在安装DaoAI Vision Cognition System软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
 
    .. tab:: 软件
 
@@ -94,6 +95,9 @@
          6. 下一步请参考 :ref:`软件应用`
 
 
+       :ref:`软件显示License Check Fail`
+
+       
        :ref:`如何用其他电脑访问DaoAI Vision Cognition System`
 
 .. |br| raw:: html

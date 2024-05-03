@@ -2,16 +2,17 @@
 
 # -- Project information
 
-project = 'DaoAI机器人视觉认知系统用户手册'
-copyright = '2021-2023 DaoAI Robotics Inc.'
+project = 'DaoAI Vision Pilot 用户手册'
+copyright = '2021-2024 DaoAI Robotics Inc.'
 author = 'DaoAI'
 
-release = '0.1'
-version = '0.1.0'
+release = '24.2.0'
+version = '2.24.2.0'
 
 # -- General configuration
 
 extensions = [
+    "sphinx_multiversion",
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
@@ -53,3 +54,7 @@ latex_engine = 'lualatex'
 latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
+
+# sphinx-multiversion
+# All branches except 'master'
+smv_branch_whitelist = r'^(?!master).*$'

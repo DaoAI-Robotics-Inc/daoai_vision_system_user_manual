@@ -1,0 +1,36 @@
+快速精度检测流程
+================
+
+本章会详细介绍如何设置快速精度检测流程。精度检测用以帮助判断机器人臂是否有随使用时间的增长而产生机械臂精度下降的情况。
+
+    .. image:: images/driftcheck_overview.png
+        :scale: 100%
+
+快速精度检测流程的主要步骤如下：
+
+1. 将标定二维码粘贴或固定在机械臂法兰上，并确保在精度检测流程中二维码的位置不会发生变化。  `标定二维码 <https://daoairoboticsinc-my.sharepoint.com/:b:/g/personal/nrd_daoai_com/EbctMVBQVNdHjGzQdKVOr6wBg40vqWt5wjOZwgfcnhFLDQ?e=0JQ7EU>`_
+
+    .. image:: images/driftcheck_qr.png
+        :scale: 45%
+
+2. 创建一个标定检查任务，并连接对应的机器人与相机，选择手眼标定文件。 如果您还没完成手眼标定，请参考 :ref:`机器人手眼标定` 来完成手眼标定。
+
+3. 点击拍照，观察标定二维码在图片中的位置，确保二维码完整的出现在拍摄的图片中。
+
+    .. image:: images/driftcheck_capture.png
+        :scale: 45%
+
+    当对标定二维码位置满意之后，即可点击保存并继续。
+
+4. 进入部署页面，开始部署任务，并在机器人上运行daoai_percision_check。
+
+5. 当机器人完成检测后，共有两种方法可以查看检测结果：
+
+    1. 在机器人的控制器中查看检测结果。
+        .. image:: images/driftcheck_result1.png
+            :scale: 65%
+
+    2. 返回刚刚创建的标定检测任务，并点击保存并继续，进入下一页面。然后点击验证准确性，此时相机会拍摄一张图片，并计算误差精度。
+        
+        .. image:: images/driftcheck_result2.png
+            :scale: 80%

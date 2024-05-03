@@ -19,17 +19,17 @@
 
 2. 在这里点击 ``+ 新建任务``
 
-3. 依次选择任务，检测方法，
+3. 依次选择任务类型，检测方法，
 
 .. image:: images/task.png
-    :scale: 80%
+    :scale: 100%
 
 4. 填入任务详情。
 
 .. image:: images/info.png
     :scale: 80%
 
-5. 点击OK添加任务。
+5. 点击创建任务添加任务。
 
 .. image:: images/task_added.png
     :scale: 60%
@@ -44,6 +44,7 @@
         detection
         pick
         deploy
+        empty_box_check
 
 删除任务
 -------------------
