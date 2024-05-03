@@ -13,15 +13,15 @@
       
       工控机的连接
          - 工控机通过24V的电源线供电，网线或者WiFi联网。 
-         - 下载并安装后，使用桌面上的启动器程序DaoAI Vision Cognition System，管理并启动服务器
-         - 如果服务器已经打开，那么可以使用网页访问 服务器并运行DaoAI Vision Cognition System。
+         - 下载并安装后，使用桌面上的启动器程序DaoAI Vision Pilot，管理并启动服务器
+         - 如果服务器已经打开，那么可以使用网页访问 服务器并运行DaoAI Vision Pilot。
 
       相机的连接
-         - 相机通过24V的电源线供电，使用cat-6类网线与DaoAI Vision Cognition System连接。
+         - 相机通过24V的电源线供电，使用cat-6类网线与DaoAI Vision Pilot连接。
          - 详细请参考 :ref:`连接相机`
 
       机器人的连接
-         - 机器人通过以太网与DaoAI Vision Cognition System连接
+         - 机器人通过以太网与DaoAI Vision Pilot连接
          - 详细请参考 :ref:`连接机器人`
       
       |br|
@@ -29,13 +29,13 @@
 
    .. tab:: 安装
       
-      在安装DaoAI Vision Cognition System软件之前。
+      在安装DaoAI Vision Pilot软件之前。
 
       - 检查GPU要求 (GTX 1050 Ti)
       - 检查GPU驱动是否为最新版本
       - 详细请参考 :ref:`如何安装或更新GPU驱动`
 
-      请下载 `DaoAI Vision Cognition System <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
+      请下载 `DaoAI Vision Pilot <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
 
       然后运行完整安装包进行安装： DaoAIVision_2.24.2.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
       
@@ -56,14 +56,14 @@
          .. image:: images/installer.png
             :scale: 100%
 
-      **DaoAI Vision Cognition System** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
+      **DaoAI Vision Pilot** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
       **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
 
-      在安装DaoAI Vision Cognition System软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
+      在安装DaoAI Vision Pilot软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
 
    .. tab:: 软件
 
-      桌面上的DaoAI Vision Cognition System是服务器的管理器。打开后可以添加，删除，管理您的服务器实例。
+      桌面上的DaoAI Vision Pilot是服务器的管理器。打开后可以添加，删除，管理您的服务器实例。
          - 您可以使用务器的管理器，创建并运行多个服务器，服务于多个项目运行。
 
       .. image:: images/instance_manager.png
@@ -98,7 +98,7 @@
        :ref:`软件显示License Check Fail`
 
        
-       :ref:`如何用其他电脑访问DaoAI Vision Cognition System`
+       :ref:`如何用其他电脑访问DaoAI Vision Pilot`
 
 .. |br| raw:: html
 

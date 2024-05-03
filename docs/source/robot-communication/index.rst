@@ -2,13 +2,13 @@
 =================
 
 
-本章会详细介绍各类机器人与视觉认知系统交互的通讯接口。
+本章会详细介绍各类机器人与DaoAI Vision Pilot交互的通讯接口。
 
 .. note::
     
     Orientation字段四位整数顺序说明：
 
-    目前视觉认知系统对支持机器人所用的 Orientation/定位字段 收发顺序为 |br|
+    目前DaoAI Vision Pilot对支持机器人所用的 Orientation/定位字段 收发顺序为 |br|
 
     0   ABB, 四元数, 字节串 48字节 |br|
     1   Fanuc,   XYZ, 字符串 |br|

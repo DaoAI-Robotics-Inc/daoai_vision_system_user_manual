@@ -62,7 +62,7 @@ UR 机器人连接
 
 |
 
-8. 如图所示，需要手动设定好启动了视觉认知系统的电脑的IP地址，以及配置的机器人端口号。点击下面的绿色运行按钮，运行脚本时，daoai_socket_open()函数就会连接机器人到视觉认知系统。
+8. 如图所示，需要手动设定好启动了DaoAI Vision Pilot的电脑的IP地址，以及配置的机器人端口号。点击下面的绿色运行按钮，运行脚本时，daoai_socket_open()函数就会连接机器人到DaoAI Vision Pilot。
 
     .. image:: images/UR_connect_7.png
         :scale: 100%

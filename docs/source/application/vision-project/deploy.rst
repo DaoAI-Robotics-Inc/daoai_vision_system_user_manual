@@ -19,7 +19,7 @@
     .. image:: images/task_list.png
         :scale: 60%
 
-2. 打开机器人抓取脚本，确保您的ip和端口正确。ip 应该和DaoAI机器人视觉认知系统运行
+2. 打开机器人抓取脚本，确保您的ip和端口正确。ip 应该和DaoAI Vision Pilot运行
 
 3. 使用帮助函数daoai_task_id(id) 来设置您要运行的task id, 这样接下来调用的capture_and_process()函数，和get_picking_pose()函数，都会调用并请求运行对应的任务。
 

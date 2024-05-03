@@ -1,17 +1,17 @@
 UR机器人通讯接口
 ===================
 
-本章会详细介绍机器人和DaoAI机器人视觉认知系统之间的通讯协议。
+本章会详细介绍机器人和DaoAI Vision Pilot之间的通讯协议。
 
 .. note::
     1. DaoAI机器人程序所用的计量单位为  毫米-mm, 旋转计量单位为 度-°
-    2. 该协议只适用于DaoAI网页版机器人视觉认知系统软件
+    2. 该协议只适用于DaoAI网页版DaoAI Vision Pilot软件
 
 .. contents:: 
     :local:
 
-机器人和DaoAI机器人视觉认知系统之间以发送指令 |:left_right_arrow:| 接收程序回应 的模式交换信息，其中机器人充当客户端，DaoAI机器人视觉认知系统充当服务器。
-机器人向视觉认知系统发送请求，例如进行探测流程，视觉认知系统在完成一系列操作后用相应的指令进行回复。
+机器人和DaoAI Vision Pilot之间以发送指令 |:left_right_arrow:| 接收程序回应 的模式交换信息，其中机器人充当客户端，DaoAI Vision Pilot充当服务器。
+机器人向DaoAI Vision Pilot发送请求，例如进行探测流程，DaoAI Vision Pilot在完成一系列操作后用相应的指令进行回复。
 所有请求和等待都是同步的（单线程），在收到前一个等待的回应之前，应确保机器人在此期间不发送任何新请求。
 
 .. image:: images/robot_communication_sync.png
@@ -32,16 +32,16 @@ UR机器人通讯接口
      - Network order (big endian)
 
 
-一旦视觉认知系统启动，它就会侦听TCP端口 ``6969`` 并等待，直到机器人发起连接。这是在机器人端通过打开对视觉认知系统的IP地址和给定端口的TCP套接字来完成的。
+一旦DaoAI Vision Pilot启动，它就会侦听TCP端口 ``6969`` 并等待，直到机器人发起连接。这是在机器人端通过打开对DaoAI Vision Pilot的IP地址和给定端口的TCP套接字来完成的。
 
-可以在视觉认知系统的网络设置中找到并更改视觉认知系统系统的IP地址。
+可以在DaoAI Vision Pilot的网络设置中找到并更改DaoAI Vision Pilot系统的IP地址。
 
 |
 
 协议/Protocol
 ---------------
 
-视觉认知系统 和机器人之间的指令和回应消息都是固定长度的。因为消息协议的长度是固定的，即使机器人短的编程功能有限，也会比较容易实现。
+DaoAI Vision Pilot 和机器人之间的指令和回应消息都是固定长度的。因为消息协议的长度是固定的，即使机器人短的编程功能有限，也会比较容易实现。
 
 .. note::
     请求和回应消息具有固定长度，并且没有开始和/或结束字符。虽然TCP/IP协议可防止数据丢失，但机器人客户端实现负责通过计算发送/接收的字节数并与预期的消息大小进行比较来跟踪消息之间的边界。
@@ -54,7 +54,7 @@ UR机器人通讯接口
 请求消息
 ~~~~~~~~~~
 
-从机器人发送到视觉认知系统的指令消息长度为48个字节，由以下字段组成：
+从机器人发送到DaoAI Vision Pilot的指令消息长度为48个字节，由以下字段组成：
 
 .. list-table:: 请求消息结构
 
@@ -86,7 +86,7 @@ UR机器人通讯接口
 
 所有字段都是必填的，并且必须为每个请求设置合理的值。有效载荷字段只对某写流程和指令有效。无效的字段请赋予零。
 
-指令字段command可以控制视觉认知系统执行不同的流程。下面将更详细地解释可能的指令及其对应的回应消息。
+指令字段command可以控制DaoAI Vision Pilot执行不同的流程。下面将更详细地解释可能的指令及其对应的回应消息。
 
 |
 
@@ -127,8 +127,8 @@ UR机器人通讯接口
 
 .. note::
     Orientation字段四位整数顺序说明：|br|
-        目前视觉认知系统对支持机器人所用的 Orientation/定位字段 收发顺序为 |br|
-        ABB: 四元数，字节分别是[x, y, z, w] 或 (q2,q3,q4,q1)；WeRobotics视觉认知系统 的四元数 顺序为 [x, y, z, w]， 部分系统使用四元数的顺序为 [w, x, y, z]， 所以在发送和接收四元数时需要注意顺序。 |br|
+        目前DaoAI Vision Pilot对支持机器人所用的 Orientation/定位字段 收发顺序为 |br|
+        ABB: 四元数，字节分别是[x, y, z, w] 或 (q2,q3,q4,q1)；WeRoboticsDaoAI Vision Pilot 的四元数 顺序为 [x, y, z, w]， 部分系统使用四元数的顺序为 [w, x, y, z]， 所以在发送和接收四元数时需要注意顺序。 |br|
         UR: AxisAngle(轴线角) [rx, ry, rz, 0] |br|
         Staubli, Aubo, Dobot, Mitsubishi: Euler(欧拉角) XYZ旋转，字节分别是[rx, ry, rz, 0] |br|
         Hanwha, Kuka, Yaskawa: Euler(欧拉角)ZYX旋转，字节分别是[rx, ry, rz, 0] |br|
@@ -142,13 +142,13 @@ UR机器人通讯接口
 RC_NO_COMMAND = -1 (机器人姿势更新)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    将当前的机器人法兰姿势发送给视觉认知系统。视觉认知系统使用此信息来确定机器人是否仍处于连接状态，以及更新视觉认知系统网络界面中的3D视图。
+    将当前的机器人法兰姿势发送给DaoAI Vision Pilot。DaoAI Vision Pilot使用此信息来确定机器人是否仍处于连接状态，以及更新DaoAI Vision Pilot网络界面中的3D视图。
 
 
 RC_START_MANUAL_CALIBRATION = 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    发送校准模式开始指令到视觉，此指令属于机器人和视觉认知系统的握手。视觉认知系统可以处于CALIBRATION 模式
+    发送校准模式开始指令到视觉，此指令属于机器人和DaoAI Vision Pilot的握手。DaoAI Vision Pilot可以处于CALIBRATION 模式
 
     当视觉发送的指令并非以下的指令时，视觉所在的流程与机器人不符，机器人需重新发送 RC_START_MANUAL_CALIBRATION = 1 ，并重新进行此握手。
 
@@ -161,12 +161,12 @@ RC_START_MANUAL_CALIBRATION = 1
         - **描述**
       * - 状态
         - DAOAI_MODE_CALIBRATION= 10
-        - 视觉认知系统处于手动、引导校准流程
+        - DaoAI Vision Pilot处于手动、引导校准流程
 
 RC_STOP_MANUAL_CALIBRATION = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    触发视觉认知系统停止校准板图像采集和累积流程。请注意，发送此指令时，视觉认知系统必须处于校准模式。
+    触发DaoAI Vision Pilot停止校准板图像采集和累积流程。请注意，发送此指令时，DaoAI Vision Pilot必须处于校准模式。
 
     **回应**
 
@@ -177,14 +177,14 @@ RC_STOP_MANUAL_CALIBRATION = 2
           - **描述**
         * - 状态
           - DAOAI_DONE_CALIBRATION = 33
-          - 视觉认知系统终止校准模式
+          - DaoAI Vision Pilot终止校准模式
 
 
 
 RC_START_AUTO_CALIBRATION = 4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    发送校准模式开始指令到视觉，此指令属于机器人和视觉认知系统的握手。视觉认知系统可以处于自动校准模式。
+    发送校准模式开始指令到视觉，此指令属于机器人和DaoAI Vision Pilot的握手。DaoAI Vision Pilot可以处于自动校准模式。
 
     当视觉发送的指令并非以下的指令时，视觉所在的流程与机器人不符，机器人需重新发送  此指令进行握手。
 
@@ -197,13 +197,13 @@ RC_START_AUTO_CALIBRATION = 4
           - **描述**
         * - 状态
           - DAOAI_MODE_AUTO_CALIBRATION = 11
-          - 视觉认知系统处于自动校准图像采集和累计流程。
+          - DaoAI Vision Pilot处于自动校准图像采集和累计流程。
 
 
 RC_MANUAL_ACCUMULATE_POSE = 6
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_MANUAL_CALIBRATION = 1（手动校准），并重新回到校准流程的握手状态。
+    请求DaoAI Vision Pilot进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_MANUAL_CALIBRATION = 1（手动校准），并重新回到校准流程的握手状态。
 
     **回应**
 
@@ -214,13 +214,13 @@ RC_MANUAL_ACCUMULATE_POSE = 6
           - **描述**
         * - 状态
           - DAOAI_MODE_CALIBRATION = 10
-          - 视觉认知系统处于手动校准模式
+          - DaoAI Vision Pilot处于手动校准模式
 
 	
 RC_AUTO_ACCUMULATE_POSE = 7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_AUTO_CALIBRATION = 4（自动校准），并重新回到校准流程的握手状态。
+    请求DaoAI Vision Pilot进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_AUTO_CALIBRATION = 4（自动校准），并重新回到校准流程的握手状态。
 
     **回应**
 
@@ -231,10 +231,10 @@ RC_AUTO_ACCUMULATE_POSE = 7
           - **描述**
         * - 状态
           - DAOAI_MODE_AUTO_CALIBRATION = 11
-          - 视觉认知系统处于自动校准图像采集和累计流程。
+          - DaoAI Vision Pilot处于自动校准图像采集和累计流程。
         * - 状态
           - DAOAI_DONE_AUTO_CALIBRATION = 33
-          - 视觉认知系统以获得足够多的校准点位，回馈机器人停止校准
+          - DaoAI Vision Pilot以获得足够多的校准点位，回馈机器人停止校准
 
 RC_GUIDANCE_CALIBRATION = 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -246,7 +246,7 @@ RC_START_2D_AUTO_CALIBRATION = 11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    发送2D校准模式开始指令到视觉，此指令属于机器人和视觉认知系统的握手。视觉认知系统可以处于自动校准模式。
+    发送2D校准模式开始指令到视觉，此指令属于机器人和DaoAI Vision Pilot的握手。DaoAI Vision Pilot可以处于自动校准模式。
 
     当视觉发送的指令并非以下的指令时，视觉所在的流程与机器人不符，机器人需重新发送  此指令进行握手。
 
@@ -259,17 +259,17 @@ RC_START_2D_AUTO_CALIBRATION = 11
           - **描述**
         * - 状态
           - DAOAI_MODE_2D_AUTO_CALIBRATION  = 14
-          - 视觉认知系统处于2D自动校准模式，并发送下一个校准点位至机器人，使机器人移动到该点位
+          - DaoAI Vision Pilot处于2D自动校准模式，并发送下一个校准点位至机器人，使机器人移动到该点位
         * - 状态
           - DAOAI_DONE_2D_AUTO_CALIBRATION  = 34
-          - 视觉认知系统以获得足够多的校准点位，回馈机器人停止校准
+          - DaoAI Vision Pilot以获得足够多的校准点位，回馈机器人停止校准
 
 
 RC_AUTO_ACCUMULATE_2D_POSE = 12
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    请求视觉认知系统进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_2D_AUTO_CALIBRATION = 11（2D自动校准），并重新回到校准流程的握手状态。
+    请求DaoAI Vision Pilot进入图像采集和累计流程，进行校准。若视觉发送的指令非以下指令，则机器人与视觉处于不同的模式/流程，机器人将发送 RC_START_2D_AUTO_CALIBRATION = 11（2D自动校准），并重新回到校准流程的握手状态。
 
     **回应**
 
@@ -280,15 +280,15 @@ RC_AUTO_ACCUMULATE_2D_POSE = 12
           - **描述**
         * - 状态
           - DAOAI_MODE_2D_AUTO_CALIBRATION  = 14
-          - 视觉认知系统处于2D自动校准模式，并发送下一个校准点位至机器人，使机器人移动到该点位
+          - DaoAI Vision Pilot处于2D自动校准模式，并发送下一个校准点位至机器人，使机器人移动到该点位
         * - 状态
           - DAOAI_DONE_2D_AUTO_CALIBRATION  = 34
-          - 视觉认知系统以获得足够多的校准点位，回馈机器人停止校准
+          - DaoAI Vision Pilot以获得足够多的校准点位，回馈机器人停止校准
 
 RC_DAOAI_CAPTURE_AND_PROCESS_ASYNC = 19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统进行探测流程，让视觉拍照并识别流程，不会阻塞机器人。此消息必须含有机器人目前的位姿信息。
+    请求DaoAI Vision Pilot进行探测流程，让视觉拍照并识别流程，不会阻塞机器人。此消息必须含有机器人目前的位姿信息。
 
     **回应**
 
@@ -299,14 +299,14 @@ RC_DAOAI_CAPTURE_AND_PROCESS_ASYNC = 19
           - **描述**
         * - 状态
           - DAOAI_DETECTION_MODE = 5
-          - 视觉认知系统回馈握手信息，认知目前处于拍照并识别流程。
+          - DaoAI Vision Pilot回馈握手信息，认知目前处于拍照并识别流程。
 
 
 RC_DAOAI_CAPTURE_AND_PROCESS = 20
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    请求视觉认知系统进行探测流程，让视觉拍照并识别流程，会阻塞机器人至拍照结束。此消息必须含有机器人目前的位姿信息。
+    请求DaoAI Vision Pilot进行探测流程，让视觉拍照并识别流程，会阻塞机器人至拍照结束。此消息必须含有机器人目前的位姿信息。
 
     **回应**
 
@@ -317,13 +317,13 @@ RC_DAOAI_CAPTURE_AND_PROCESS = 20
           - **描述**
         * - 状态
           - DAOAI_DETECTION_MODE = 5
-          - 视觉认知系统回馈握手信息，认知目前处于拍照并识别流程。
+          - DaoAI Vision Pilot回馈握手信息，认知目前处于拍照并识别流程。
 
 
 RC_DAOAI_PICK_POSE = 21
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统发送物体位姿；此指令只出现在 DAOAI_DETECTION = 5 之后。当视觉探测并发送了位姿给机器人后，机器人进行抓取，然后重复回复视觉 RC_DAOAI_PICK_POSE = 21 请求下一个物体的位姿。
+    请求DaoAI Vision Pilot发送物体位姿；此指令只出现在 DAOAI_DETECTION = 5 之后。当视觉探测并发送了位姿给机器人后，机器人进行抓取，然后重复回复视觉 RC_DAOAI_PICK_POSE = 21 请求下一个物体的位姿。
 
     **回应**
 
@@ -334,13 +334,13 @@ RC_DAOAI_PICK_POSE = 21
           - **描述**
         * - 状态
           - DAOAI_OBJECTS_FOUND = 2
-          - 视觉认知系统探测到物体并把物体抓取位姿回复到机器人，机器人将根据位姿进行抓取。
+          - DaoAI Vision Pilot探测到物体并把物体抓取位姿回复到机器人，机器人将根据位姿进行抓取。
         * - 状态
           - DAOAI_NO_OBJECT_FOUND = 3
-          - 视觉认知系统探测不到物体回复到机器人，机器人将根据当前脚本进入下一阶段。
+          - DaoAI Vision Pilot探测不到物体回复到机器人，机器人将根据当前脚本进入下一阶段。
         * - 状态
           - DAOAI_NO_COLLISION_FREE_POSE= 4
-          - 视觉认知系统回馈错误信息，避碰模块无法找到任何安全位姿，机器人将根据脚本进入不同的阶段。
+          - DaoAI Vision Pilot回馈错误信息，避碰模块无法找到任何安全位姿，机器人将根据脚本进入不同的阶段。
 
 
 RC_SEND_POSE = 30
@@ -352,7 +352,7 @@ RC_SEND_POSE = 30
 RC_CHECK_EMPTY_BOX = 40
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统检查箱体（ROI）区域是否为空，通常在收到 DAOAI_NO_OBJECT_FOUND = 3 之后使用。使用时 要使用payload_1 指定要进行检测的task id， 或者使用daoai_switch_task(id)函数来指定。
+    请求DaoAI Vision Pilot检查箱体（ROI）区域是否为空，通常在收到 DAOAI_NO_OBJECT_FOUND = 3 之后使用。使用时 要使用payload_1 指定要进行检测的task id， 或者使用daoai_switch_task(id)函数来指定。
 
     如果箱体不为空，但是无法检测到物体，那么就可以考虑使用机器人去晃动箱体再尝试检测。
 
@@ -394,7 +394,7 @@ RC_PRECISION_CHECK= 50
 RC_SWITCH_CONFIG = 69
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    请求视觉认知系统切换相机配置；此指令发送到视觉端时，视觉会根据消息中的载荷字段1（payload_1）的整数，切换相机配置。此相机配置会在视觉端上设置好，根据整数切换用户预设的配置。如：payload_1 = 1， 切换 config_1；payload_1 = 3， 切换 config_3等。
+    请求DaoAI Vision Pilot切换相机配置；此指令发送到视觉端时，视觉会根据消息中的载荷字段1（payload_1）的整数，切换相机配置。此相机配置会在视觉端上设置好，根据整数切换用户预设的配置。如：payload_1 = 1， 切换 config_1；payload_1 = 3， 切换 config_3等。
 
     **回应**
 
@@ -421,11 +421,11 @@ RC_SWITCH_CONFIG = 69
 .. Warning::
     在抓取时：
         
-        DaoAI机器人视觉认知系统 给机器人发送的payload_1：代表 **物体的剩余数量**。
+        DaoAI Vision Pilot 给机器人发送的payload_1：代表 **物体的剩余数量**。
 
-        机器人给 DaoAI机器人视觉认知系统 发送的payload_1：代表 **执行task的id**。
+        机器人给 DaoAI Vision Pilot 发送的payload_1：代表 **执行task的id**。
 
-    例：DaoAI机器人视觉认知系统 有2个task; task_1 的id 为0，task_2的id为1。想要执行task_1时，机器人的payload_1就应该为0。 想要执行task_2时，机器人的payload_1就应该为1。
+    例：DaoAI Vision Pilot 有2个task; task_1 的id 为0，task_2的id为1。想要执行task_1时，机器人的payload_1就应该为0。 想要执行task_2时，机器人的payload_1就应该为1。
 
 其他的payload可根据用户具体案例自由使用。
 
@@ -471,14 +471,14 @@ RC_SWITCH_CONFIG = 69
     RC_SWITCH_CONFIG                                  = 69
 
 
-机器人视觉认知系统回应常量
+DaoAI Vision Pilot回应常量
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
     DAOAI_UNKNOWN_COMMAND                              = -1  
 
-    #视觉认知系统抓取校准流程
+    #DaoAI Vision Pilot抓取校准流程
     DAOAI_OBJECTS_FOUND                                = 2
     DAOAI_NO_OBJECT_FOUND                              = 3
     DAOAI_NO_COLLISION_FREE_POSE                       = 4
@@ -486,9 +486,9 @@ RC_SWITCH_CONFIG = 69
     DAOAI_DROP_OFF_POSE                                = 6
     DAOAI_CAPTURE_FAIL                                 = 9
 
-    #视觉认知系统处于手动校准流程
+    #DaoAI Vision Pilot处于手动校准流程
     DAOAI_MODE_CALIBRATION                             = 10 
-    #视觉认知系统处于自动校准流程
+    #DaoAI Vision Pilot处于自动校准流程
     DAOAI_MODE_AUTO_CALIBRATION                        = 11
     DAOAI_MODE_2D_AUTO_CALIBRATION                     = 14
 
@@ -1122,7 +1122,7 @@ daoai_capture_and_process_async()
 
     **Return type**:
 
-        Boolean（布尔值）：请求拍照和物体检测后，视觉认知系统成功开始后返回true。
+        Boolean（布尔值）：请求拍照和物体检测后，DaoAI Vision Pilot成功开始后返回true。
 
     .. code-block:: 
 
@@ -1151,7 +1151,7 @@ daoai_capture_and_process()
 
     **Return type**:
 
-        Boolean（布尔值）：请求拍照和物体检测后，视觉认知系统成功开始后返回true。
+        Boolean（布尔值）：请求拍照和物体检测后，DaoAI Vision Pilot成功开始后返回true。
 
     **Pseudo-code**:
 
@@ -1187,7 +1187,7 @@ daoai_capture_and_process_2d_async()
 
     **Return type**:
 
-        Boolean（布尔值）：请求拍照和物体检测后，视觉认知系统成功开始后返回true。
+        Boolean（布尔值）：请求拍照和物体检测后，DaoAI Vision Pilot成功开始后返回true。
 
     .. code-block:: 
 
@@ -1216,7 +1216,7 @@ daoai_capture_and_process_2d()
 
     **Return type**:
 
-        Boolean（布尔值）：请求拍照和物体检测后，视觉认知系统成功开始后返回true。
+        Boolean（布尔值）：请求拍照和物体检测后，DaoAI Vision Pilot成功开始后返回true。
 
     **Pseudo-code**:
 
@@ -1248,7 +1248,7 @@ daoai_get_picking_pose()
 
     **Info**:
 
-        机器人使用此函数请求视觉发送抓取位姿。机器人会等待直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个抓取位姿。
+        机器人使用此函数请求视觉发送抓取位姿。机器人会等待直到DaoAI Vision Pilot完成物体检测。该函数通常是运行daoai_capture_and_process() 之后使用。每次运行会返回一个抓取位姿。
 
         调用该函数后收到的视觉回复，payload_1 为物体剩余数量（包括当前）；payload_2 为物体标签码，用于区分物体种类。
 
@@ -1305,7 +1305,7 @@ daoai_get_picking_pose_2d()
 
     **Info**:
 
-        机器人使用此函数请求视觉发送抓取位姿。脚本会阻塞直到视觉认知系统完成物体检测。该函数通常是运行daoai_capture_and_process_2d() 之后使用。每次运行会返回一个抓取位姿。
+        机器人使用此函数请求视觉发送抓取位姿。脚本会阻塞直到DaoAI Vision Pilot完成物体检测。该函数通常是运行daoai_capture_and_process_2d() 之后使用。每次运行会返回一个抓取位姿。
 
         调用该函数后收到的视觉回复，payload_1 为物体剩余数量（包括当前）；payload_2 为 物体标签码，用于区分物体种类。
 
@@ -1350,11 +1350,11 @@ daoai_cam_config(id)
 
     **Parameters**:
 
-        int: id 代表了在机器人视觉认知系统的任务检测的高级参数中，设置的相机配置id
+        int: id 代表了在DaoAI Vision Pilot的任务检测的高级参数中，设置的相机配置id
 
     **Info**:
 
-        机器人使用此函数请求视觉切换相机配置。使用该函数前，需要首先在机器人视觉认知系统对应的任务中启用自适应相机配置，选择并配置 根据机器人命令加载配置，配置了相应的相机配置后，才可以调用并进行切换。
+        机器人使用此函数请求视觉切换相机配置。使用该函数前，需要首先在DaoAI Vision Pilot对应的任务中启用自适应相机配置，选择并配置 根据机器人命令加载配置，配置了相应的相机配置后，才可以调用并进行切换。
 
     **Return type**:
 
@@ -1539,7 +1539,7 @@ daoai_precision_check()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-为保证机器人和视觉认知系统之间对数据的正确解读，以下元数据始终与请求和回应消息一起发送：
+为保证机器人和DaoAI Vision Pilot之间对数据的正确解读，以下元数据始终与请求和回应消息一起发送：
 
 .. list-table:: Metadata message
 
@@ -1548,7 +1548,7 @@ daoai_precision_check()
    * - meta_1
      - |meta_info|
    * - meta_2
-     - meta_2，即最后一个字段，代表机器人的版本和视觉认知系统之间的协议版本号. **目前的版本号** = 2
+     - meta_2，即最后一个字段，代表机器人的版本和DaoAI Vision Pilot之间的协议版本号. **目前的版本号** = 2
 
      
 .. |meta_info| raw:: html
@@ -1583,11 +1583,11 @@ daoai_precision_check()
 
 1. 设置好机器人脚本中所有的校准位姿。
 
-2. 机器人使用 RC_START_MANUAL_CALIBRATION 发送开始校准指令到视觉认知系统。
+2. 机器人使用 RC_START_MANUAL_CALIBRATION 发送开始校准指令到DaoAI Vision Pilot。
 
 3. 视觉回复 DAOAI_MODE_CALIBRATION 确认正处于手动校准模式。
 
-4. 机器人使用 RC_MANUAL_ACCUMULATE_POSE 指令让视觉认知系统进入累计流程。视觉进行储存并回复 DAOAI_MODE_CALIBRATION 让机器人继续进行下一个位姿移动。
+4. 机器人使用 RC_MANUAL_ACCUMULATE_POSE 指令让DaoAI Vision Pilot进入累计流程。视觉进行储存并回复 DAOAI_MODE_CALIBRATION 让机器人继续进行下一个位姿移动。
 
 5. 在累计流程结束时机器人发送 RC_STOP_MANUAL_CALIBRATION 表示已结束校准流程。
 
@@ -1629,7 +1629,7 @@ daoai_precision_check()
 
 1. 设置好第一个校准位姿。
 
-2. 机器人使用 RC_GUIDANCE_CALIBRATION 发送开始引导校准指令到视觉认知系统。
+2. 机器人使用 RC_GUIDANCE_CALIBRATION 发送开始引导校准指令到DaoAI Vision Pilot。
 
 3. 视觉会进行拍摄并计算出下一个位姿，而且会对当前位姿作出提议，用户需根据视觉的提示移动机器人到更理想的位姿：
 
@@ -1660,11 +1660,11 @@ daoai_precision_check()
 
 1. 设置好第一个校准位姿。
 
-2. 机器人使用 RC_START_AUTO_CALIBRATION 发送开始自动校准指令到视觉认知系统，并发送当前机器人位姿。
+2. 机器人使用 RC_START_AUTO_CALIBRATION 发送开始自动校准指令到DaoAI Vision Pilot，并发送当前机器人位姿。
 
-3. 在确认视觉认知系统处于正确的流程后，回复机器人 DAOAI_MODE_AUTO_CALIBRATION 进入采集图像和累计流程。
+3. 在确认DaoAI Vision Pilot处于正确的流程后，回复机器人 DAOAI_MODE_AUTO_CALIBRATION 进入采集图像和累计流程。
 
-4. 机器人使用 RC_ACCUMULATE_POSE 指令让视觉认知系统进入累计流程。视觉进行储存计算出下一个校准位姿，并回复 DAOAI_MODE_AUTO_CALIBRATION 移动机器人到下一个位姿。
+4. 机器人使用 RC_ACCUMULATE_POSE 指令让DaoAI Vision Pilot进入累计流程。视觉进行储存计算出下一个校准位姿，并回复 DAOAI_MODE_AUTO_CALIBRATION 移动机器人到下一个位姿。
 
 5. 在累计流程结束时视觉向机器人发送 DAOAI_DONE_AUTO_CALIBRATION 使机器人结束校准流程。
 
@@ -1695,11 +1695,11 @@ daoai_precision_check()
 
 2. 机器人使用 RC_DAOAI_CAPTURE_AND_PROCESS 请求拍照并识别物体。
 
-3. 视觉认知系统拍照成功后回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
+3. DaoAI Vision Pilot拍照成功后回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
 
 4. 机器人发送 RC_DAOAI_PICK_POSE 请求视觉发送抓取位姿；
 
-5. 视觉认知系统回复三种以下的可能性：DAOAI_OBJECTS_FOUND ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
+5. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
 
     a. 相机拍摄成功并且视觉成功探测到一个或多个物体时，视觉发送 DAOAI_OBJECTS_FOUND = 2 和抓取位姿。payload_1数值为剩余的需抓取物体数量，此payload会根据每次抓取结束后更新；
 
@@ -1707,7 +1707,7 @@ daoai_precision_check()
 
     c. 没有安全抓取位姿时，视觉发送 DAOAI_NO_COLLISION_FREE_POSE = 4；
 
-6. 视觉认知系统回复的payload_1 代表物体剩余数量（包括当前发送的物体）； payload_2 代表物体在深度学习中的标签码，用于区分物体种类。
+6. DaoAI Vision Pilot回复的payload_1 代表物体剩余数量（包括当前发送的物体）； payload_2 代表物体在深度学习中的标签码，用于区分物体种类。
 
 7. 场景内的物体抓取完成时，视觉会在最后一个需要抓取的物体信息中，payload_1 = 1，以此告知机器人剩余一个物体抓取，结束后将需要重新拍照。这时如果再调用daoai_get_picking_pose()则返回的payload_1 就会为0，代表没有可抓取的物体。
 
@@ -1737,11 +1737,11 @@ daoai_precision_check()
 
 2. 抓取结束后，机器人再次请求 RC_DAOAI_CAPTURE_AND_PROCESS 拍照并识别放置点位。
 
-3. 视觉认知系统回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
+3. DaoAI Vision Pilot回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
 
 4. 机器人发送 DAOAI_DROP_OFF_POSE 请求视觉发送放置位姿；
 
-5. 视觉认知系统回复三种以下的可能性：DAOAI_DROP_OFF_POSE ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
+5. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_DROP_OFF_POSE ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
 
     a. 相机拍摄成功并且视觉成功探测放置点位时，视觉发送 DAOAI_DROP_OFF_POSE = 6 和抓取位姿。payload_1数值为剩余的需抓取物体数量，此payload会根据每次抓取结束后更新；
 

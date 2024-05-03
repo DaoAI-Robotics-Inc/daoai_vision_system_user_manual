@@ -9,7 +9,7 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 首先，完整提供以下信息：
 
 #. 软件版本。
-    * DaoAI 机器人视觉认知系统
+    * DaoAI Vision Pilot
         .. image:: images/faq-version.png
             :scale: 60%
     

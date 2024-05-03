@@ -17,7 +17,7 @@ DaoAI相机使用CAT-6网线连接到您的工控机。需要在连接网线后�
 
 |
 
-连接相机到DaoAI机器人视觉认知系统
+连接相机到DaoAI Vision Pilot
 ----------------------------------
 
 .. image:: images/connect_cameras.png

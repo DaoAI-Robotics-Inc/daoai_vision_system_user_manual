@@ -8,7 +8,7 @@
 软件结构
 ~~~~~~~~~~~~~~~~
 
-    DaoAI Vision Cognition System 软件的组成是有两个部分：用户界面和后台处理，又称前端和后端。用户界面（前端）负责收集用户的输入信息，点击、拖拽和上传等；后台处理（后端）负责数据处理、算法处理和逻辑处理等。
+    DaoAI Vision Pilot 软件的组成是有两个部分：用户界面和后台处理，又称前端和后端。用户界面（前端）负责收集用户的输入信息，点击、拖拽和上传等；后台处理（后端）负责数据处理、算法处理和逻辑处理等。
 
     打开浏览器，操作的是属于用户界面（前端）；后台处理（后端）实际上是看不见的，他们是通过网络协议进行交流的。
 
@@ -55,7 +55,7 @@
 旧版软件(仅后端模式)
 ~~~~~~~~~~~~~~~~~~~
 
-    DaoAI Vision Cognition System 也支持仅后端模式，但这模式下设置和操作难度极高，没法支持远程操控等，请谨慎使用。
+    DaoAI Vision Pilot 也支持仅后端模式，但这模式下设置和操作难度极高，没法支持远程操控等，请谨慎使用。
 
     .. warning::
         此模式需要学习大量的模块知识和流程控制，请谨慎使用。
@@ -182,7 +182,7 @@
 
 
 
-如何用其他电脑访问DaoAI Vision Cognition System
+如何用其他电脑访问DaoAI Vision Pilot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     .. note::
@@ -198,13 +198,13 @@
         :align: center 
         :scale: 60%
 
-    查看被访问端DaoAI Vision Cognition System的IP及端口号，可以看到IP及端口是：192.168.1.137:3000
+    查看被访问端DaoAI Vision Pilot的IP及端口号，可以看到IP及端口是：192.168.1.137:3000
 
     .. image:: Images/8.png
         :align: center 
         :scale: 65%
     
-    在访问端电脑浏览器输入被访问端DaoAI Vision Cognition System的IP及端口号，这样就可以正常访问了
+    在访问端电脑浏览器输入被访问端DaoAI Vision Pilot的IP及端口号，这样就可以正常访问了
 
     .. image:: Images/9.png
         :align: center 

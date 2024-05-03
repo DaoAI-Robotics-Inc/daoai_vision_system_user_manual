@@ -6,8 +6,8 @@ project = 'DaoAI Vision Pilot 用户手册'
 copyright = '2021-2024 DaoAI Robotics Inc.'
 author = 'DaoAI'
 
-release = '24.2.0'
-version = '2.24.2.0'
+release = '24.3.0'
+version = '2.24.3.0'
 
 # -- General configuration
 

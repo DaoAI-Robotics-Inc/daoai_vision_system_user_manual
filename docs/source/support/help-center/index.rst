@@ -122,7 +122,7 @@ Help Center 网站： https://daoai.atlassian.net/servicedesk/customer/portals
 
 在此处填写 Bug 的详细介绍，请 **尽量详细** 的描述问题，逐步描述如何复现Bug
 
-请包括：DaoAI Vision Cognition System版本，DaoAI Camera Studio版本（如果问题与相机软件相关），以及现场工程师名字（如果有的话）
+请包括：DaoAI Vision Pilot版本，DaoAI Camera Studio版本（如果问题与相机软件相关），以及现场工程师名字（如果有的话）
 
 .. image:: Images/6.png
     :align: center
