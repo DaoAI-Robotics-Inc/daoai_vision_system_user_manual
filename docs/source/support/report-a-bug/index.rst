@@ -9,25 +9,28 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 首先，完整提供以下信息：
 
 #. 软件版本。
-    * DaoAI Vision Pilot
+    * **DaoAI Vision Pilot 版本信息**
         .. image:: images/faq-version.png
             :scale: 60%
     
-    * DaoAI 3D相机工作室
-        .. image:: images/faq-camera-version.png
-            :scale: 80%
+    * **DaoAI 3D InspecTRA 版本信息**
 
 #. 现象描述。
 
-#. 详细的重现步骤，要包括文字描述和屏幕截图或者屏幕录制。
+#. 详细的重现步骤，要包括 **文字描述** 和 **屏幕截图** 或者 **屏幕录制** 。
 
     .. tip:: 如果无法重现错误，请列出在出现错误之前的所有操作。
 
-#. 压缩特定的工作空间文件夹。包含重现错误所需的所有文件（dcf数据、深度学习模型和配置文件）。
+#. 压缩工作空间文件夹。工作空间文件夹内包含重现错误所需的所有文件（dcf数据、深度学习模型和配置文件、手眼标定文件、控制台log信息等）。
     .. image:: images/faq-data-folder.png
+
+.. warning::
+    在相机文件夹下的 Running Data 会保存1个小时内相机采集的所有数据，如果其中包含您想要保存的数据，请及时备份到其它文件夹内，避免被系统定时删除。
+        .. image:: images/running-data-folder.png
 
 #. 如果错误导致软件崩溃，请在 **"C:\\ProgramData\\DaoAI\\Vision\\Crashpad\\db\\reports"** 路径下查找由崩溃生成的DMP文件。
     .. image:: images/faq-crashpad-path.png
+        :scale: 80%
 
     .. important:: ProgramData是Windows中的一个隐藏文件夹，请选中此框以显示隐藏项目。
         

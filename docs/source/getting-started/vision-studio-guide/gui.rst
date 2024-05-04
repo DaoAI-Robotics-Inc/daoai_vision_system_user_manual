@@ -15,10 +15,10 @@
 
         那么您可以从网络内的任何电脑访问 198.162.1.123:8888 进入DaoAI机器人引导系统。
 
-WeRobotics Cognition System页面
-------------
+DaoAI Vision Pilot 服务器实例管理器页面
+--------------------------------------------
 
-双击图标进入后，您会看到以下页面
+双击桌面图标进入后，您会看到以下页面
 
 .. image:: images/WeRobotics_System.png
     :scale: 80%
