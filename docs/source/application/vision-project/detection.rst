@@ -9,8 +9,9 @@
 
         dl_modfinder
         dl_kp
-        dl_3dmodfinder
-        trans3d
+        dl_3dobjfinder
+        large_obj
+        small_obj
         driftcheck
         dl_2dkp
 

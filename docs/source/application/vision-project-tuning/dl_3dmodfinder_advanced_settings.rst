@@ -1,4 +1,4 @@
-DL 3D Object Finder 检测流程高级配置
+随机箱拾取 （Random Bin Picking） 检测流程高级配置
 ==============================
 
 本章会详细介绍如何优化 3D Object Finder 检测流程，以及它所提供的高级检测配置。

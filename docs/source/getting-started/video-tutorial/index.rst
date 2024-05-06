@@ -85,7 +85,7 @@
 
 |
 
-4. DL Object Finder 设置+部署
+4. 半有序标准 （Semi-Ordered Standard） 设置+部署
 -----------------------------------
 
 .. raw:: html
@@ -127,7 +127,7 @@
 
 |
 
-7. Large Object Picking 大物体抓取
+7. 大物体 （Large Object） Picking 大物体抓取
 -----------------------------------
 
 .. raw:: html

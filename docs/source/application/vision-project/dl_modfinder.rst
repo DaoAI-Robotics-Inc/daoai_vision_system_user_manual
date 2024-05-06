@@ -1,14 +1,14 @@
-Deep Learning Object Finder 检测流程
-==========================================
+半有序标准 （Semi-Ordered Standard） 检测流程
+========================================================================
 
-本章会详细介绍如何设置 Deep Learning Object Finder 检测流程。
+本章会详细介绍如何设置 半有序标准 （Semi-Ordered Standard） 检测流程。
 
     .. image:: images/dl_modfinder_overview.png
         :scale: 100%
 
 |
 
-Deep Learning Object Finder 检测流程使用了图形深度学习技术，2D边缘匹配技术和3D点云对准技术，以实现物体的定位和检测。
+半有序标准 （Semi-Ordered Standard） 检测流程使用了图形深度学习技术，2D边缘匹配技术和3D点云对准技术，以实现物体的定位和检测。
 
 
 1. 手眼标定
@@ -26,6 +26,11 @@ Deep Learning Object Finder 检测流程使用了图形深度学习技术，2D�
 |
 
 点击上传来浏览深度学习的 ``配置`` 和 ``权重`` 文件。等上传完成后，点击保存模型。
+
+.. note::
+
+    ``配置`` 文件通常有.txt 文件格式和 .json 文件格式，都可以直接上传。|br|
+    ``权重`` 文件通常有 .pt 文件格式，.onnx 文件格式，以及 .torchscript 文件格式， 都可以直接上传。
 
 看到下面的标签栏中出现您的深度学习标签名称，确认正确后，便可点击下一步。
 
@@ -82,27 +87,29 @@ Deep Learning Object Finder 检测流程使用了图形深度学习技术，2D�
     .. image:: images/dl_modfinder_refine_model_2.png
         :scale: 85%
 
-|
-
     .. note::
         上图中掩码以绿色绘制出来。 掩码绘制的工具：
-        1. 掩码的笔刷大小
-        2. 掩码的透明度
-        3. 掩码的颜色
-        4. 撤销上一笔的绘制
-        5. 清除所有掩码 
-        
+        1. 绘制掩码工具 |br|
+        2. 擦除掩码工具 |br|
+        3. 撤回上一笔绘制 |br|
+        4. 重做上一笔绘制 |br|
+        5. 画笔大小 |br|
+        6. 掩码颜色 |br|
+        7. 边缘模型图像缩放 |br|
+        8. 点云模型显示开关 |br|
+        9. 点云模型显示窗口 
 
-8. （可选）调试模型的高级设置，更多高级设置详情，请阅读 :ref:`DL Object Finder 检测流程高级配置`
+
+8. （可选）调试模型的高级设置，更多高级设置详情，请阅读 :ref:`半有序标准 （Semi-Ordered Standard） 检测流程高级配置`
 
     .. image:: images/dl_modfinder_refine_model_3.png
         :scale: 85%
 
 |
 
-9. (可选) 调试通用高级设置，更多高级设置详情，请阅读 :ref:`DL Object Finder 检测流程高级配置`
+9. (可选) 调试通用高级设置，更多高级设置详情，请阅读 :ref:`半有序标准 （Semi-Ordered Standard） 检测流程高级配置`
 
-10. 切换到快速检测栏，点击快速检测，下图中绿色部分就是物体模型检测后的结果，请确保物体能够被正确的检测到。如果您的检测效果不佳，请检查1-9的步骤是否正确，更多请阅读 :ref:`视觉项目优化`
+10. 点击快速检测，下图中绿色部分就是物体模型检测后的结果，请确保物体能够被正确的检测到。如果您的检测效果不佳，请检查1-9的步骤是否正确，更多请阅读 :ref:`视觉项目优化`
 
     .. image:: images/dl_modfinder_quick_detect.png
         :scale: 65%
@@ -110,3 +117,8 @@ Deep Learning Object Finder 检测流程使用了图形深度学习技术，2D�
 |
 
 这样检测部分就设置好了，可以进行下一步： :ref:`设置抓取策略` 。
+
+
+.. |br| raw:: html
+
+      <br>

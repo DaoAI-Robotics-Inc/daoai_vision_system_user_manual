@@ -1,13 +1,13 @@
-Deep Learning 3D Object Finder 检测流程
-==========================================
+随机箱拾取 （Random Bin Picking） 检测流程
+================================================
 
-本章会详细介绍如何设置 Deep Learning 3D Object Finder 检测流程。
+本章会详细介绍如何设置 随机箱拾取 （Random Bin Picking） 检测流程。
     .. image:: images/dl_3d_modfinder_overview.png
         :scale: 100%
 
 |
 
-Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3D点云与3D模型匹配，实现了对物体的3D定位。
+随机箱拾取 （Random Bin Picking） 检测流程使用了图形深度学习技术，3D点云与3D模型匹配，实现了对物体的3D定位。
 
 1. 手眼标定
 ----------------
@@ -24,6 +24,11 @@ Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3
 
 点击上传来浏览深度学习的 ``配置`` 和 ``权重`` 文件。等上传完成后，点击保存模型。
 
+.. note::
+
+    ``配置`` 文件通常有.txt 文件格式和 .json 文件格式，都可以直接上传。|br|
+    ``权重`` 文件通常有 .pt 文件格式，.onnx 文件格式，以及 .torchscript 文件格式， 都可以直接上传。
+
 看到下面的标签栏中出现您的深度学习标签名称，确认正确后，便可点击下一步。
 
 3. 配置检测流程
@@ -35,6 +40,7 @@ Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3
         :scale: 65%
 
 |
+
 2. 点击设置ROI, 使用窗口中的框截选出检测区域，这一步是为了移除背景，等干扰点云，只保留物体点云会出现的区域，这样可以使检测更快更准。这一步同时设置了参考系，ROI的坐标就是参考系。
 
     .. image:: images/3dmodfinder_roi.png
@@ -50,23 +56,31 @@ Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3
 
 3. 检查显示窗口的ROI截取的点云是否合适，如果需要修改ROI，请重复1，2，重新设置ROI.
 
-4. 然后就需要定义检测模型。在3D Object Finder中支持两种定义检测模型的方法：上传检测物体的CAD模型文件，或与Object Finder中相似，使用相机拍摄单一被检测物体以生成点云用于物体的识别。
+4. 然后就需要定义检测模型。在3D Object Finder中支持两种定义检测模型的方法：
 
-    .. image:: images/3dmodfinder_define_model_1.png
-        :scale: 65%
+    a. 上传检测物体的CAD模型文件
+        .. image:: images/3dmodfinder_define_model_1.png
+            :scale: 65%
+
+    b. 使用相机拍摄物体并截取点云作为物体模型。
+        .. image:: images/3dmodfinder_define_model_b.png
+            :scale: 65%
 
 |
 
-5. （可选）点击调整模型可以对CAD模型文件生成的点云模型进行调整，更多详情请阅读 :ref:`DL 3D Object Finder 检测流程高级配置`。
+5. 点击调整模型可以对CAD模型文件生成的点云模型做更多定义，然后 **点击生成模型** 。更多详情请阅读 :ref:`随机箱拾取 （Random Bin Picking） 检测流程高级配置`。
 
     .. image:: images/3dmodfinder_define_model_2.png
         :scale: 100%
+
+.. warning::
+    这一步一定要 **点击生成模型** 才可以让模型检测生效。
 
 |
 
 6. 完成对检测模型的定义后，即可点调整模型中的生成模型以进行下一步。
 
-7. (可选) 调试常规高级设置，更多高级设置详情，请阅读 :ref:`DL 3D Object Finder 检测流程高级配置`。
+7. (可选) 调试常规高级设置，更多高级设置详情，请阅读 :ref:`随机箱拾取 （Random Bin Picking） 检测流程高级配置`。
 
 8. 检测模型配置完毕后，即可点击快速检测来测试检测模型的效果是否如同预期。同时可以使用右上角的查看检测结果来切换3D点云匹配结果或相机拍摄实际点云结果。
 
@@ -76,10 +90,6 @@ Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3
 
 |
 
-    .. image:: images/3dmodfinder_quick_detect_2.png
-        :scale: 85%
-
-|
 切换图片上方的标签可以切换查看深度学习结果。
 
     .. image:: images/3dmodfinder_dl_result.png
@@ -90,3 +100,8 @@ Deep Learning 3D Object Finder 检测流程使用了图形深度学习技术，3
 如果您的检测效果不佳，请检查1-7的步骤是否正确，更多请阅读 :ref:`视觉项目优化`
 
 这样检测部分就设置好了，可以进行下一步： :ref:`设置抓取策略` 。
+
+
+.. |br| raw:: html
+
+      <br>
