@@ -20,8 +20,8 @@ DaoAIVision_2.24.3.0_xxx，2024年5月6号 full note:
 - 新增了最新的DaoAI World模型支持 onnx 模型文件和 torchscript模型文件
 - 新增了最新的DaoAI InspecTRA相机驱动支持
 - 增加了三种物体排序选项：zig zag, wrap around, edge
-- 原本的 Large obj 抓取流程分为两种抓取流程 - Large object & Semi-order Fast 3D key point，根据大小模型来使用
-- 优化了Large object & Semi-order Fast 3D key point 抓取流程的模型的用户操作和显示
+- 原本的 Large obj 抓取流程分为两种抓取流程 - 大物体 （Large Object） & Semi-order Fast 3D key point，根据大小模型来使用
+- 优化了大物体 （Large Object） & Semi-order Fast 3D key point 抓取流程的模型的用户操作和显示
 - 优化了检测步骤中verification 处理的默认值
 - 优化了检测步骤中verification 过滤网格模型匹配度时的表现
 - 更改了抓取配置中物体排序和避碰处理的步骤顺序，现在先做物体排序，后做避碰
