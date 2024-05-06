@@ -1,7 +1,7 @@
 常见问题 
 ===========
 
-如何安装或更新GPU驱动
+如何安装或更新GPU驱动?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     在工控机桌面找到此电脑，右键选择管理
@@ -37,7 +37,7 @@
 
 
 
-如何用其他电脑访问DaoAI Vision Cognition System
+如何用其他电脑访问Vision Studio?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     .. note::
@@ -53,13 +53,13 @@
         :align: center 
         :scale: 60%
 
-    查看被访问端DaoAI Vision Cognition System的IP及端口号，可以看到IP及端口是：192.168.1.137:3000
+    查看被访问端Vision Studio的IP及端口号，可以看到IP及端口是：192.168.1.137:3000
 
     .. image:: Images/8.png
         :align: center 
         :scale: 65%
     
-    在访问端电脑浏览器输入被访问端DaoAI Vision Cognition System的IP及端口号，这样就可以正常访问了
+    在访问端电脑浏览器输入被访问端Vision Studio的IP及端口号，这样就可以正常访问了
 
     .. image:: Images/9.png
         :align: center 
