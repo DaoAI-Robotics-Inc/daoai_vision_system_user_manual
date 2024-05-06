@@ -37,7 +37,7 @@
 
       请下载 `DaoAI Vision Pilot <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
 
-      然后运行完整安装包进行安装： DaoAIVision_2.24.2.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
+      然后运行完整安装包进行安装： DaoAIVision_2.24.3.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
       
          .. image:: images/full_installer.png
             :scale: 100%
@@ -45,7 +45,7 @@
       .. note::
          完整安装包同时会安装一个DaoAI Camera Studio软件，请点击安装以确保软件可以正常运行。
 
-      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.24.2.0_<版本号>_patch_Key.exe 。
+      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.24.3.0_<版本号>_patch_Key.exe 。
       
 
          
@@ -57,7 +57,7 @@
             :scale: 100%
 
       **DaoAI Vision Pilot** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
-      **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
+      **DaoAI 3D InspecTRA** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
 
       在安装DaoAI Vision Pilot软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
 
