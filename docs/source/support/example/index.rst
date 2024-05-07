@@ -5,7 +5,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
 ~~~~~~~~~~~~~
 
     .. image:: Images/demo.png
-        :align: center 
+        :scale: 60% 
 
     - 在本文中，您将学习如何使用DaoAI相机分拣上图中乱序摆放的烟感器。我们将讲述该实例完整的搭建和调试步骤。
     - 结果将是使用ABB1200机器人用真空抓手精准抓取烟感器，其中将反面的烟感器通过翻转台翻转为正面、并有序码垛摆放好。
@@ -34,7 +34,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 下图为烟感器标注样例，标注规则：烟感器正面标签为“zheng”,反面标签为“fan”。
 
     .. image:: Images/实例2.png
-        :align: center 
+        :scale: 60% 
 
 手眼标定
 ----------
@@ -52,12 +52,12 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 使用DaoAI World将训练好的“训练集”“导出训练好的模型”，该文件会在浏览器下载。
 
     .. image:: Images/实例3.png
-        :align: center 
+        :scale: 60% 
 
     - 导入深度学习文件：点击上传，选择深度学习“txt”“pt”结尾的文件、上传成功之后会显示标注时标签信息。
 
     .. image:: Images/实例4.png
-        :align: center 
+        :scale: 60% 
 
 
 设置检测区域
@@ -66,11 +66,11 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 依次点击“探测”、"拍照"，显示窗口就会显示相机采集到的点云场景。
 
     .. image:: Images/实例5.png
-        :align: center 
+        :scale: 60% 
 
     - 点击“设置ROI”
     .. image:: Images/实例8.png
-        :align: center 
+        :scale: 60% 
 
     .. note::
         如何拖动、旋转、放大或缩下调整框请参考 :ref:`显示窗口`
@@ -78,12 +78,12 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 调整显示窗口的调整框（框选住需要抓取探测的箱体）
 
     .. image:: Images/实例6.png
-        :align: center 
+        :scale: 60% 
 
     - 点击“保存”，显示窗口就会只保留箱体部分的点云信息
 
     .. image:: Images/实例7.png
-        :align: center 
+        :scale: 60% 
 
 
 定义正反面模型
@@ -92,23 +92,23 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 点击“开始”，进入到定义模型界面中
 
     .. image:: Images/实例13.png
-        :align: center 
+        :scale: 60% 
 
 
     - 给正面烟感器定义模型，选择“zheng”,依次点击"拍照"、“设置ROI”。
 
     .. image:: Images/实例9.png
-        :align: center 
+        :scale: 60% 
 
     - 在显示窗口调整框体大小及位置、使框体正好框选出来烟感器正面的点云，然后点击“定义模型”，
 
     .. image:: Images/实例10.png
-        :align: center 
+        :scale: 60% 
 
     - 点击“>”,显示窗口就会显示我们框选好的正面烟感器的模型，检查是否完整或缺失。
 
     .. image:: Images/实例14.png
-        :align: center 
+        :scale: 60% 
 
     - 反面烟感器定义同理。
     - 这样我们的烟感器正面模型就定义完成了。
@@ -129,7 +129,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 检测抓取关系正确之后、点击“保存位姿”、“虚拟示教”。
 
     .. image:: Images/实例16.png
-        :align: center 
+        :scale: 60% 
 
 
 设置防碰撞模块
@@ -141,7 +141,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 最后点击保存即可完成防碰撞模块的设置了。
     - 更多设置参考 :ref:`防碰撞功能如何使用？`
     .. image:: Images/实例18.png
-        :align: center 
+        :scale: 60% 
 
 设置抓取顺序
 --------------
@@ -152,7 +152,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - - 更多设置参考 :ref:`如何从最上方抓取物体？`
 
     .. image:: Images/实例19.png
-        :align: center
+        :scale: 60%
 
 如何部署该任务
 ---------
@@ -160,7 +160,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 在“部署”中点击“启动”。接着我们运行机器人脚本、就可以进行抓取烟感器了
 
     .. image:: Images/实例23.png
-        :align: center
+        :scale: 60%
 
 如何查看识别及匹配情况
 -----------
@@ -168,14 +168,14 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 我们在部署任务后，显示窗口默认会选择“抓取策略显示”，此时显示窗口会显示排序之后的烟感器。
 
     .. image:: Images/实例22.png
-        :align: center
+        :scale: 60%
 
     - 同时我们也可以选择“2D显示”来观察深度学习识别的情况。
     
     .. image:: Images/实例20.png
-        :align: center
+        :scale: 60%
     
     - 同时我们也可以选择“识别3D显示”来观察匹配的是否正确。
 
     .. image:: Images/实例21.png
-        :align: center
+        :scale: 60%

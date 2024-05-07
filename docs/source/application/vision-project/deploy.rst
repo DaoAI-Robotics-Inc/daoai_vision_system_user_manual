@@ -14,7 +14,7 @@
 
 以UR 机器人为例
 
-1. 首先来到任务列表，确认您想要在机器人上调用运行的任务的task id。
+1. 首先确认您想要在机器人上调用运行的任务的task id。
 
     .. image:: images/task_list.png
         :scale: 60%

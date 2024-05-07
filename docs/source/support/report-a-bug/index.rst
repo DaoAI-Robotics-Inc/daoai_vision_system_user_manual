@@ -11,7 +11,7 @@ Bug报告的原则是让任何人都能够理解问题并轻松地重现它。
 #. 软件版本。
     * **DaoAI Vision Pilot 版本信息**
         .. image:: images/faq-version.png
-            :scale: 60%
+            :scale: 50%
     
     * **DaoAI 3D InspecTRA 版本信息**
 
