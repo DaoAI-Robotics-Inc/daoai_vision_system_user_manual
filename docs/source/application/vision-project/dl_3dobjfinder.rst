@@ -68,7 +68,30 @@
 
 |
 
-5. 点击调整模型可以对CAD模型文件生成的点云模型做更多定义，然后 **点击生成模型** 。更多详情请阅读 :ref:`随机箱拾取 （Random Bin Picking） 检测流程高级配置`。
+5. （可选）调整模型的匹配范围：顶部（+x 30°）， 顶部和底部（+x 30°，-x 30°），360°。
+    .. image:: images/3dobjfinder_scanrange.png
+        :scale: 80%
+
+    或者选择自定义范围。
+        .. image:: images/3dobjfinder_scanrange_custom.png
+            :scale: 80%
+
+    或者从窗口设置匹配视角。
+        .. image:: images/3dobjfinder_scanrange_window.png
+            :scale: 80%
+
+    .. note::
+        例：如果选择了顶部(+z 30°)， 则匹配时，物体的z轴朝向将不会超出相对于参考系的z轴倾斜30°以上的姿态。而会在30°范围内进行匹配。
+            .. image:: images/3dobjfinder_scanrange_eg1.png
+                :scale: 80%
+
+        例：如果选择了自定义右 （+x 10°)，则匹配时，物体的x轴将不会超出相对于参考系的z轴倾斜10°以上的姿态。 如下图，使用 右（+x 10°) 检测范围，无法很好的匹配正面朝上的物体，但是匹配右侧朝上的物体则会更好。
+            .. image:: images/3dobjfinder_scanrange_eg2.png
+                :scale: 80%
+
+        例：如果选择了窗口自定义视点，则只会从视点中的角度进行匹配。
+
+6. 点击 **生成模型** 保存模型设置。
 
     .. image:: images/3dmodfinder_define_model_2.png
         :scale: 100%
@@ -78,11 +101,11 @@
 
 |
 
-6. 完成对检测模型的定义后，即可点调整模型中的生成模型以进行下一步。
+7. 完成对检测模型的定义后，即可点调整模型中的生成模型以进行下一步。
 
-7. (可选) 调试常规高级设置，更多高级设置详情，请阅读 :ref:`随机箱拾取 （Random Bin Picking） 检测流程高级配置`。
+8. (可选) 调试常规高级设置，更多高级设置详情，请阅读 :ref:`随机箱拾取 （Random Bin Picking） 检测流程高级配置`。
 
-8. 检测模型配置完毕后，即可点击快速检测来测试检测模型的效果是否如同预期。同时可以使用右上角的查看检测结果来切换3D点云匹配结果或相机拍摄实际点云结果。
+9. 检测模型配置完毕后，即可点击快速检测来测试检测模型的效果是否如同预期。同时可以使用右上角的查看检测结果来切换3D点云匹配结果或相机拍摄实际点云结果。
 
 
     .. image:: images/3dmodfinder_quick_detect.png
