@@ -90,7 +90,9 @@
                 :scale: 80%
 
         例：如果选择了窗口自定义视点，则只会从视点中的角度进行匹配。
-
+            .. image:: images/3dobjfinder_scanrange_eg3.png
+                :scale: 80%
+                
 6. 点击 **生成模型** 保存模型设置。
 
     .. image:: images/3dmodfinder_define_model_2.png
