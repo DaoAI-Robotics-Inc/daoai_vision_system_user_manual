@@ -75,4 +75,4 @@ DaoAI Vision Pilot不仅仅是一个视觉处理工具，更是一套全面的�
    support/example/index
    support/FAQ/index
    support/report-a-bug/index
-   support/help-center/index
+   .. support/help-center/index
