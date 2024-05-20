@@ -37,17 +37,14 @@
 
       请下载 `DaoAI Vision Pilot <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EmqOEuH6rsVFhFvGRkLffHsBo2CmgBMww6IrSIEuxNoybA?e=YhIEva>`_
 
-      然后运行完整安装包进行安装： DaoAIVision_2.24.2.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
+      然后运行完整安装包进行安装： DaoAIVision_2.24.3.0_<版本号>_full_Key.exe，同时也要确保其余的bin文件也在相同路径。
       
          .. image:: images/full_installer.png
             :scale: 100%
 
-      .. note::
-         完整安装包同时会安装一个DaoAI Camera Studio软件，请点击安装以确保软件可以正常运行。
 
-      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.24.2.0_<版本号>_patch_Key.exe 。
+      **补丁包的安装** 需要首先安装完整包，然后再安装补丁包进行升级：DaoAIVision_2.24.3.0_<版本号>_patch_Key.exe 。
       
-
          
       |br|
 
@@ -57,14 +54,15 @@
             :scale: 100%
 
       **DaoAI Vision Pilot** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
-      **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
+      **DaoAI Camera Studio** 的安装路径为：`C:\\Program Files (x86)\\DaoAI 3D Studio`
+   
 
       在安装DaoAI Vision Pilot软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
 
    .. tab:: 软件
 
-      桌面上的DaoAI Vision Pilot是服务器的管理器。打开后可以添加，删除，管理您的服务器实例。
-         - 您可以使用务器的管理器，创建并运行多个服务器，服务于多个项目运行。
+      桌面上的DaoAI Vision Pilot是服务器的管理器。打开后可以添加或删除，来管理您的服务器实例。
+         - 您可以使用服务器的管理器（“DaoAI Vision Pilot”），来创建并运行多个服务器，服务于多个项目运行。
 
       .. image:: images/instance_manager.png
          :scale: 60%
@@ -75,17 +73,23 @@
             .. image:: images/logo.png
                :scale: 60%
 
-         2. 点击Add Instance来添加一个服务器实例, 然后点击Select, 选择项目文件的读写路径, 并点击Add Instance。
+         2. 点击“添加”一个服务器实例, 然后点击“选择”, 选择项目文件的读写路径, 并点击“添加”。
             
             .. image:: images/add_ins.png
                :scale: 60%
          
-         3. 点击绿色的运行按钮，看到服务器状态变为运行，那么这时候服务器就启动了。
+         3. 点击绿色的运行按钮，看到服务器状态变为“Running”，那么这时候服务器就启动了。
             
-            .. image:: images/launch.png
+            .. image:: images/绿色按钮.png
+               :scale: 60%
+
+            .. image:: images/Running.png
                :scale: 60%
          
          4. 点击Launch按钮，会弹出Chrome页面并访问服务器页面。
+
+            .. image:: images/launch.png
+               :scale: 60%
 
          5. 您也可以手动在网页浏览器地址栏输入服务器的 <ip:port> 来访问服务器。
 

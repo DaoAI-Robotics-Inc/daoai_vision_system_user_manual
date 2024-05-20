@@ -19,24 +19,34 @@
 
 2. 在这里点击 ``+ 新建任务``
 
-3. 依次选择任务类型，检测方法，
+.. image:: images/新建任务.png
+    :scale: 60%
+
+3. 选择任务类型，检测方法。
 
 .. image:: images/task.png
     :scale: 100%
 
 4. 填入任务详情。
+ - 填入您所创建的任务名称
+ - 选择该项目中连接的相机
+ - 选择该项目中连接的机器人
+ - 选择该项目中上传或标定好的标定文件
 
 .. image:: images/info.png
     :scale: 80%
 
-5. 点击创建任务添加任务。
+5. 点击“创建任务”。
 
 .. image:: images/task_added.png
-    :scale: 60%
+    :scale: 100%
 
+这样任务就添加完成了。
 
+.. image:: images/创建好的任务.png
+    :scale: 100%
 
-这样任务就添加完成了下一步请参考检测流程的详细配置：
+下一步请参考检测流程的详细配置：
 
     .. toctree::
         :maxdepth: 1

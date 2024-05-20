@@ -40,13 +40,13 @@
 
 .. note::
 
-    请求消息的组成为 “x,y,z,rx,ry,rz,w,command,payload_1,payload_2,meta_1,meta_2;”. (其中w是四元数的实部，其它顺序填0即可) |br|
+    请求消息的组成为 “x,y,z,rx,ry,rz,w,command,payload_1,payload_2,meta_1,meta_2;” (其中w是四元数的实部，其它顺序填0即可) |br|
 
     例：请求消息 “8666960,297000,12610000,6989,1772190,1796940,0,21,2,0,99,1;” |br|
 
-    回复消息的组成为 “x,y,z,rx,ry,rz,w,payload_1,payload_2,status,meta_1,meta_2;”. |br|
+    回复消息的组成为 “x,y,z,rx,ry,rz,w,payload_1,payload_2,payload_3,payload_4,payload_5,payload_6,status,meta_1,meta_2;” |br|
     
-    例：回复消息 “8666960,297000,12610000,6989,1772190,1796940,0,1,0,3,99,1;” |br|
+    例：回复消息 “8666960,297000,12610000,6989,1772190,1796940,0,1,0,0,0,0,0,3,99,1;” |br|
 
 
 字节串
