@@ -15,7 +15,7 @@ DaoAI Vision Pilot 培训视频 - 第一节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_1.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_1.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -28,7 +28,7 @@ DaoAI Vision Pilot 培训视频 - 第二节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_2.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_2.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -40,7 +40,7 @@ DaoAI Vision Pilot 培训视频 - 第三节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_3.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_3.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -52,7 +52,7 @@ DaoAI Vision Pilot 培训视频 - 第四节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_4.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_4.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -64,7 +64,7 @@ DaoAI Vision Pilot 培训视频 - 第五节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_5.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_5.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -76,7 +76,7 @@ DaoAI Vision Pilot 培训视频 - 第六节
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/vision_pilot_training_6.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/vision_pilot_training_6.mp4" type="video/mp4">
         </video>
     </div>
 

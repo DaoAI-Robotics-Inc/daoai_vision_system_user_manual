@@ -16,7 +16,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/1.%20%E9%87%87%E9%9B%86+%E6%A0%87%E6%B3%A8.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/1.%20%E9%87%87%E9%9B%86+%E6%A0%87%E6%B3%A8.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -32,7 +32,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/2.a%20eye-to-hand自动校准.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/2.a%20eye-to-hand自动校准.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -45,7 +45,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/2.b%20eye-to-hand引导校准.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/2.b%20eye-to-hand引导校准.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -58,7 +58,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/2.c%20eye-to-hand手动校准.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/2.c%20eye-to-hand手动校准.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -71,7 +71,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/2.d%20eye-in-hand自动校准.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/2.d%20eye-in-hand自动校准.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -84,7 +84,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/3.%20设置tcp+检测流程+部署.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/3.%20设置tcp+检测流程+部署.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -97,7 +97,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/4.%20DL_object_finder%20设置+部署.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/4.%20DL_object_finder%20设置+部署.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -111,7 +111,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/5.3d_object_finder.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/5.3d_object_finder.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -125,7 +125,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/6.empty_box_check.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/6.empty_box_check.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -139,7 +139,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/7.large_obj.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/7.large_obj.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -154,7 +154,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/8.precision_check.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/8.precision_check.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -168,7 +168,7 @@
 
     <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video width="100%" height="auto" controls>
-            <source src="https://docs.daoai.ca/static/videos/9.2d_picking.mp4" type="video/mp4">
+            <source src="http://docs.welinkirt.com/static/videos/9.2d_picking.mp4" type="video/mp4">
         </video>
     </div>
 
