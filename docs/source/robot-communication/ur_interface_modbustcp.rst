@@ -1,4 +1,4 @@
-UR机器人通讯接口
+UR机器人Modbus TCP通讯接口
 ===================
 
 本章会详细介绍机器人和DaoAI Vision Pilot之间的通讯协议。
@@ -10,11 +10,11 @@ UR机器人通讯接口
 .. contents:: 
     :local:
 
-机器人和DaoAI Vision Pilot之间以发送指令 |:left_right_arrow:| 接收程序回应 的模式交换信息，其中机器人充当客户端，DaoAI Vision Pilot充当服务器。
+机器人和DaoAI Vision Pilot之间以发送指令 |:left_right_arrow:| 接收程序回应的模式交换信息，其中机器人充当slave，DaoAI Vision Pilot充当master。
 机器人向DaoAI Vision Pilot发送请求，例如进行探测流程，DaoAI Vision Pilot在完成一系列操作后用相应的指令进行回复。
 所有请求和等待都是同步的（单线程），在收到前一个等待的回应之前，应确保机器人在此期间不发送任何新请求。
 
-.. image:: images/robot_communication_sync.png
+.. image:: images_modbustcp/robot_communication_sync.png
     :scale: 100%
 
 |
@@ -25,14 +25,14 @@ UR机器人通讯接口
 .. list-table:: 
 
    * - **类型/Type**
-     - TCP/IP socket
+     - Modbus TCP
    * - **端口/Port**
-     - 6969 (TCP)
+     - 502
    * - **字节顺序/Byte order**
      - Network order (big endian)
 
 
-一旦DaoAI Vision Pilot启动，它就会侦听TCP端口 ``6969`` 并等待，直到机器人发起连接。这是在机器人端通过打开对DaoAI Vision Pilot的IP地址和给定端口的TCP套接字来完成的。
+一旦机器人启动程序，它就会侦听TCP端口 ``502`` 并等待，直到DaoAI Vision Pilot系统发起连接。这是基于TCP/IP(传输层/网络层)实现的master和slave的连接。
 
 可以在DaoAI Vision Pilot的网络设置中找到并更改DaoAI Vision Pilot系统的IP地址。
 
@@ -44,9 +44,9 @@ UR机器人通讯接口
 DaoAI Vision Pilot 和机器人之间的指令和回应消息都是固定长度的。因为消息协议的长度是固定的，即使机器人短的编程功能有限，也会比较容易实现。
 
 .. note::
-    请求和回应消息具有固定长度，并且没有开始和/或结束字符。虽然TCP/IP协议可防止数据丢失，但机器人客户端实现负责通过计算发送/接收的字节数并与预期的消息大小进行比较来跟踪消息之间的边界。
+    请求和回应消息具有固定长度，并且没有开始和/或结束字符。虽然TCP/IP协议可防止数据丢失，但机器人和DaoAI Vision Pilot实现通过计算发送/接收的字节数并与预期的消息大小进行比较来跟踪区别消息之间的边界。
 
-请求和回应消息由多个字段组成，每个字段为一个 int32 (4 bytes)。 浮点数据（如距离和角度）将乘以一个恒定系数 MULT = 10000 , 再作为int32发送。 然后，接收端通过将接收的值除以该系数来解码此字段。 负数使用二进制补码进行编码。
+请求和回应消息由多个字段组成，每个字段为一个 int32 (4 bytes)。 浮点数据（如距离和角度）将乘以一个恒定系数 MULT = 10000 , 再作为int32发送。 然后，接收端通过将接收的值除以该系数来解码此字段。
 
 
 |
@@ -83,8 +83,19 @@ DaoAI Vision Pilot 和机器人之间的指令和回应消息都是固定长度�
      - 8 bytes
      - meta_1，即消息的倒数第二个字段，应发送机器人的类型，meta_2，即消息的最后一个字段，应发送机器人协议版本。详细信息请参阅本文Meta消息说明。
 
+.. list-table:: 请求消息标志位
 
-所有字段都是必填的，并且必须为每个请求设置合理的值。有效载荷字段只对某写流程和指令有效。无效的字段请赋予零。
+   * - **字段**
+     - **类型**
+     - **长度**
+     - **描述**
+   * - sign
+     - int32[1]
+     - 4 bytes
+     - sign，在请求消息发送完成之后，此标志位必须置成值1，以通知master端请求消息更新完成。master端读取完成回应消息之后，此标志位必须置成值0，以reset此标志位的状态。
+
+
+所有字段都是必填的，并且必须为每个请求设置合理的值。有效载荷字段只对特定的流程和指令有效。无效的字段请赋予零。
 
 指令字段command可以控制DaoAI Vision Pilot执行不同的流程。下面将更详细地解释可能的指令及其对应的回应消息。
 
@@ -122,8 +133,19 @@ DaoAI Vision Pilot 和机器人之间的指令和回应消息都是固定长度�
      - 8 bytes
      - meta_1，即消息的倒数第二个字段，应发送机器人的类型，meta_2，即消息的最后一个字段，应发送机器人协议版本。详细信息请参阅本文Meta消息说明。
 
+.. list-table:: 回应消息标志位
 
-并非每个指令回应都传达姿态信息或附加有效载荷。状态字段 可以用来控制position、orientation和payload字段的解读方式。在以下各节中，将更详细地说明各个指令及其对应的回应。
+   * - **字段**
+     - **类型**
+     - **长度**
+     - **描述**
+   * - sign
+     - int32[1]
+     - 4 bytes
+     - sign，在回应消息发送完成之后，此标志位必须置成值1，以通知slave端回应消息更新完成。slave端读取完成回应消息之后，此标志位必须置成值0，以reset此标志位的状态。
+
+
+并非每个指令回应都传达姿态信息或附加有效载荷。状态字段可以用来控制position、orientation和payload字段的解读方式。在以下各节中，将更详细地说明各个指令及其对应的回应。
 
 .. note::
     Orientation字段四位整数顺序说明：|br|
@@ -567,29 +589,38 @@ daoai_init(IP, port)
 
     **Parameters**:
 
-        - IP: string（字符串） → 连接目标的IP地址
+        - IP_address: string（字符串） → 机器人本机的IP地址
 
-        - port: int （整数）→ 连接目标的端口，通常默认为：“6969”
+        - slave_number: int （整数）→ slave 端的地址，通常默认为：“502”
+
+        - signal_starting_address: int （整数）→ 寄存器的开始地址，通常默认为：“128”
+
+        - signal_type: int （整数）→ 寄存器的类型，通常默认为：“3”，即为register output
+
+        - signal_name: string（字符串） → 寄存器的名称，通常默认为："output_register"
+
+        - quantity: int （整数）→ 寄存器的数量，通常默认为：“20”
 
     **Info**:
 
-        机器人使用此函数建立Socket，设置IP和端口
+        机器人使用此函数配置Modbus TCP 协议的 slave 端口和寄存器
 
     **Return type**:
 
-        Boolean（布尔值）：成功打开Socket后返回True。
+        Boolean（布尔值）：配置 Modbus TCP 后返回True
 
     **Pseudo-code**:
 
     .. code-block:: 
 
-        def daoai_init(ip, port):
-                if (not socket_open(daoai_ip, daoai_port, daoai_socket_name)):
-                    #if open socket failed, return false
-                    return False
-                end
-                
-                return True
+        # Modbus Configuration Functions
+        def Modbus_Configuration(IP_address=IP_address,slave_number=slave_number,signal_starting_address=signal_starting_address,signal_type=registerOutput,signal_name=output_signalName,quantity=output_signalQuantity):
+            local i = 0
+            while i<quantity:
+                modbus_add_signal(IP_address, slave_number, signal_starting_address+i, signal_type, str_cat(signal_name, to_str(i)))
+                i=i+1
+            end
+        return True
         end
 
 Networking/收发和通讯
@@ -612,27 +643,50 @@ send_robot_data()
 
     **Pseudo-code**:
 
-    .. code-block:: 
+    .. code-block::
+
+        def modbustcp_send_robot_data(robot_data):
+            local i = 0
+
+            # sync()
+            # enter_critical
+            while i<12:
+                write_port_register(128+i, robot_data[i])
+                i=i+1
+            end
+            write_port_register(144, 1)
+            # exit_critical
+            # sync()
+
+            return (True)
+        end
 
         def send_robot_data():
+            local robot_data = [0,0,0,0,0,0,0,0,0,0,0,0]
+            p_actual_pose = get_actual_tcp_pose()
+
             sync()
-            #synchronization for multi-threading
-            
-            pose = actual_pose
-            #assign actual robot pose to variable "pose"
-            
-            acquire_lock
-            #lock the block of data, prevent value changes during sending
-            
-            assign_data_to_msg_block
-            #assign all necessary data to the sending block
-            
-            release_lock
+            enter_critical
+            robot_data[0] = floor(mult*p_actual_pose[0])
+            robot_data[1] = floor(mult*p_actual_pose[1])
+            robot_data[2] = floor(mult*p_actual_pose[2])
+            robot_data[3] = floor(mult*p_actual_pose[3])
+            robot_data[4] = floor(mult*p_actual_pose[4])
+            robot_data[5] = floor(mult*p_actual_pose[5])
+            robot_data[6] = floor(mult*0.0)
+            robot_data[7] = daoai_r_command
+            robot_data[8] = daoai_payload_1
+            robot_data[9] = daoai_payload_2
+            robot_data[10] = DAOAI_ROBOT_TYPE
+            robot_data[11] = DAOAI_META_VERSION
+            modbustcp_send_robot_data(robot_data)
+            daoai_r_command = RC_DAOAI_NO_COMMAND
+            exit_critical
             sync()
         end
 
 
-recv_robot_data()
+recv_daoai_data()
 ```````````````````````
 
     **Parameters**:
@@ -641,7 +695,7 @@ recv_robot_data()
 
     **Info**:
 
-        机器人发送数据至视觉
+        机器人从视觉接收数据
 
     **Return type**:
 
@@ -651,20 +705,52 @@ recv_robot_data()
 
     .. code-block:: 
 
-        def send_robot_data():
+        def modbustcp_recv_daoai_data():
+            local i = 1
+            local daoai_data = [16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
             sync()
-            #synchronization for multi-threading
-            
-            pose = actual_pose
-            #assign actual robot pose to variable "pose"
-            
-            acquire_lock
-            #lock the block of data, prevent value changes during sending
-            
-            assign_data_to_msg_block
-            #assign all necessary data to the sending block
-            
-            release_lock
+            enter_critical
+            while read_port_register(145) == 0:
+            end
+            while i<17:
+                daoai_data[i] = read_port_register(128+i)
+                i=i+1
+            end
+            write_port_register(145, 0)
+            exit_critical
+            sync()
+
+            return (daoai_data)
+        end
+
+        def recv_daoai_data():
+            wait_for_data = True
+            while wait_for_data == True:
+                daoai_data = modbustcp_recv_daoai_data()
+                if daoai_data[0] == 16:
+                    wait_for_data = False
+                end
+                sync()
+            end
+            if daoai_data[15] != DAOAI_ROBOT_TYPE:
+                popup("Pick-it is not configured to communicate with a UR robot.")
+            end
+            if daoai_data[16] != DAOAI_META_VERSION:
+                popup("The DaoAI interface version does not match the version of this program.")
+            end
+            enter_critical
+
+            # daoai_data[14] contains the status of the response
+            daoai_tcp_pose = p[daoai_data[1]/mult, daoai_data[2]/mult, daoai_data[3]/mult, daoai_data[4]/mult, daoai_data[5]/mult, daoai_data[6]/mult]
+            daoai_payload_1=daoai_data[8]/mult
+            daoai_payload_2=daoai_data[9]/mult
+            daoai_payload_3=daoai_data[10]/mult
+            daoai_payload_4=daoai_data[11]/mult
+            daoai_payload_5=daoai_data[12]/mult
+            daoai_payload_6 = daoai_data[13]/mult
+            daoai_status = daoai_data[14]
+            exit_critical
             sync()
         end
 
@@ -689,30 +775,49 @@ send_robot_data_2d(plane, optional_z = False, z_value = 0)
 
     **Pseudo-code**:
 
-    .. code-block:: 
+    .. code-block::
+
+        def modbustcp_send_robot_data(robot_data):
+            local i = 0
+
+            # sync()
+            # enter_critical
+            while i<12:
+                write_port_register(128+i, robot_data[i])
+                i=i+1
+            end
+            write_port_register(144, 1)
+            # exit_critical
+            # sync()
+
+            return (True)
+        end
 
         def send_robot_data_2d(plane, optional_z = False, z_value = 0):
+            local robot_data = [0,0,0,0,0,0,0,0,0,0,0,0]
+
             sync()
             base_in_plane = pose_inv(plane)
             tool_in_plane = pose_trans(base_in_plane,get_actual_tcp_pose())
             p_actual_pose = tool_in_plane
             enter_critical
-            socket_send_int(floor(mult*p_actual_pose[0]), daoai_socket_name)
-            socket_send_int(floor(mult*p_actual_pose[1]), daoai_socket_name)
             if optional_z:
-                socket_send_int(floor(mult*z_value), daoai_socket_name)
+                robot_data[2] = floor(mult*z_value)
             else:
-                socket_send_int(floor(mult*p_actual_pose[2]), daoai_socket_name)
+                robot_data[2] = floor(mult*p_actual_pose[2])
             end
-            socket_send_int(floor(mult*p_actual_pose[3]), daoai_socket_name)
-            socket_send_int(floor(mult*p_actual_pose[4]), daoai_socket_name)
-            socket_send_int(floor(mult*p_actual_pose[5]), daoai_socket_name)
-            socket_send_int(floor(mult*0.0), daoai_socket_name)
-            socket_send_int(daoai_r_command, daoai_socket_name)
-            socket_send_int(daoai_payload_1, daoai_socket_name)
-            socket_send_int(daoai_payload_2, daoai_socket_name)
-            socket_send_int(DAOAI_ROBOT_TYPE, daoai_socket_name)
-            socket_send_int(DAOAI_META_VERSION, daoai_socket_name)
+            robot_data[0] = floor(mult*p_actual_pose[0])
+            robot_data[1] = floor(mult*p_actual_pose[1])
+            robot_data[3] = floor(mult*p_actual_pose[3])
+            robot_data[4] = floor(mult*p_actual_pose[4])
+            robot_data[5] = floor(mult*p_actual_pose[5])
+            robot_data[6] = floor(mult*0.0)
+            robot_data[7] = daoai_r_command
+            robot_data[8] = daoai_payload_1
+            robot_data[9] = daoai_payload_2
+            robot_data[10] = DAOAI_ROBOT_TYPE
+            robot_data[11] = DAOAI_META_VERSION
+            modbustcp_send_robot_data(robot_data)
             daoai_r_command = RC_DAOAI_NO_COMMAND
             exit_critical
             sync()
@@ -728,7 +833,7 @@ recv_daoai_data_2d(plane)
 
     **Info**:
 
-        机器人从视觉接受2D数据
+        机器人从视觉接收2D数据
 
     **Return type**:
 
@@ -736,16 +841,35 @@ recv_daoai_data_2d(plane)
 
     **Pseudo-code**:
 
-    .. code-block:: 
+    .. code-block::
+
+        def modbustcp_recv_daoai_data():
+            local i = 1
+            local daoai_data = [16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+            sync()
+            enter_critical
+            while read_port_register(145) == 0:
+            end
+            while i<17:
+                daoai_data[i] = read_port_register(128+i)
+                i=i+1
+            end
+            write_port_register(145, 0)
+            exit_critical
+            sync()
+
+            return (daoai_data)
+        end
 
         def recv_daoai_data_2d(plane):
             wait_for_data = True
             while wait_for_data == True:
-                daoai_data = socket_read_binary_integer(16, daoai_socket_name)
+                daoai_data = modbustcp_recv_daoai_data()
                 if daoai_data[0] == 16:
                     wait_for_data = False
                 end
-                sync()
+            sync()
             end
             if daoai_data[15] != DAOAI_ROBOT_TYPE:
                 popup("Pick-it is not configured to communicate with a UR robot.")
@@ -753,7 +877,7 @@ recv_daoai_data_2d(plane)
             if daoai_data[16] != DAOAI_META_VERSION:
                 popup("The DaoAI interface version does not match the version of this program.")
             end
-            
+
             tool_in_plane=p[daoai_data[1]/mult,daoai_data[2]/mult,daoai_data[3]/mult,daoai_data[4]/mult,daoai_data[5]/mult,daoai_data[6]/mult]
             bp = pose_trans(plane, tool_in_plane)
             cur_pose = get_actual_tcp_pose()
@@ -1619,7 +1743,7 @@ daoai_precision_check()
         daoai_socket_close()
 
 
-.. image:: images/manual_cali_protocol.png
+.. image:: images_modbustcp/manual_cali_protocol.png
     :scale: 60%
 
 
@@ -1650,7 +1774,7 @@ daoai_precision_check()
      daoai_socket_close()
 
 
-.. image:: images/guidance_cali_protocol.png
+.. image:: images_modbustcp/guidance_cali_protocol.png
     :scale: 80%
 
 
@@ -1684,7 +1808,7 @@ daoai_precision_check()
         daoai_socket_close()
 
 
-.. image:: images/auto_cali_protocol.png
+.. image:: images_modbustcp/auto_cali_protocol.png
     :scale: 50%
 
 
@@ -1727,7 +1851,7 @@ daoai_precision_check()
         daoai_socket_close()
 
 
-.. image:: images/pick_protocol.png
+.. image:: images_modbustcp/pick_protocol.png
     :scale: 50%
 
 抓取并请求放置通信示例
@@ -1774,7 +1898,7 @@ daoai_precision_check()
 
 
 
-.. image:: images/pick_place_protocol.png
+.. image:: images_modbustcp/pick_place_protocol.png
     :scale: 50%
 
 .. |br| raw:: html

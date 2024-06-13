@@ -62,6 +62,7 @@
     :maxdepth: 1
 
     ur
+    ur_modbustcp
 
 .. |br| raw:: html
 

@@ -30,6 +30,10 @@ This user manual is powered by Read the Docs, which works as a hosting provider 
    make html
    ```
 5. Output files can be found under `docs/_build`. Open `docs/_build/html/index.html` to view the result.
+6. Designated port 0, automatically build local websites, run the following in the `docs` folder:
+   ```sh
+   sphinx-autobuild source source/_build/html --open-browser --port=0
+   ```
 
 ## How to contribute to the documentation (requires write permission for a repository)
 
