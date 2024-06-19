@@ -71,7 +71,7 @@ DaoAI Vision Pilot不仅仅是一个视觉处理工具，更是一套全面的�
    :caption: 支持
    :hidden: 
 
-   .. support/troubleshooting/index
+   
    support/example/index
    support/FAQ/index
    support/report-a-bug/index
