@@ -14,4 +14,5 @@
         small_obj
         driftcheck
         dl_2dkp
-
+        in-hand-adjust
+        place
