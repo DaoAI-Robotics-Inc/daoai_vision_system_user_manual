@@ -6,6 +6,7 @@ DaoAI Vision Pilot指南
 
     gui
     connect_camera
+    connect_2d_camera
     connect_robot
     calibration
 
