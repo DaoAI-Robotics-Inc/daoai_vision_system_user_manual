@@ -21,7 +21,7 @@
         用户可以分别启动前端和后端，通常情况下是不需要了解和分别启动前后端的。此部分内容主要用于查错和连接检测。
 
 
-    打开软件安装的根目录(C:\Program Files\WeRobotics 或者自定义安装目录下)，右键使用Admin权限打开 “webui_server.exe”
+    打开软件安装的根目录(C:\\Program Files\\WeRobotics 或者自定义安装目录下)，右键使用Admin权限打开 “webui_server.exe”
     
     .. image:: Images/webuiexe.png
         :align: center
@@ -60,7 +60,7 @@
     .. warning::
         此模式需要学习大量的模块知识和流程控制，请谨慎使用。
 
-    双击打开 “Vision Pilot GUI EN.exe”(英文版)，或者 “Vision Pilot GUI CN.exe”(中文版)，你会看到旧版软件启动，如下图：
+    双击打开 “WeRobotics EN.exe”(英文版)，或者 “WeRobotics CN.exe”(中文版)，你会看到旧版软件启动，如下图：
 
     .. image:: Images/old_bp.png
         :align: center
@@ -198,7 +198,7 @@
         :align: center 
         :scale: 60%
 
-    查看被访问端DaoAI Vision Pilot的IP及端口号，可以看到IP及端口是：192.168.1.137:3000
+    查看被访问端DaoAI Vision Pilot的IP及端口号，可以看到IP及端口是：192.168.1.35:3001
 
     .. image:: Images/8.png
         :align: center 
@@ -242,12 +242,17 @@
 手眼标定失败或结果误差大?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    - 首先我们需要先检查相机自身的精度是否小与0.2%。详情请查阅 `相机精度检查 <https://docs.daoai.ca/daoai-inspectra-user-manual/chinese-2.24.1.0/getting-started/camera-studio-guide/infield-calibration/index.html#id2>`_
+    - 首先我们需要先检查相机自身的精度是否小与0.2%。
+        -使用“DaoAI InspaceTRA”连接上相机之后、拍一个标定板、点击“Evaluate accuracy”，下方会显示相机精度分析结果。
+    .. image:: Images/如何检查相机精度.png
+        :align: center 
+        :scale: 100%
 
-    - 检查相机支架是否晃动或机器人运行时相机是否摇晃
-    - 检查机器人到位之后发给视觉机器人当前pose与机器人的X Y Z 数值是否一致
-    - 检查标定板行列数及圆心距是否正确
-    - 可以尝试将相机cfg参数曝光降低或者增亮
+
+    - 检查相机支架是否晃动或机器人运行时相机是否摇晃。
+    - 检查机器人到位之后发给视觉机器人当前pose与机器人的X Y Z 数值是否一致。
+    - 检查标定板行列数及圆心距是否正确。
+    - 可以尝试将相机cfg参数曝光降低或者增亮。
 
 当机器人末端坐标Z轴朝向不是垂直向下时需要怎样调整才可以配合视觉使用防碰撞模块?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -316,8 +321,7 @@
         :scale: 100%
 
     - 成功卸载Python和Chocolatey后，重新安装软件即可正常开启。注意：Python程序并非只能安装一个版本。
-    
-    - 成功安装好 Python 3.8.3 和卸载Chocolatey后，重新安装软件即可正常开启。
+
 
 
 怎么更新校准文件
@@ -329,22 +333,23 @@
 
     .. image:: Images/change_cali_1.png
         :align: center 
-        :scale: 60%
+        :scale: 100%
 
     在需要更换手眼标定文件的任务栏里，点击更新任务设置（update task settings）, 然后更换您需要的标定文件，点击更新任务即可。
 
     .. image:: Images/change_cali_2.png
         :align: center 
-        :scale: 60%
+        :scale: 100%
+    - 成功安装好 Python 3.8.3 和卸载Chocolatey后，重新安装软件即可正常开启。
 
 
-安装软件后无法启动，显示 webui_server.exe - System Error/Syntax Error
+安装软件后无法启动，显示 webio_server.exe - System Error/Syntax Error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     - 开启软件时无法运行，显示无法找到 **tingmxl2.dll** 或者其他dll。此问题多数由于Chocolatey没有正确安装，或者没有安装上Chocolatey的所需包裹。需要卸载Chocolatey或者重新运行安装包，重装软件。
     .. image:: Images/tinyxml2.dll.png
         :align: center 
-        :scale: 60%
+        :scale: 100%
 
     - Chocolatey程序则无法在控制面版中卸载。打开路径 C:\ProgramData，删除文件夹 “chocolatey”。
     .. image:: Images/uninstallchoco.png
@@ -352,3 +357,8 @@
         :scale: 100%
 
     - 成功安装好 Chocolatey后，重新安装软件即可正常开启。
+
+软件显示窗口无法显示
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    - 相机拍照后、显示窗口无法显示点云数据，此情况下我们需要安装或更新工控机的显卡驱动 :ref:`如何安装或更新GPU驱动`

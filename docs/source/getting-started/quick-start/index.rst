@@ -57,7 +57,7 @@
             :scale: 100%
 
       **DaoAI Vision Pilot** 的安装路径为：`C:\\Program Files\\WeRobotics` |br|
-      **DaoAI 3D InspecTRA** 的安装路径为：`C:\\Program Files (x86)\\DaoAI Studio`
+      **DaoAI 3D InspecTRA** 的安装路径为：`C:\\Program Files (x86)\\DaoAI 3D Studio`
 
       在安装DaoAI Vision Pilot软件之后，软件无法打开。请查阅 :ref:`安装软件后无法启动，是否安装过其他版本的Vision软件、或者Python、或者Chocolatey?`
 
