@@ -1594,7 +1594,7 @@ daoai_precision_check()
 
 .. code-block:: 
 
-    #Robot Program
+    Robot Program
         Popup("Start Manual Calibration")
         If daoai_start_manual_calibration()
             MoveJ
@@ -1644,14 +1644,14 @@ daoai_precision_check()
 .. code-block:: 
 
    Robot Program
-     MoveJ
-       Waypoint_1
-     daoai_guidance_accumulate_calibration()
-     daoai_socket_close()
+        MoveJ
+            Waypoint_1
+        daoai_guidance_accumulate_calibration()
+        daoai_socket_close()
 
 
 .. image:: images/guidance_cali_protocol.png
-    :scale: 80%
+    :scale: 50%
 
 
 自动校准通信示例
@@ -1693,13 +1693,13 @@ daoai_precision_check()
 
 1. 设置好探测位姿，此位姿是抓取结束后机器人移动到的位姿，该位姿不能阻挡摄像头。
 
-2. 机器人使用 RC_DAOAI_CAPTURE_AND_PROCESS 请求拍照并识别物体。
+2. 机器人使用 RC_DAOAI_CAPTURE_AND_PROCESS = 20 请求拍照并识别物体。
 
-3. DaoAI Vision Pilot拍照成功后回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
+3. DaoAI Vision Pilot拍照成功后回复DAOAI_CAPTURE_SUCCESS = 5，表示视觉处于拍摄探测阶段；
 
-4. 机器人发送 RC_DAOAI_PICK_POSE 请求视觉发送抓取位姿；
+4. 机器人发送 RC_DAOAI_PICK_POSE = 21 请求视觉发送抓取位姿；
 
-5. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
+5. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND = 2 ；DAOAI_NO_OBJECT_FOUND = 3 ； DAOAI_NO_COLLISION_FREE_POSE = 4 。 
 
     a. 相机拍摄成功并且视觉成功探测到一个或多个物体时，视觉发送 DAOAI_OBJECTS_FOUND = 2 和抓取位姿。payload_1数值为剩余的需抓取物体数量，此payload会根据每次抓取结束后更新；
 
@@ -1728,54 +1728,102 @@ daoai_precision_check()
 
 
 .. image:: images/pick_protocol.png
-    :scale: 50%
+    :scale: 85%
 
-抓取并请求放置通信示例
-~~~~~~~~~~~~~~~~~~~~~~
+抓取 - 物体姿态修正 - 放置
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. 抓取部分和纯抓取一样，区别在于放置：抓取并请求放置流程中，放置的点位是机器人请求视觉计算并发送的。
+该流程是完整的 抓取物体，然后检测修正物体姿态，然后放置到指定区域的流程。
 
-2. 抓取结束后，机器人再次请求 RC_DAOAI_CAPTURE_AND_PROCESS 拍照并识别放置点位。
+**第一步抓取** ：机器人请求 RC_DAOAI_CAPTURE_AND_PROCESS = 20 拍照并识别抓取点位。
 
-3. DaoAI Vision Pilot回复DAOAI_CAPTURE_SUCCESS，表示视觉处于拍摄探测阶段；
+1. DaoAI Vision Pilot回复DAOAI_CAPTURE_SUCCESS = 5，表示视觉处于拍摄探测阶段；
 
-4. 机器人发送 DAOAI_DROP_OFF_POSE 请求视觉发送放置位姿；
+2. 机器人发送 RC_DAOAI_PICK_POSE = 21 请求视觉发送放置位姿；
 
-5. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_DROP_OFF_POSE ；DAOAI_NO_OBJECT_FOUND ； DAOAI_NO_COLLISION_FREE_POSE 。 
+3. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND = 2；DAOAI_NO_OBJECT_FOUND = 3 ； DAOAI_NO_COLLISION_FREE_POSE = 4。 
 
-    a. 相机拍摄成功并且视觉成功探测放置点位时，视觉发送 DAOAI_DROP_OFF_POSE = 6 和抓取位姿。payload_1数值为剩余的需抓取物体数量，此payload会根据每次抓取结束后更新；
+    a. 相机拍摄成功并且视觉成功探测放置点位时，视觉发送 DAOAI_OBJECTS_FOUND = 2 和抓取位姿。payload_1数值为剩余的需抓取物体数量，此payload会根据每次抓取结束后更新；
 
-    b. 相机拍摄成功，视觉探测不成功或者场景中放置点位时，视觉发送 DAOAI_NO_OBJECT_FOUND = 3，此处虽然使用同样的状态，但 DAOAI_NO_OBJECT_FOUND 状态意思为：无放置点位；
+    b. 相机拍摄成功，视觉探测不成功或者场景中无物体时，视觉发送 DAOAI_NO_OBJECT_FOUND = 3.
 
     c. 没有安全抓取位姿时，视觉发送 DAOAI_NO_COLLISION_FREE_POSE = 4；
+
+**第二步物体姿态修正** ：机器人请求 RC_DAOAI_CAPTURE_AND_PROCESS = 20 拍照并识别物体。该步骤只是检测物体姿态，并不做移动。
+
+1. DaoAI Vision Pilot回复DAOAI_CAPTURE_SUCCESS = 5，表示视觉处于拍摄探测阶段；
+
+2. 机器人发送 RC_DAOAI_PICK_POSE = 21 请求视觉发送结果，这里视觉发回的是 当前物体于夹爪中的姿态，并在机器人端记录;
+
+3. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND = 2；DAOAI_NO_OBJECT_FOUND = 3；
+
+    a. 相机拍摄成功并且视觉成功探测物体姿态时，视觉发送 DAOAI_OBJECTS_FOUND = 2 和当前物体于夹爪中的姿态。
+
+    b. 相机拍摄成功，视觉探测不成功或者场景中无物体时，视觉发送 DAOAI_NO_OBJECT_FOUND = 3.
+
+**第三步放置** ：机器人请求 RC_DAOAI_CAPTURE_AND_PROCESS = 20 拍照并识别放置区域。
+
+1. DaoAI Vision Pilot回复DAOAI_CAPTURE_SUCCESS = 5，表示视觉处于拍摄探测阶段；
+
+2. 机器人发送 RC_DAOAI_PICK_POSE = 21 请求视觉发送结果，这里视觉发回的是 当前放置区域相对于示教时的初始位置的偏移量，并在机器人端记录;
+
+3. DaoAI Vision Pilot回复三种以下的可能性：DAOAI_OBJECTS_FOUND = 2；DAOAI_NO_OBJECT_FOUND = 3；
+
+    a. 相机拍摄成功并且视觉成功探测放置区域时，视觉发送 DAOAI_OBJECTS_FOUND = 2 和当前放置区域相对于示教时的初始位置的偏移量。
+
+    b. 相机拍摄成功，视觉探测不成功或者场景中无目标时，视觉发送 DAOAI_NO_OBJECT_FOUND = 3.
+
+4. 机器人端计算出放置位置，然后移动至放置区域
 
 
 .. code-block:: 
 
     Robot Program
         Loop
-            If daoai_capture_and_process()
-                Loop daoai_get_picking_pose()
-                    MoveJ
-                        detection_pose
-                    MoveJ
-                        pick_pose
-                        Wait: 5.0
-                    MoveJ
-                        detection_pose
-                    If daoai_capture_and_process()
-                        If daoai_get_placing_pose()
-                            MoveJ
-                                pick_pose
-                                Wait: 5.0
-                            MoveJ
-                                detection_pose
+            stage≔0
+            If stage ≟ 0
+                daoai_switch_task(0)
+                MoveJ
+                    detection_pose
+                If daoai_capture_and_process()
+                    If daoai_get_picking_pose()
+                        stage≔1
+                        MoveJ
+                            pick_pose
+                            Wait: 5.0
+            If stage ≟1
+                daoai_switch_task(1)
+                MoveJ
+                    adjust_det_pose
+                If daoai_capture_and_process()
+                    If daoai_get_picking_pose()
+                        stage≔2
+                        obj_in_tool≔pick_pose
+            If stage ≟2
+                daoai_switch_task(3)
+                MoveJ
+                    place_det_pose
+                If daoai_capture_and_process()
+                    If daoai_get_picking_pose()
+                        stage≔3
+                        place_in_base≔pick_pose
+            If stage ≟3
+                obj_in_base≔pose_trans(place_in_base,obj_in_Place)
+                t_in_obj≔pose_inv(obj_in_tool)
+                tool_in_base≔pose_trans(obj_in_base,t_in_obj)
+                MoveJ
+                    pre_drop_pose
+                MoveJ
+                    tool_in_base
+                MoveJ
+                    pre_drop_pose
+                stage≔0
             daoai_socket_close()
 
 
 
 .. image:: images/pick_place_protocol.png
-    :scale: 50%
+    :scale: 80%
 
 .. |br| raw:: html
 

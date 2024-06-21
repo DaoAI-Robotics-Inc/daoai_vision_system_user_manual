@@ -9,8 +9,8 @@
         :scale: 60%
 
 
-部署示例
------------
+抓取部署示例
+--------------
 
 以UR 机器人为例
 
@@ -52,3 +52,116 @@
     .. image:: images/deploy_display_pick.png
         :scale: 70%
 
+
+
+物体姿态修正和放置部署示例
+------------------------------
+
+以UR 机器人为例
+
+示教步骤
+~~~~~~~~~~~~~~~
+
+1. 首先打开示教的脚本。
+    .. image:: images/load_adjpick_teach_pose.png
+        :scale: 80%
+
+.. note::
+    如果您看到有黄色的部分，如下图，则说明您的机器人Installation File有错误。
+        .. image:: images/load_adjpick_teach_pose_installation_error.png
+            :scale: 70%
+
+    请读取UR_common_function下的 VisionCognex.Installation
+        .. image:: images/load_adjpick_teach_pose_installation_error_load_1.png
+            :scale: 70%
+
+        
+        .. image:: images/load_adjpick_teach_pose_installation_error_load_2.png
+            :scale: 70%
+    
+    然后点击Update Program
+        .. image:: images/load_adjpick_teach_pose_installation_error_load_3.png
+            :scale: 70%
+
+    然后您就会看到您的脚本没有标识黄色的部分了，并且在您的Installation/Varirable里，应该可以看到下图中的两个变量（这两个变量是用于计算物体放置姿态用的中间计算变量）
+        .. image:: images/load_adjpick_teach_pose_installation_var.png
+            :scale: 70%
+
+2. 设置标准放置位置：将物体以标准抓取姿态，固定在夹爪上，然后以标准放置姿态，放置于 **放置区域** 的上方。 并在机器人脚本中定义 tool_in_base_wp 位置为该位置。
+    .. image:: images/load_adjpick_teach_pose_example1.png
+        :scale: 70%
+
+    .. image:: images/load_adjpick_teach_pose_example1_ur.png
+        :scale: 70%
+
+.. warning::
+    **放置区域的位置** ，和 **物体在夹爪上的位置** 在示教过程中 **不能移动** ，如果在中途产生了移动，则需要重新开始
+
+ 
+3. 设置安全旋转位置：在当前位置，设置lift_obj_pose的From point, 然后向上方移动机器人到一个安全的旋转位置（旋转物体至面向相机），并设置lift_obj_pose的To point.
+    .. image:: images/load_adjpick_teach_pose_example1.png
+        :scale: 70%
+
+    .. image:: images/load_adjpick_teach_pose_example2_ur.png
+        :scale: 70%
+
+  |br|
+    .. image:: images/load_adjpick_teach_pose_example2b.png
+        :scale: 70%
+
+    .. image:: images/load_adjpick_teach_pose_example2_urb.png
+        :scale: 70%
+
+
+4. 设置物体检测位置：将物体移动至面向相机的检测位置，并定义 adjust_det_pose。
+    .. image:: images/load_adjpick_teach_pose_example3.png
+        :scale: 70%
+
+    .. image:: images/load_adjpick_teach_pose_example3_ur.png
+        :scale: 70%
+
+5. 设置放置区域检测位置：将机器人移动到不会遮挡放置区域的任意位置，然后设置 place_det_pose。
+    .. image:: images/load_adjpick_teach_pose_example4.png
+        :scale: 70%
+
+    .. image:: images/load_adjpick_teach_pose_example5_ur.png
+        :scale: 70%
+
+
+6. 设置对应的task id， 第一个task id 对应  :ref:`物体姿态修正（In-Hand Adjustment）` 任务 第二个对应 :ref:`物体放置（Placement）` 任务
+    .. image:: images/load_adjpick_teach_pose_example6_ur.png
+        :scale: 70%
+
+7. 在Vision Pilot 网页界面中点击部署，然后运行机器人脚本，完成放置示教。
+
+
+部署
+~~~~~~~~~~
+
+1. 打开Picking and Place脚本，确保读取的是和示教步骤相同的Installation File。
+    .. image:: images/load_adjpick.png
+        :scale: 80%
+
+2. 设置抓取步骤 stage == 0：设置检测task id，定义detection_pose 为物体检测位置。该步骤会执行抓取，并进入stage 1 - 物体姿态修正 (如果需要跳过某个步骤，则可以更改stage 变量来跳过)
+    .. image:: images/load_adjpick_stage0.png
+        :scale: 80%
+
+3. 设置物体姿态修正步骤 stage == 1：设置对应的task id，定义 adjust_det_pose 为物体姿态检测位置。该步骤会检测并记录当前物体于夹爪中的姿态，并进入stage 2 - 物体放置
+    .. image:: images/load_adjpick_stage1.png
+        :scale: 80%
+
+4. 设置放置区域检测步骤 stage == 2：设置对应的task id，定义 place_det_pose 为放置区域检测位置。该步骤会检测并记录放置区域的偏移量，并进入stage 3 - 物体放置
+    .. image:: images/load_adjpick_stage2.png
+        :scale: 80%
+
+5. 设置放置区域检测步骤 stage == 3：设置预放置位置pre_drop_pose为放置区域的上方。该步骤会计算放置位置，并移动机器人至放置位置然后循环至起始。
+    .. image:: images/load_adjpick_stage3.png
+        :scale: 80%
+
+6. 在Vision Pilot 网页界面中点击部署，然后运行机器人脚本执行 :ref:`抓取 - 物体姿态修正 - 放置` 任务流程。
+
+
+
+.. |br| raw:: html
+
+      <br>

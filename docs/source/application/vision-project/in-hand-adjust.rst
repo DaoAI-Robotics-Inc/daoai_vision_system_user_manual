@@ -94,6 +94,7 @@
 |
 
 这样检测部分就设置好了，物体姿态修正（In-Hand Adjustment） 不需要配置抓取步骤，配置好对应的放置直接部署即可。
+:ref:`物体放置（Placement）` 和 :ref:`物体姿态修正（In-Hand Adjustment）` 需要在机器人端执行示教步骤，详情请参考 :ref:`物体姿态修正和放置部署示例`
 
 .. |br| raw:: html
 
