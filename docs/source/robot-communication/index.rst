@@ -61,8 +61,9 @@
 .. toctree::
     :maxdepth: 1
 
-    ur
-    ur_modbustcp
+    ur/ur
+    ur/ur_modbustcp
+    kuka/kuka
 
 .. |br| raw:: html
 
