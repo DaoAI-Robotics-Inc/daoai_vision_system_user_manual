@@ -2,14 +2,25 @@
 ===========
 
 DaoAI实例案例：分拣随机堆放的烟感器
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    .. image:: Images/demo.png
-        :align: center 
+    .. image:: images/demo.png
+        :align: center
+        :scale: 80%
+
+
 
     - 在本文中，您将学习如何使用DaoAI相机分拣上图中乱序摆放的烟感器。我们将讲述该实例完整的搭建和调试步骤。
     - 结果将是使用ABB1200机器人用真空抓手精准抓取烟感器，其中将反面的烟感器通过翻转台翻转为正面、并有序码垛摆放好。
-    - 抓取视频见：（待上传）
+    - 抓取视频见：
+
+..  raw:: html
+
+    <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 70%; height: auto;">
+        <video width="100%" height="auto" controls>
+            <source src="http://docs.welinkirt.com/static/videos/smoke_detector_pick_demo.mp4" type="video/mp4">
+        </video>
+    </div>
 
 
 安装相机、机器人、工控机
@@ -22,22 +33,34 @@ DaoAI实例案例：分拣随机堆放的烟感器
 创建新项目并连接相机、机器人
 --------------------------
 
-
     - 如何创建新项目请参考 :ref:`软件应用`
     - 如何 :ref:`连接相机`
     - 如何 :ref:`连接机器人`
 
+
 烟感器数据采集+标注
 ------------------------
-    - 如何数据采集（需link）
-    - 如何标注烟感器（需link）
+    - 如何数据采集 `深度学习数据采集 <https://docs.daoai.ca/daoai-inspectra-user-manual/chinese-2.24.3.0/deep-learning-tool/index.html#id2>`_
+
+    - 如何标注烟感器见下视频：
+    .. raw:: html
+
+        <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 70%; height: auto;">
+            <video width="100%" height="auto" controls>
+                <source src="http://docs.welinkirt.com/static/videos/smoke_detector_label.mp4" type="video/mp4">
+            </video>
+        </div>
+
+
     - 下图为烟感器标注样例，标注规则：烟感器正面标签为“zheng”,反面标签为“fan”。
 
-    .. image:: Images/实例2.png
-        :align: center 
+    .. image:: Images/实例2.png 
+        :scale: 80%
+        :align: center
+
 
 手眼标定
-----------
+--------------
 
     - 如何 :ref:`机器人手眼标定`
 
