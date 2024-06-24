@@ -46,7 +46,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     .. raw:: html
 
         <div style="position: relative; padding-bottom: 1%; height: 0; overflow: hidden; max-width: 70%; height: auto;">
-            <video width="100%" height="auto" controls>
+            <video width="50%" height="auto" controls>
                 <source src="http://docs.welinkirt.com/static/videos/smoke_detector_label.mp4" type="video/mp4">
             </video>
         </div>
