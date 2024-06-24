@@ -54,7 +54,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 下图为烟感器标注样例，标注规则：烟感器正面标签为“zheng”,反面标签为“fan”。
 
-    .. image:: Images/实例2.png 
+    .. image:: images/实例2.png 
         :scale: 80%
         :align: center
 
@@ -74,12 +74,12 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 使用DaoAI World将训练好的“训练集”“导出训练好的模型”，该文件会在浏览器下载。
 
-    .. image:: Images/实例3.png
+    .. image:: images/实例3.png
         :align: center 
 
     - 导入深度学习文件：点击上传，选择深度学习“config_torchscript.json”“best.torchscript”结尾的文件、上传成功之后会显示标注时标签信息。
 
-    .. image:: Images/实例4.png
+    .. image:: images/实例4.png
         :align: center 
 
 
@@ -89,16 +89,16 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 依次点击“检测”、"拍照"，显示窗口就会显示相机采集到的点云场景。
     - 点击“设置ROI”。
 
-    .. image:: Images/实例5.png
+    .. image:: images/实例5.png
         :align: center 
 
     - 调整显示窗口的调整框（框选住需要抓取探测的箱体）
     - 点击“保存”，显示窗口就会只保留箱体部分的点云信息
 
-    .. image:: Images/实例6.png
+    .. image:: images/实例6.png
         :align: center 
 
-    .. image:: Images/实例7.png
+    .. image:: images/实例7.png
         :align: center 
 
 
@@ -112,23 +112,23 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 在“定义和优化模型”界面点击“>”。
 
-    .. image:: Images/实例新1.png
+    .. image:: images/实例新1.png
         :align: center 
 
     - 点击“开始”，进入到定义模型界面中。
 
-    .. image:: Images/实例13.png
+    .. image:: images/实例13.png
         :align: center 
 
 
     - 给正面烟感器定义模型，依次选择“zheng”,依次点击"拍照"、“设置ROI”。
 
-    .. image:: Images/实例9.png
+    .. image:: images/实例9.png
         :align: center 
 
     - 在显示窗口调整框体大小及位置、使虚拟框体正好框选出来烟感器正面的点云，然后点击“定义模型”。
 
-    .. image:: Images/实例10.png
+    .. image:: images/实例10.png
         :align: center 
 
 
@@ -138,7 +138,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
 ..    - 点击“>”,显示窗口就会显示我们框选好的正面烟感器的模型，检查是否完整或缺失。
 
-..    .. image:: Images/实例14.png
+..    .. image:: images/实例14.png
 ..        :align: center 
 
 
@@ -153,17 +153,17 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 选择“抓取”、点击“示教抓取位姿”、“开始”。
 
-    .. image:: Images/实例16.png
+    .. image:: images/实例16.png
         :align: center 
     
     - 选择“zheng”、“位姿”（如果您没有位置请点击“+新位姿”）、选择“真实示教”、点击“拍照”。
     - 将机器人移动到烟感器上方（抓取该烟感器的真实位姿）、给视觉发送当前机器人抓取位姿。
     - （当机器人给视觉发送抓取位姿后、我们可以检查控制台是否接收到机器人当前位姿，并检查位姿数据是否接收正确，如下图所示）
 
-    .. image:: Images/实例新3.png
+    .. image:: images/实例新3.png
         :align: center 
     
-    .. image:: Images/实例新2.png
+    .. image:: images/实例新2.png
         :align: center 
 
     - 点击“获取位姿”，视觉就会将机器人发送过来的位姿进行转换并存储。
@@ -177,7 +177,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 选择“正”使物体位姿的Z轴与以下轴对齐（使烟感器的object坐标Z轴始终保持向上）。
     - 更多设置参考 :ref:`如何从最上方抓取物体？`
 
-    .. image:: Images/实例19.png
+    .. image:: images/实例19.png
         :align: center
 
 
@@ -189,7 +189,7 @@ DaoAI实例案例：分拣随机堆放的烟感器
     - 打开“使用箱体定义操作空间”，并在右边显示窗口调整虚拟框大小及角度，使虚拟框与实际抓取框位置大致重合即可（当机器人末端的夹爪模型与您设置的虚拟框有碰撞时，视觉判定该物体抓取时会有碰撞风险）
     - 最后点击“保存箱体”即可完成防碰撞模块的设置了。
     - 更多设置参考 :ref:`防碰撞功能如何使用？`
-    .. image:: Images/实例18.png
+    .. image:: images/实例18.png
         :align: center 
 
 
@@ -198,17 +198,17 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 选择“概要”，点击“快速检测”，显示窗口选择“2D匹配结果”，此时显示窗口会显示2D匹配到的结果及标签信息。
 
-    .. image:: Images/实例新4.png
+    .. image:: images/实例新4.png
         :align: center
 
     - 同理，显示窗口选择“3D匹配结果”，此时显示窗口会显示3D模型点云与场景点云匹配的结果。
     
-    .. image:: Images/实例新5.png
+    .. image:: images/实例新5.png
         :align: center
     
     - 同理，显示窗口选择“深度学习结果”，此时显示窗口会显示深度学习识别的结果。
 
-    .. image:: Images/实例新6.png
+    .. image:: images/实例新6.png
         :align: center
 
 
@@ -217,5 +217,5 @@ DaoAI实例案例：分拣随机堆放的烟感器
 
     - 在“部署”中点击“启动”。接着我们运行机器人抓取脚本、就可以进行抓取烟感器了。
 
-    .. image:: Images/实例23.png
+    .. image:: images/实例23.png
         :align: center
