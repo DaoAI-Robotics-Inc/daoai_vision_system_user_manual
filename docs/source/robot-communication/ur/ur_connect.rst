@@ -2,7 +2,7 @@ UR 机器人连接
 -----------------
 
 
-1. 下载UR机器人脚本， 将机器人脚本放置在一个空的USB drive里面USB drive.
+1. 下载 `UR机器人脚本 <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EqzsEY74z6VGiaTZ39PFfcUBVSotE7wK27zMic-0ab4oKA?e=C0Ruyd>`_ ， 将机器人脚本放置在一个空的USB drive里面USB drive.
 
 2. 复制一个 urmagic_upload_programs.sh 到usb的根目录，这个脚本文件会上传UR脚本到UR机器人里面。
 
