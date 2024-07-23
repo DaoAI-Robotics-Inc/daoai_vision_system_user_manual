@@ -24,7 +24,7 @@
     13  Elite,   ZYX, 字符串 |br|
     14  Jaka,    ZYX, 字符串 |br|
     15  Hans,    ZYX, 字符串 |br|
-    16  Zhibolin,    ZYX, 字节串 48字节 |br| 
+    16  BoZhilin,    ZYX, 字节串 48字节 |br| 
     17  CGX,     ZYX, 字节串 48字节 |br|
     18  Tulin,   ZYX, 字节串 48字节 |br|
     99  other,   自定义顺序, 自定义收发格式 |br|
