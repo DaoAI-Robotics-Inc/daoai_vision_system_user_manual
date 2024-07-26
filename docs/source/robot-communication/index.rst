@@ -1,70 +1,36 @@
 机器人通讯
 =================
 
+本章会详细介绍机器人和DaoAI Vision Pilot之间的通讯协议。
 
-本章会详细介绍各类机器人与DaoAI Vision Pilot交互的通讯接口。
+机器人和DaoAI Vision Pilot之间以发送指令 |:left_right_arrow:| 接收程序回应 的模式交换信息，其中机器人充当客户端，DaoAI Vision Pilot充当服务器。
+机器人向DaoAI Vision Pilot发送请求，例如进行探测流程，DaoAI Vision Pilot在完成一系列操作后用相应的指令进行回复。
+所有请求和等待都是同步的（单线程），在收到前一个等待的回应之前，应确保机器人在此期间不发送任何新请求。
 
-.. note::
-    
-    Orientation字段四位整数顺序说明：
+.. image:: images/robot_communication_sync.png
+    :scale: 100%
 
-    目前DaoAI Vision Pilot对支持机器人所用的 Orientation/定位字段 收发顺序为 |br|
+|
 
-    0   ABB, 四元数, 字节串 48字节 |br|
-    1   Fanuc,   XYZ, 字符串 |br|
-    2   Hanwha,  ZYX, 字节串 48字节 |br|
-    3   Kuka,    ZYX, 字节串 48字节 |br|
-    6   Staubli, ZYX, 字节串 48字节 |br|
-    7   UR,  轴角顺序, 字节串 48字节 |br|
-    8   Yaskawa, ZYX, 字节串 48字节 |br|
-    9   Efort,   ZYZ, 字节串 48字节 |br|
-    10  Aubo,    ZYX, 字节串 48字节 |br|
-    11  Dobot,   ZYX, 字符串 |br|
-    12  Mitsubishi,  ZYX, 字符串 |br|
-    13  Elite,   ZYX, 字符串 |br|
-    14  Jaka,    ZYX, 字符串 |br|
-    15  Hans,    ZYX, 字符串 |br|
-    16  BoZhilin,    ZYX, 字节串 48字节 |br| 
-    17  CGX,     ZYX, 字节串 48字节 |br|
-    18  Tulin,   ZYX, 字节串 48字节 |br|
-    99  other,   自定义顺序, 自定义收发格式 |br|
+- DaoAI通讯接口
 
-
-    机器人通讯分为 ``字符串`` 收发，和 ``字节串`` 收发，交互时请注意收发格式
-
-
-字符串
---------
-
-字符串的收发是以 ',' 为分隔符，以 ';' 为终止符. 结构详情请查阅 :ref:`协议/Protocol`
-
-.. note::
-
-    请求消息的组成为 “x,y,z,rx,ry,rz,w,command,payload_1,payload_2,meta_1,meta_2;”. (其中w是四元数的实部，其它顺序填0即可) |br|
-
-    例：请求消息 “8666960,297000,12610000,6989,1772190,1796940,0,21,2,0,99,1;” |br|
-
-    回复消息的组成为 “x,y,z,rx,ry,rz,w,payload_1,payload_2,payload_3,payload_4,payload_5,payload_6,status,meta_1,meta_2;”. |br|
-    
-    例：回复消息 “8666960,297000,12610000,6989,1772190,1796940,0,1,0,0,0,0,0,3,99,1;” |br|
-
-
-字节串
---------
-
-字节串的收发消息长度固定为 发48个字节（byte）, 收64个字节（byte）, 结构详情请查阅 :ref:`协议/Protocol`
-
-
-各类机器人的使用和通讯协议
-------------------------------
+    DaoAI Vision Pilot 与机器人之间通过 API 进行沟通，提供了所有可能的交互方式，并包含了一些常用函数来完成机器人的操作， :ref:`通用通讯接口` 文章会详细介绍所有的函数，以及常用的应用例子。 :ref:`通讯应用示例` 文章会以应用分类，并详细讲解每个应用中如何设置和使用各个函数等。
 
 .. toctree::
     :maxdepth: 1
+    :hidden:
 
-    ur/ur
-    ur/ur_modbustcp
-    kuka/kuka
+    general_interface/index
+    general_examples/index
 
-.. |br| raw:: html
+|
 
-      <br>
+- 机器人品牌
+
+    DaoAI Vision Pilot 与众多不同品牌和型号的机器人之间都能进行沟通，以下会提供各个机器人品牌的示例脚本，帮助你更好的使用不同品牌的机器人。 :ref:`各个品牌机器人示例` 会详细各种机器人如何跟 DaoAI Vision Pilot 进行交互的例子。
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    robot_brands

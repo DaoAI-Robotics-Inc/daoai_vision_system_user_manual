@@ -1,5 +1,5 @@
-UR 机器人连接
------------------
+Universal Robot 机器人连接
+-----------------------------
 
 
 1. 下载 `UR机器人脚本 <https://daoairoboticsinc-my.sharepoint.com/:f:/g/personal/nrd_daoai_com/EqzsEY74z6VGiaTZ39PFfcUBVSotE7wK27zMic-0ab4oKA?e=C0Ruyd>`_ ， 将机器人脚本放置在一个空的USB drive里面USB drive.
