@@ -73,7 +73,7 @@ DaoAI Vision pilot和机器人控制器通过以太网连接。 以太网电缆�
  - 在加载系统模块，选择下载程序中的：“T_ROB_1_DAOAI_Socket.sys”、“DAOAI_Function.sys”、“Message_T_ROB1.sys”文件
    文件地址：web_ABB_communication\New_ABB_Web_communication\RAPID\TASK1\SYSMOD
 
-   .. image:: images/加载程序1.png
+   .. image:: images/加载程序2.png
         :scale: 80%
 
 
